@@ -3,7 +3,7 @@
 A responsive and modern website for JOPAD Advisory, focused on delivering strategic legal guidance and professional advisory services.
 
 ## 🌐 Live Site
-https://yourdomain.com
+https://jopadconsulting.com
 
 ## 📌 Overview
 This project is a corporate website designed to present JOPAD Advisory’s services, brand identity, and professional expertise in a clean and accessible format.
@@ -18,6 +18,7 @@ This project is a corporate website designed to present JOPAD Advisory’s servi
 ## 🛠️ Tech Stack
 - HTML5
 - CSS3
+- JavaScript
 
 ## 📁 Project Structure
 /project-root
