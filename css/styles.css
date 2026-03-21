@@ -966,7 +966,14 @@ body,
   line-height: 1.4;
   color: #243638;
 }
-
+.intake__honeypot {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px; 
+  overflow: hidden;
+}
 .intake__input,
 .intake__textarea {
   width: 100%;

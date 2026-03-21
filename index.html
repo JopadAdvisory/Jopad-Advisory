@@ -421,7 +421,7 @@
                     id="intake-email"
                     name="email"
                     autocomplete="email"
-                    required
+                   
                   />
                 </div>
 
@@ -437,7 +437,7 @@
                     pattern="^(\+|0)[0-9]{10,}$"
                     title="Must start with 0 or + and contain at least 11 numbers"
                     autocomplete="tel"
-                    required
+                   
                   />
                 </div>
                 
@@ -475,8 +475,13 @@
                     id="intake-message"
                     name="message"
                     rows="6"
-                    required
+                
                   ></textarea>
+                </div>
+                
+                <div class="intake__honeypot" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
                 </div>
 
                 <div class="intake__actions">
@@ -648,20 +653,37 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        submitButton.disabled= true;
-        formStatus.innerText = "Sending...";
-        formStatus.style.color = "orange";
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        
         const formData = new FormData(form);
         
         const data = {
-          name: formData.get("name"),
-          email: formData.get("email"),
-          number: formData.get("number"),
-          company: formData.get("company"),
-          subject: formData.get("subject"),
-          message: formData.get("message")
+          name: (formData.get("name") || "").trim(),
+          email: (formData.get("email") || "").trim(),
+          number: (formData.get("number") || "").trim(),
+          company: (formData.get("company") || "").trim(),
+          subject: (formData.get("subject") || "").trim(),
+          message: (formData.get("message") || "").trim(),
+          website: (formData.get("website") || "").trim()
         }
+        if (data.website) {
+          formStatus.innerText = "Spam detected";
+          formStatus.style.color = "red";
+          return;
+        }
+        //if (!data.email || !data.number || !data.message) {
+         // formStatus.innerText = "Please complete all required fields.";
+         // formStatus.style.color = "red";
+        //  return;
+       // }
         
+        submitButton.disabled = true;
+        formStatus.innerText = "Sending...";
+        formStatus.style.color = "orange";
+       
         try {
           const response = await fetch("https://hook.us2.make.com/i71fsk8t5qqk6id929xdmkkmlf8lnqmx", {
             method: "POST",
@@ -678,9 +700,9 @@
           formStatus.style.color = "green";
           form.reset();
         } catch (err) {
-          formStatus.innerText = "Error sending Message. Please Try Again.";
+          formStatus.innerText = "Error sending message. Please try again.";
           formStatus.style.color = "red";
-          console.error("Fetch Error", err);
+          console.log("Fetch Error", err);
         } finally {
           submitButton.disabled = false;
           setTimeout(() => {
