@@ -421,7 +421,7 @@
                     id="intake-email"
                     name="email"
                     autocomplete="email"
-                   
+                    required
                   />
                 </div>
 
@@ -437,7 +437,7 @@
                     pattern="^(\+|0)[0-9]{10,}$"
                     title="Must start with 0 or + and contain at least 11 numbers"
                     autocomplete="tel"
-                   
+                    required
                   />
                 </div>
                 
@@ -475,7 +475,7 @@
                     id="intake-message"
                     name="message"
                     rows="6"
-                
+                    required
                   ></textarea>
                 </div>
                 
@@ -674,11 +674,12 @@
           formStatus.style.color = "red";
           return;
         }
-        //if (!data.email || !data.number || !data.message) {
-         // formStatus.innerText = "Please complete all required fields.";
-         // formStatus.style.color = "red";
-        //  return;
-       // }
+        
+        if (!data.email || !data.number || !data.message) {
+          formStatus.innerText = "Please complete all required fields.";
+          formStatus.style.color = "red";
+          return;
+       }
         
         submitButton.disabled = true;
         formStatus.innerText = "Sending...";
