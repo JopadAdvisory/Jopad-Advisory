@@ -144,26 +144,14 @@ h3 {
   align-items: center;
   gap: 10px;
 }
-section {
-  display: none;
-}
-section.active {
-  display: grid;
-}
 #date-picker {
   display: none;
 }
 .calender-container {
   display: flex;
+  align-items: center;
   flex-direction: column;
 }
-.flatpickr-calendar,
-.flatpickr-rContainer,
-.flatpickr-days   {
-  width: 100%;
-  max-width: 480px;
-}
-
 .booking,
 .duration-text,
 .welcome-head {
@@ -172,31 +160,22 @@ section.active {
 .booking {
   text-transform: uppercase;
 }
+
+
 .consultant,
 .icon-container {
   font-weight: 600;
   color: gray;
   font-size: .9rem;
 }
-
-.dayContainer {
-  min-width: 100%;
-  gap: 4px;
-}
-.flatpickr-current-month {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-
-}
-.flatpickr-months {
-  padding-bottom: 15px;
-}
-.flatpickr-day {
-  min-width: 60px;
-}
 .date-picker {
   margin-top: 20px;
+}
+section {
+  display: none;
+}
+section.active {
+  display: grid;
 }
 
 
@@ -216,17 +195,14 @@ section.active {
     display: flex;
     flex-direction: row;
   }
-   .calender-container {
-    align-items: center;
-  }
 }
 
 @media (min-width: 1024px) {
   .date-selection {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    display: none;
+    grid-template-columns: 1fr 1fr;
     align-items: start;
-    gap: 20px;
+    gap: 1px;
   }
   .details {
     width: initial;
@@ -235,9 +211,10 @@ section.active {
     align-items: center;
   }
   .date-picker {
-    padding-top: 130px;
+    padding-top: 110px;
   }
   .container {
     width: min(80%, 1126px);
   }
+
 }
