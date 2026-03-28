@@ -3,44 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="./css/meeting.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <title>Book a Consultation</title>
 </head>
 <body>
     <main class="consultation-container">
-        <div class="welcome-page container">
-            <div class="welcome-header">
-                <img 
-                  src="./images/jopad-advisory-optimized.webp" 
-                  class="logo"
-                  alt="Jopad logo"
-                >
-                <p>Jogos Partners & Advisory (LP)</p>
-            </div>
+        <section 
+          class="welcome-page container active"
+          aria-label="Advisory welcome page."
+          id="page-one"
+        >
+        <div class="welcome-wrapper">
             <div class="welcome-body">
-                <h4>Welcome to JOPAD'S Advisory Booking Page</h4>
-                <p>
-                    Please use this page to schedule a consultation with our advisory team.
-                </p>
-                <p>
-                    JOPAD delivers structured, practical legal and regulatory advisory across compliance, governance, licensing, contracts, and risk - designed for businesses operating in high-scrutiny or regulated environments 
-                </p>
-                <p>If you need assistance call us at <span class="number">09088396002</span>. We are happy to help</p>
-                <p>
-                    Select a consultation duration below:
-                </p>
-                <div class="welcome-btn">
-                    <button class="btn">
-                        Paid 30 min - Advisory Session 
-                    </button>
-                    <button class="btn">
-                        Paid 60 min - Advisory Session 
-                    </button>
+                    <div class="welcome-header">
+                        <img 
+                          src="./images/jopad-advisory-optimized.webp" 
+                          class="logo"
+                          alt="Jopad logo"
+                        >
+                        <p>Jogos Partners & Advisory (LP)</p>
+                    </div>
+                    <h4 class="welcome-head">Welcome to JOPAD'S Advisory Booking Page</h4>
+                    <p>
+                        Please use this page to schedule a consultation with our advisory team.
+                    </p>
+                    <p>
+                        JOPAD delivers structured, practical legal and regulatory advisory across compliance, governance, licensing, contracts, and risk - designed for businesses operating in high-scrutiny or regulated environments 
+                    </p>
+                    <h>If you need assistance call us at <span class="number">09088396002</span>. We are happy to help</h>
+                    <p class="welcome-select">
+                        Select a consultation duration below:
+                    </p>
+                    <div class="welcome-btn">
+                        <button class="btn duration">
+                            Paid 30 min - Advisory Session 
+                        </button>
+                        <button class="btn duration">
+                            Paid 60 min - Advisory Session 
+                        </button>
+                    </div>
+                </div>
+                <div class="welcome-image-container">
+                    <img 
+                      class="welcome-image"
+                      src="./images/intake-image.webp" 
+                      alt="Professional advisory workspace with documents, laptop, and desk lamp"
+                    >
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="date-selection container" id="page-two">
+            <div class="date-text">
+                <div class="welcome-header">
+                    <img 
+                        src="./images/jopad-advisory-optimized.webp" 
+                        class="logo"
+                        alt="Jopad logo"
+                    >
+                    <p>Jogos Partners & Advisory (LP)</p>
+                </div>
+                <p class="consultant">Leah Daniel</p>
+                <h3 class="duration-text"></h2>
+                <p class="icon-container">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320zM64 320C64 461.4 178.6 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/></svg>
+                    <span class="duration-indicator"></span>
+                </p>
+                <p class="icon-container">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L384 512C419.3 512 448 483.3 448 448L448 192C448 156.7 419.3 128 384 128L128 128zM496 400L569.5 458.8C573.7 462.2 578.9 464 584.3 464C597.4 464 608 453.4 608 440.3L608 199.7C608 186.6 597.4 176 584.3 176C578.9 176 573.7 177.8 569.5 181.2L496 240L496 400z"/></svg>
+                    <span>Web conferencing details provided upon confirmation.</span>
+                </p>
+
+                <p class="details">
+                    Initial discussions typically focus on regulatory positioning, compliance challenges, governance issues, or strategic planning for regulated markets. Initial responses are informational only and do not constitute legal advice or create a lawyer–client relationship.
+                </p>
+
+                <h4 class="booking">Booking Instructions</h4>
+                <ul>
+                    <li>Provide full legal names of all parties</li>
+                </ul>
+            </div>
+            <div class="date-picker">
+                <div class="calender-container">
+                    <h3 class="day">Select a Day</h3>
+                    <input  
+                    type="text"
+                    id="date-picker"
+                    placeholder="select a date"
+                    />
+                </div>
+            </div>
+        </section>
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
