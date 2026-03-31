@@ -746,11 +746,11 @@
       const emailUser = "jopadvirtual247";
       const emailDomain = "gmail.com";
       let revealed = false
+      footerEmail.href = `mailto:${emailUser}@${emailDomain}`;
 
       footerEmail.addEventListener("click", () => {
           if (!revealed) {
             footerEmail.textContent = `${emailUser}@${emailDomain}`;
-            footerEmail.href = `mailto:${emailUser}@${emailDomain}`;
             revealed = true;
 
             setTimeout(() => {
