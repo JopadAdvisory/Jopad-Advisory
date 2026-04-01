@@ -946,7 +946,10 @@ body,
   border-radius: 1.125rem;
   box-shadow: 0 14px 34px rgba(19, 34, 36, 0.06);
 }
-
+#number-err {
+  color: red;
+  font-size: .75rem;
+}
 .intake__form {
   display: grid;
   gap: 1rem;
