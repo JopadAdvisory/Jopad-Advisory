@@ -48,7 +48,8 @@
           });
           
           if (!response.ok) {
-            throw new Error("Submission failed")
+            const errorData = await response.json();
+            throw new Error(errorData.message || "Submission Failed");
           }
           formStatus.innerText = "Message sent successfully!";
           formStatus.style.color = "green";
