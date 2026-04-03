@@ -144,7 +144,7 @@ h3 {
   gap: 10px;
 }
 #date-picker {
-  /* display: none; */
+  display: none;
 }
 .calender-container {
   display: flex;
