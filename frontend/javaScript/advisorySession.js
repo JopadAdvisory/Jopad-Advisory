@@ -35,23 +35,12 @@ durationButton.forEach((btn) => {
             dText: btn.textContent,
             duration: btn.dataset.duration,
         });
-        
-        btn.classList.toggle("active");
+
         page[0].classList.remove("active");
         page[1].classList.add("active");
     })
 });
 
-durationButton[0].addEventListener("click", () => {
-    if (durationButton[1].classList.contains("active")) {
-        durationButton[1].classList.remove("active");
-    } 
-});
-durationButton[1].addEventListener("click", () => {
-    if (durationButton[0].classList.contains("active")) {
-        durationButton[0].classList.remove("active");
-    } 
-});
 
 // Date selection page
 async function initDatePicker() {
@@ -109,21 +98,11 @@ function generatedTimeSlots(duration) {
 }
 
 dateButtons[0].addEventListener("click", () => {
-    dateButtons[0].classList.add("active");
-    if (dateButtons[1].classList.contains("active")) {
-        dateButtons[1].classList.remove("active");
-    } 
-    
     page[0].classList.add("active");
     page[1].classList.remove("active");
 });
 
 dateButtons[1].addEventListener("click", () => {
-    dateButtons[1].classList.add("active");
-    if (dateButtons[0].classList.contains("active")) {
-        dateButtons[0].classList.remove("active");
-    } 
-
     page[1].classList.remove("active");
     page[2].classList.add("active");
 });

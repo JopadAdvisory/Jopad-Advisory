@@ -110,7 +110,9 @@ h3 {
     border: 2px solid var(--color-headings);
     color: var(--color-headings);
 }
-.btn.active {
+.btn:active,
+.btn:focus,
+.btn:focus-visible {
     background: var(--color-headings);
     color: #fff;
     border-color: transparent;
@@ -200,13 +202,6 @@ section {
 }
 section.active {
   display: grid;
-}
-.consultation-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100lvh;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (min-width: 768px) {
