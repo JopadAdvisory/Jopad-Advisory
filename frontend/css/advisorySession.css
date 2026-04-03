@@ -72,7 +72,7 @@ h3 {
   background-color: var(--color-primary);
   margin-inline: auto;
   border-radius: 10px;
-  padding-block: 40px;
+  padding-block: 30px;
 }
 
 .logo {
@@ -283,7 +283,7 @@ section.active {
     align-items: center;
   }
   .date-picker {
-    padding-top: 120px;
+    padding-top: 110px;
   }
 }
 
