@@ -5,8 +5,8 @@ const advisoryRoutes = require("./routes/advisoryRoutes");
 const app = express();
 
 const allowedOrigin = [
-    // "https://jopadconsulting.com",
-    // "https://www.jopadconsulting.com",
+    "https://jopadconsulting.com",
+    "https://www.jopadconsulting.com",
     "http://localhost:5500",
 ]
 
