@@ -68,7 +68,7 @@ async function initDatePicker() {
             }
         });
     } catch (err) {
-        console.error("Error loading bookings:", err);
+        console.log("Error loading bookings:", err);
     }
 }
 
