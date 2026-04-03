@@ -58,6 +58,7 @@ async function initDatePicker() {
             minDate: "today",
             maxDate: new Date().fp_incr(365),
             disable: disabledDates,
+            disableMobile: "true",
 
             onChange: function(selectedDates) {
                 setFormData({
@@ -70,9 +71,10 @@ async function initDatePicker() {
     }
 }
 
+
 initDatePicker();
 
-function generatedTimeSlots(duration) {
+function generateTimeSlots(duration) {
     const slots = [];
 
     const startHour = 9;
@@ -91,7 +93,10 @@ function generatedTimeSlots(duration) {
         current.setMinutes(current.getMinutes() + Number(duration));
     }
 
-    return slots.toLocaleString([], {
+    return slots
+}
+function formatTime(date) {
+    return date.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit"
     });
