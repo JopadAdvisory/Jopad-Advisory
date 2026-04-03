@@ -1,8 +1,12 @@
 const API_URL = "https://jopad-backend.onrender.com";
 const durationButton = document.querySelectorAll(".duration");
 const dateButtons = document.querySelectorAll(".date-btn");
+const timeButtons = document.querySelectorAll(".time-btn");
 const durationText = document.querySelectorAll(".duration-text");
 const durationIndicator = document.querySelectorAll(".duration-indicator");
+const day = document.getElementById("day");
+const bodyDuration = document.getElementById("body-duration");
+const dateField = document.getElementById("date-field");
 const page = document.getElementsByTagName("section");
 const STORAGE_KEY = "formData";
 
@@ -66,6 +70,12 @@ async function initDatePicker() {
                 setFormData({
                     date: selectedDates
                 });
+                
+                page[1].classList.remove("active");
+                page[2].classList.add("active");
+
+                day.textContent = formatDay(selectedDate);
+                dateField.textContent = formatFullDate(selectedDate);
 
                 const state = formData();
 
@@ -81,18 +91,37 @@ async function initDatePicker() {
     }
 }
 
+dateButtons[0].addEventListener("click", () => {
+    page[0].classList.add("active");
+    page[1].classList.remove("active");
+});
 
+function formatFullDate(date) {
+    return date.toLocaleDateString("en-US", 
+        {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        })
+    }
+    
+function formatDay(date) {
+    return date.toLocaleDateString("en-US", 
+        {
+        weekday: "long",
+    });
+}
 initDatePicker();
 
 function generateTimeSlots(duration) {
     const slots = [];
-
+    
     const startHour = 9;
     const endHour = 17;
-
+    
     let current = new Date();
     current.setHours(startHour, 0, 0, 0);
-
+    
     let end = new Date();
     end.setHours(endHour, 0, 0, 0);
 
@@ -102,7 +131,7 @@ function generateTimeSlots(duration) {
         // Move forward by duration (30 or 60 minutes)
         current.setMinutes(current.getMinutes() + Number(duration));
     }
-
+    
     return slots
 }
 
@@ -128,18 +157,31 @@ function filterAvailableSlots(slots, bookings, selectedDates) {
     });
 }
 
-function renderTimeSlotes(slots) {
+function renderTimeSlots(slots) {
     const container = document.getElementById("time-slots");
+    container.innerHTML = "";
+
+    slots.forEach(slot => {
+        const btn = document.createElement("button");
+        
+        btn.textContent = formatTime(slot);
+        btn.classList.add("btn", "time-slot");
+        btn.addEventListener("click", () => {
+            setFormData({
+                time: slot
+            });
+
+            
+            page[2].classList.remove("active");
+            page[3].classList.add("active");
+        });
+        container.appendChild(btn);
+    });
 }
 
-dateButtons[0].addEventListener("click", () => {
-    page[0].classList.add("active");
-    page[1].classList.remove("active");
-});
-
-dateButtons[1].addEventListener("click", () => {
-    page[1].classList.remove("active");
-    page[2].classList.add("active");
+timeButtons[0].addEventListener("click", () => {
+    page[2].classList.remove("active");
+    page[1].classList.add("active");
 });
 
 function render() {
@@ -152,10 +194,12 @@ function render() {
     if (state.duration?.includes("60")) {
         durationIndicator.forEach((indicator) => {
             indicator.textContent = "1 hr";
+            bodyDuration.textContent = "1 hr";
         });
     } else {
         durationIndicator.forEach((indicator) => {
             indicator.textContent = "30 min";
+            bodyDuration.textContent = "30 min";
         });
     }
 }
