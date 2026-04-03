@@ -6,7 +6,18 @@ let bookings = [];
 
 // Get booked slots
 router.get("/booked", (req, res) => {
-    res.json(bookings);
+    const { date } = req.query;
+
+    if (!date) {
+        return res.json(bookings);
+    }
+
+    const filteredBookings = bookings.filter(booking => {
+        const bookingDate = new Date(booking.startTime).toISOString().split("T")[0];
+        return bookingDate === date;
+    });
+
+    res.json(filteredBookings);
 });
 
 // Post new bookings

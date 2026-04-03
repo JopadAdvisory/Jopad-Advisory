@@ -1,4 +1,5 @@
 const durationButton = document.querySelectorAll(".duration");
+const dateButtons = document.querySelectorAll(".date-btn");
 const durationText = document.querySelectorAll(".duration-text");
 const durationIndicator = document.querySelectorAll(".duration-indicator");
 const page = document.getElementsByTagName("section");
@@ -27,6 +28,7 @@ function createState(initialObject) {
 
 const [formData, setFormData] = createState(loadInitialState());
 
+// Welcome page
 durationButton.forEach((btn) => {
     btn.addEventListener("click", () => {
         setFormData({
@@ -34,21 +36,96 @@ durationButton.forEach((btn) => {
             duration: btn.dataset.duration,
         });
         
+        btn.classList.toggle("active");
         page[0].classList.remove("active");
         page[1].classList.add("active");
     })
 });
 
+durationButton[0].addEventListener("click", () => {
+    if (durationButton[1].classList.contains("active")) {
+        durationButton[1].classList.remove("active");
+    } 
+});
+durationButton[1].addEventListener("click", () => {
+    if (durationButton[0].classList.contains("active")) {
+        durationButton[0].classList.remove("active");
+    } 
+});
 
-flatpickr("#date-picker", {
-    inline: true,
-    minDate: "today",
-    maxDate: new Date().fp_incr(365),
-    onChange: function(selectedDates) {
-        setFormData({
-            date: selectedDates[0]
-        })
+// Date selection page
+async function initDatePicker() {
+    try {
+        const res = await fetch("http://localhost:5000/api/advisory/booked");
+        const bookings = await res.json();
+
+        const disabledDates = bookings.map(booking => {
+            const date = new Date(booking.startTime);
+            return date.toISOString().split("T")[0];
+        });
+
+        flatpickr("#date-picker", {
+            inline: true,
+            minDate: "today",
+            maxDate: new Date().fp_incr(365),
+            disable: disabledDates,
+
+            onChange: function(selectedDates) {
+                setFormData({
+                    date: selectedDates[0]
+                });
+            }
+        });
+    } catch (err) {
+        console.error("Error loading bookings:", err);
     }
+}
+
+initDatePicker();
+
+function generatedTimeSlots(duration) {
+    const slots = [];
+
+    const startHour = 9;
+    const endHour = 17;
+
+    let current = new Date();
+    current.setHours(startHour, 0, 0, 0);
+
+    let end = new Date();
+    end.setHours(endHour, 0, 0, 0);
+
+    while (current < end) {
+        slots.push(new Date(current));
+
+        // Move forward by duration (30 or 60 minutes)
+        current.setMinutes(current.getMinutes() + Number(duration));
+    }
+
+    return slots.toLocaleString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+dateButtons[0].addEventListener("click", () => {
+    dateButtons[0].classList.add("active");
+    if (dateButtons[1].classList.contains("active")) {
+        dateButtons[1].classList.remove("active");
+    } 
+    
+    page[0].classList.add("active");
+    page[1].classList.remove("active");
+});
+
+dateButtons[1].addEventListener("click", () => {
+    dateButtons[1].classList.add("active");
+    if (dateButtons[0].classList.contains("active")) {
+        dateButtons[0].classList.remove("active");
+    } 
+
+    page[1].classList.remove("active");
+    page[2].classList.add("active");
 });
 
 function render() {

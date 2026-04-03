@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="./css/consultation.css">
+    <link rel="stylesheet" href="./css/advisorySession.css">
     <link rel="stylesheet" href="./css/normalize.css">
     <title>Book a Consultation</title>
 </head>
@@ -38,12 +38,14 @@
                     </p>
                     <div class="welcome-btn">
                         <button
+                            type="button"
                             class="btn duration"
                             data-duration="30"
                         >
                             Paid 30 min - Advisory Session 
                         </button>
                         <button 
+                            type="button"
                             class="btn duration"
                             data-duration="60"
                         >
@@ -95,12 +97,26 @@
                 <div class="calender-container">
                     <h3 class="day">Select a Day</h3>
                     <input  
-                    type="text"
-                    id="date-picker"
-                    placeholder="select a date"
+                        type="text"
+                        id="date-picker"
+                        placeholder="select a date"
                     />
                 </div>
+                <div class="date-btns">
+                    <button 
+                        type="button"
+                        class="btn date-btn"
+                    >Back</button>
+                    <button 
+                        type="button"
+                        class="btn date-btn"
+                    >Next</button>
+                </div>
             </div>
+        </section>
+
+        <section class="time-selection container" id="page3">
+
         </section>
 
     </main>
