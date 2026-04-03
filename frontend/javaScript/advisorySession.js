@@ -119,7 +119,9 @@ function render() {
             indicator.textContent = "1 hr";
         });
     } else {
-        durationIndicator.textContent = "30 min";
+        durationIndicator.forEach((indicator) => {
+            indicator.textContent = "30 min";
+        });
     }
 }
 
