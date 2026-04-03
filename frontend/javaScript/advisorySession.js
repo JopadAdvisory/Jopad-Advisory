@@ -1,3 +1,4 @@
+const API_URL = "https://jopad-backend.onrender.com";
 const durationButton = document.querySelectorAll(".duration");
 const dateButtons = document.querySelectorAll(".date-btn");
 const durationText = document.querySelectorAll(".duration-text");
@@ -45,7 +46,7 @@ durationButton.forEach((btn) => {
 // Date selection page
 async function initDatePicker() {
     try {
-        const res = await fetch("http://localhost:5000/api/advisory/booked");
+        const res = await fetch(`${API_URL}/api/advisory/booked`);
         const bookings = await res.json();
 
         const disabledDates = bookings.map(booking => {
