@@ -215,7 +215,7 @@ section.active {
     gap: 50px;
   }
   body {
-    min-height: 100lvh;
+    min-height: 100svh;
     display: grid;
     background: #f5f6f7;
     place-items: center;
