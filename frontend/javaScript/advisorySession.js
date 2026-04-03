@@ -62,9 +62,18 @@ async function initDatePicker() {
             disableMobile: "true",
 
             onChange: function(selectedDates) {
+                const selectedDate = selectedDates[0];
                 setFormData({
-                    date: selectedDates[0]
+                    date: selectedDates
                 });
+
+                const state = formData();
+
+                const allSlots = generateTimeSlots(state.duration);
+
+                const availableSlots = filterAvailableSlots(allSlots, bookings, selectedDate);
+
+                renderTimeSlots(availableSlots);
             }
         });
     } catch (err) {
@@ -96,11 +105,31 @@ function generateTimeSlots(duration) {
 
     return slots
 }
+
 function formatTime(date) {
     return date.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit"
     });
+}
+
+function filterAvailableSlots(slots, bookings, selectedDates) {
+    return slots.filter(slot => {
+        return !bookings.some(booking => {
+            const bookingDate = new Date(booking.startTime);
+
+            return (
+                bookingDate.toDateString() === 
+                selectedDates.toDateString() && 
+                bookingDate.getTime() === 
+                slot.getTime()
+            );
+        });
+    });
+}
+
+function renderTimeSlotes(slots) {
+    const container = document.getElementById("time-slots");
 }
 
 dateButtons[0].addEventListener("click", () => {
