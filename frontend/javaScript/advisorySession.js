@@ -1,3 +1,5 @@
+const { group } = require("node:console");
+
 const API_URL = "https://jopad-backend.onrender.com";
 const durationButton = document.querySelectorAll(".duration");
 const dateButtons = document.querySelectorAll(".date-btn");
@@ -55,6 +57,7 @@ async function initDatePicker() {
     try {
         const res = await fetch(`${API_URL}/api/advisory/booked`);
         const bookings = await res.json();
+        const state = formData();
 
         const disabledDates = bookings.map(booking => {
             if (!booking.startTime) return null;
@@ -65,6 +68,8 @@ async function initDatePicker() {
             return date.toISOString().split("T")[0];
         }).filter(Boolean);
 
+        const fullyBookedDates = getFullyBookedDates(bookings, state.duration);
+
         flatpickr("#date-picker", {
             inline: true,
             minDate: "today",
@@ -73,12 +78,11 @@ async function initDatePicker() {
                 function(date) {
                     return date.getDay() === 0 || date.getDay() === 6;
                 },
-                ...disabledDates
+                ...fullyBookedDates
             ],
             disableMobile: "true",
 
             onChange: function(selectedDates) {
-                const state = formData();
                 const selectedDate = selectedDates[0];
                 setFormData({
                     dayString: formatDay(selectedDate),
@@ -110,6 +114,21 @@ dateButtons[0].addEventListener("click", () => {
     page[1].classList.remove("active");
 });
 
+function getFullyBookedDates(bookings, duration) {
+    const grouped = {};
+
+    bookings.forEach(booking => {
+        const date = new Date(booking.startTime).toISOString().split("T")[0];
+
+        if (!grouped[date]) grouped[date] = []
+        grouped[date].push(booking);
+    });
+
+    return Object.keys(grouped).filter(date => {
+        const totalSlots = generateTimeSlots(duration).length;
+        return groped[date].length >= totalSlots;
+    });
+}
 function formatFullDate(date) {
     return date.toLocaleDateString("en-US", 
         {
