@@ -56,15 +56,6 @@ async function initDatePicker() {
         const res = await fetch(`${API_URL}/api/advisory/booked`);
         const bookings = await res.json();
         
-        const disabledDates = bookings.map(booking => {
-            if (!booking.startTime) return null;
-            const date = new Date(booking.startTime);
-            
-            if (isNaN(date)) return null;
-            
-            return date.toISOString().split("T")[0];
-        }).filter(Boolean);
-        
         const duration = formData().duration || 30;
         const fullyBookedDates = getFullyBookedDates(bookings, duration);
 
@@ -147,6 +138,10 @@ function formatDay(date) {
     });
 }
 initDatePicker();
+
+// setInterval(() => {
+//     initDatePicker();
+// }, 10_000);
 
 function generateTimeSlots(duration, selectedDate) {
     const slots = [];
@@ -342,6 +337,10 @@ form.addEventListener("submit", async (e) => {
 
         console.log("Backend status:", res.status);
         console.log("Backend response:", data);
+
+        if (res.status === 409 ) {
+            alert("Sorry, this time slot was just booked. Please choose another time.")
+        }
 
         if (!res.ok) {
             throw new Error(data.message || "something went wrong");
