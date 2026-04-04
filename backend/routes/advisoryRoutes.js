@@ -42,11 +42,11 @@ router.post("/book", (req, res) => {
         !dText || !dateString || !dayString || 
         !description || !duration || !email || 
         !firstName || !lastName || !number || 
-        !referral || !timeRange || !timeString) {
+        !referral || !timeRange || !timeString || !req.body.time) {
         return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const startTime = new Date(`${req.body.dateString} ${req.body.timeString}`).toISOString();
+    const startTime = req.body.time;
     const newBooking = {
         startTime,
         dText,

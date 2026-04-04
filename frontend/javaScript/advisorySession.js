@@ -199,7 +199,7 @@ function renderTimeSlots(slots) {
         btn.classList.add("btn", "time-slot");
         btn.addEventListener("click", () => {
             setFormData({
-                time: slot,
+                time: slot.toISOString(),
                 timeString: formatTime(slot),
                 timeRange: formatTimeRange(slot, formData().duration)
             });
