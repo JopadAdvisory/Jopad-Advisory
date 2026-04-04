@@ -47,9 +47,16 @@ router.post("/book", (req, res) => {
     }
 
     const startTime = req.body.time;
+    const newStart = new Date(req.body.time);
+    const newEnd = new Date(newStart);
+    newEnd.setMinutes(newEnd.getMinutes() + Number(duration));
 
     const existingBooking = bookings.find(booking => {
-        return booking.startTime === startTime;
+        const bookingStart = new Date(booking.startTime);
+        const bookingEnd = new Date(bookingStart);
+        
+        bookingEnd.setMinutes(bookingEnd.getMinutes() + Number(booking.duration));
+        return newStart < bookingEnd && newEnd > bookingStart;
     });
 
     if (existingBooking) {
@@ -57,7 +64,7 @@ router.post("/book", (req, res) => {
             message: "This time slot has already been booked"
         });
     }
-    
+
     const newBooking = {
         startTime,
         dText,

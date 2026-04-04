@@ -12,7 +12,6 @@ const page = document.getElementsByTagName("section");
 const errorStatus = document.querySelectorAll(".error-status");
 const formBtn = document.querySelectorAll(".form-btn");
 const form = document.getElementsByClassName("advisory__form")[0];
-let calendarInstance = null;
 
 const STORAGE_KEY = "formData";
 
@@ -62,11 +61,6 @@ async function initDatePicker() {
         const duration = formData().duration || 30;
         const fullyBookedDates = getFullyBookedDates(bookings, duration);
 
-        if (calendarInstance) {
-            calendarInstance.destroy();
-        }
-
-        calendarInstance =
         flatpickr("#date-picker", {
             inline: true,
             minDate: "today",
@@ -96,7 +90,7 @@ async function initDatePicker() {
             
                 const allSlots = generateTimeSlots(updatedState.duration, selectedDate);
 
-                const availableSlots = filterAvailableSlots(allSlots, bookings, selectedDate);
+                const availableSlots = filterAvailableSlots(allSlots, bookings, selectedDate, updatedState.duration);
 
                 renderTimeSlots(availableSlots);
             }
@@ -130,6 +124,7 @@ function getFullyBookedDates(bookings, duration) {
         return grouped[date].length >= totalSlots;
     });
 }
+
 function formatFullDate(date) {
     return date.toLocaleDateString("en-US", 
         {
@@ -145,11 +140,8 @@ function formatDay(date) {
         weekday: "long",
     });
 }
-initDatePicker();
 
-setInterval(() => {
-    initDatePicker();
-}, 10_000);
+initDatePicker();
 
 function generateTimeSlots(duration, selectedDate) {
     const slots = [];
@@ -180,17 +172,28 @@ function formatTime(date) {
     });
 }
 
-function filterAvailableSlots(slots, bookings, selectedDate) {
+function filterAvailableSlots(slots, bookings, selectedDate, duration) {
     return slots.filter(slot => {
+        const slotStart = new Date(slot);
+        const slotEnd = calculateEndTime(slotStart, duration);
+
         return !bookings.some(booking => {
             if (!booking.startTime) return false;
-            const bookingDate = new Date(booking.startTime);
 
-            return bookingDate.getTime() === slot.getTime();     
+            const bookingStart = new Date(booking.startTime);
+            const bookingEnd = calculateEndTime(bookingStart, booking.duration);
+
+            return (
+                bookingStart.toDateString() === selectedDate.toDateString() &&
+                isOverLapping(slotStart, slotEnd, bookingStart, bookingEnd)
+            );
         });
     });
 }
 
+function isOverLapping(slotStart, slotEnd, bookingStart, bookingEnd) {
+    return slotStart < bookingEnd && slotEnd > bookingStart
+}
 function renderTimeSlots(slots) {
     const container = document.getElementById("time-slots");
     container.innerHTML = "";
