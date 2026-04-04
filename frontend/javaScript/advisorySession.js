@@ -1,5 +1,3 @@
-const { group } = require("node:console");
-
 const API_URL = "https://jopad-backend.onrender.com";
 const durationButton = document.querySelectorAll(".duration");
 const dateButtons = document.querySelectorAll(".date-btn");
