@@ -12,6 +12,7 @@ const page = document.getElementsByTagName("section");
 const errorStatus = document.querySelectorAll(".error-status");
 const formBtn = document.querySelectorAll(".form-btn");
 const form = document.getElementsByClassName("advisory__form")[0];
+let calendarInstance = null;
 
 const STORAGE_KEY = "formData";
 
@@ -61,6 +62,11 @@ async function initDatePicker() {
         const duration = formData().duration || 30;
         const fullyBookedDates = getFullyBookedDates(bookings, duration);
 
+        if (calendarInstance) {
+            calendarInstance.destroy();
+        }
+
+        calendarInstance =
         flatpickr("#date-picker", {
             inline: true,
             minDate: "today",
@@ -141,9 +147,9 @@ function formatDay(date) {
 }
 initDatePicker();
 
-// setInterval(() => {
-//     initDatePicker();
-// }, 10_000);
+setInterval(() => {
+    initDatePicker();
+}, 10_000);
 
 function generateTimeSlots(duration, selectedDate) {
     const slots = [];
