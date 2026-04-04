@@ -57,9 +57,13 @@ async function initDatePicker() {
         const bookings = await res.json();
 
         const disabledDates = bookings.map(booking => {
+            if (!booking.startTime) return null;
             const date = new Date(booking.startTime);
+
+            if (isNaN(date)) return null;
+
             return date.toISOString().split("T")[0];
-        });
+        }).filter(Boolean);
 
         flatpickr("#date-picker", {
             inline: true,
@@ -223,6 +227,7 @@ form.addEventListener("submit", async (e) => {
     const referral = (advisoryFormData.get("referral") || "").trim();
     const referralName = (advisoryFormData.get("referral-name") || "").trim();
     const inputs = form.getElementsByTagName("input");
+
     let isValid = true;
     
     errorStatus.forEach(status => {
@@ -295,7 +300,14 @@ form.addEventListener("submit", async (e) => {
     });
 
     const bookingData = {
-        ...state
+        ...state,
+        firstName,
+        lastName,
+        email,
+        number,
+        description,
+        referral,
+        referralName,
     }
     console.log("Sending to backend", bookingData);
 

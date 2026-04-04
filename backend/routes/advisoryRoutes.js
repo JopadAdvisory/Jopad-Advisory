@@ -46,7 +46,9 @@ router.post("/book", (req, res) => {
         return res.status(400).json({ message: "Missing required fields" });
     }
 
+    const isoDate = new Date(`${dateString} ${timeString}`).toISOString();
     const newBooking = {
+        startTime: isoDate,
         dText,
         dateString,
         dayString,
