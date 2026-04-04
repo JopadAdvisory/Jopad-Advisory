@@ -1,6 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://127.0.0.1:27017/advisoryDB")
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.log(err));
 
 const app = express();
 
