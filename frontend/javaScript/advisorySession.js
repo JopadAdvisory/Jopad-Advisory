@@ -95,7 +95,7 @@ async function initDatePicker() {
                 day.textContent = updatedState.dayString;
                 dateField.textContent = updatedState.dateString;
             
-                const allSlots = generateTimeSlots(updatedState.duration);
+                const allSlots = generateTimeSlots(updatedState.duration, selectedDate);
 
                 const availableSlots = filterAvailableSlots(allSlots, bookings, selectedDate);
 
@@ -127,7 +127,7 @@ function getFullyBookedDates(bookings, duration) {
     });
 
     return Object.keys(grouped).filter(date => {
-        const totalSlots = generateTimeSlots(duration).length;
+        const totalSlots = generateTimeSlots(duration, new Date(date)).length;
         return grouped[date].length >= totalSlots;
     });
 }
@@ -148,16 +148,16 @@ function formatDay(date) {
 }
 initDatePicker();
 
-function generateTimeSlots(duration) {
+function generateTimeSlots(duration, selectedDate) {
     const slots = [];
     
     const startHour = 9;
     const endHour = 17;
     
-    let current = new Date(0);
+    let current = new Date(selectedDate);
     current.setHours(startHour, 0, 0, 0);
     
-    let end = new Date(0);
+    let end = new Date(selectedDate);
     end.setHours(endHour, 0, 0, 0);
 
     while (current < end) {
@@ -183,12 +183,7 @@ function filterAvailableSlots(slots, bookings, selectedDate) {
             if (!booking.startTime) return false;
             const bookingDate = new Date(booking.startTime);
 
-            return (
-                bookingDate.toDateString() === 
-                selectedDate.toDateString() && 
-                bookingDate.getHours() === slot.getHours() && 
-                bookingDate.getMinutes() === slot.getMinutes()      
-            );
+            return bookingDate.getTime() === slot.getTime();     
         });
     });
 }
