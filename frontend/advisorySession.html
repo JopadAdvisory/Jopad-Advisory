@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="./css/advisorySession.css">
     <link rel="stylesheet" href="./css/normalize.css">
-    <title>Book a Consultation</title>
+    <title>Schedule an Advisory Session</title>
 </head>
 <body>
     <main class="consultation-container">
@@ -42,14 +42,14 @@
                             class="btn duration"
                             data-duration="30"
                         >
-                            Paid 30 min - Advisory Session 
+                            30 min - Advisory Session 
                         </button>
                         <button 
                             type="button"
                             class="btn duration"
                             data-duration="60"
                         >
-                            Paid 60 min - Advisory Session 
+                            60 min - Advisory Session 
                         </button>
                     </div>
                 </div>
@@ -74,13 +74,15 @@
                     <p>Jogos Partners & Advisory (LP)</p>
                 </div>
                 <div class="avatar">
-                    <img 
+                    <div class="avatar-container">
+                        <img 
                         src="../frontend/images/a3.png" 
                         class="avatar-image"
                         alt="Okechukwu Odunna, Jopad's lead consultant"
                         loading="lazy"
                         fetchpriority="high"
-                    >
+                        >
+                    </div>
                 </div>
                 <p class="consultant">Okechukwu Odunna</p>
                 <h3 class="duration-text"></h2>
@@ -139,7 +141,210 @@
         </section>
 
         <section class="form-section container" id="page4">
+            <div class="date-text">
+                <div class="welcome-header">
+                    <img 
+                        src="./images/jopad-advisory-optimized.webp" 
+                        class="logo"
+                        alt="Jopad logo"
+                    >
+                    <p>Jogos Partners & Advisory (LP)</p>
+                </div>
+                <div class="avatar">
+                    <div class="avatar-container">
+                        <img 
+                        src="../frontend/images/a3.png" 
+                        class="avatar-image"
+                        alt="Okechukwu Odunna, Jopad's lead consultant"
+                        loading="lazy"
+                        fetchpriority="high"
+                        >
+                    </div>
+                </div>
+                <p class="consultant">Okechukwu Odunna</p>
+                <h3 class="duration-text"></h2>
+                <p class="icon-container">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320zM64 320C64 461.4 178.6 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/></svg>
+                    <span class="duration-indicator"></span>
+                </p>
+                <p class="icon-container">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L384 512C419.3 512 448 483.3 448 448L448 192C448 156.7 419.3 128 384 128L128 128zM496 400L569.5 458.8C573.7 462.2 578.9 464 584.3 464C597.4 464 608 453.4 608 440.3L608 199.7C608 186.6 597.4 176 584.3 176C578.9 176 573.7 177.8 569.5 181.2L496 240L496 400z"/></svg>
+                    <span>Web conferencing details provided upon confirmation.</span>
+                </p>
+                <p class="icon-container">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/></svg>
+                    <span class="duration-indicator" id="full-date"></span>
+                </p>
+                <p class="details">
+                    Initial discussions typically focus on regulatory positioning, compliance challenges, governance issues, or strategic planning for regulated markets. Initial responses are informational only and do not constitute legal advice or create a lawyer–client relationship.
+                </p>
 
+                <h4 class="booking">Booking Instructions</h4>
+                <ul>
+                    <li>Provide full legal names of all parties</li>
+                    <li>If booking for someone else, provide their legal name and contact details, not your own.</li>
+                    <!-- <li>Wait to be redirected to the payment page. Unpaid bookings will be automatically cancelled.</li> -->
+                </ul>
+            </div>
+            
+             <form class="advisory__form" novalidate>
+                <div class="fullname">
+                    <div class="advisory__field">
+                        <label class="advisory__label" for="first-name"
+                            >First Name*</label
+                        >
+                        <input
+                            class="advisory__input"
+                            type="text"
+                            id="first-name"
+                            name="first-name"
+                            autocomplete="name"
+                            required
+                        />
+                        <span class="error-status"></span>
+                    </div>
+
+                    <div class="advisory__field">
+                        <label class="advisory__label" for="last-name"
+                        >Last Name*</label
+                        >
+                        <input
+                            class="advisory__input"
+                            type="text"
+                            id="last-name"
+                            name="last-name"
+                            autocomplete="name"
+                            required
+                        />
+                        <span class="error-status"></span>
+                    </div>
+                </div>
+
+                <div class="advisory__field">
+                  <label class="advisory__label" for="advisory-email"
+                    >Email Address*</label
+                  >
+                  <input
+                    class="advisory__input"
+                    type="email"
+                    id="advisory-email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                  <span class="error-status"></span>
+                </div>
+
+                <div class="advisory__field">
+                  <label class="advisory__label" for="advisory-tel"
+                    >WhatsApp Number*</label
+                  >
+                  <input
+                    class="advisory__input"
+                    type="tel"
+                    id="advisory-tel"
+                    name="number"
+                    pattern="^(\+|0)[0-9]{10,}$"
+                    title="Must start with 0 or + and contain at least 11 numbers"
+                    autocomplete="tel"
+                    required
+                  />
+                  <span class="error-status"></span>
+                </div>
+                
+                <div class="advisory__field">
+                  <label class="advisory__label" for="description"
+                    >Please provide a short description of your case so we can better assist you.*</label
+                  >
+                  <input
+                    class="advisory__input"
+                    type="text"
+                    id="description"
+                    name="description"
+                    required
+                    />
+                    <span class="error-status"></span>
+                </div>
+
+                <div class="radio__field">
+                    <p class="advisory__label">How did you hear about us?*</p>
+                    <div class="google">
+                        <input
+                            class="advisory__radio"
+                            type="radio"
+                            id="google"
+                            name="referral"
+                            value="google"
+                        />
+                        <label class="advisory__label" for="google">Google</label>
+                    </div>
+
+                   <div class="referral">
+                        <input
+                            class="advisory__radio"
+                            type="radio"
+                            id="referral"
+                            name="referral"
+                            value="referral"
+                            />
+                        <label class="advisory__label" for="referral">Referral</label
+                        >
+                   </div>
+
+                   <div class="linkedin">
+                        <input
+                            class="advisory__radio"
+                            type="radio"
+                            id="linkedin"
+                            name="referral"
+                            value="linkedin"
+                        />
+                        <label class="advisory__label" for="linkedin">LinkedIn</label
+                        >
+                   </div>
+
+                    <div class="x">
+                        <input
+                            class="advisory__radio"
+                            type="radio"
+                            id="x"
+                            name="referral"
+                            value="x (Twitter)"
+                            />
+                        <label class="advisory__label" for="x">X (Twitter)</label
+                        >
+                    </div>
+                  <span class="error-status"></span>
+                </div>
+
+                <div class="advisory__field">
+                    <label class="advisory__label" for="referral-name">Name of referral (if applicable)</label
+                    >
+                    <input
+                        class="advisory__input"
+                        type="text"
+                        id="referral-name"
+                        name="referral-name"
+                        />
+                </div>
+
+                <div class="advisory__honeypot" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
+                </div>
+
+                <p class="advisory__note">
+                  By submitting this form, you acknowledge that initial contact
+                  does not by itself create a solicitor-client relationship.
+                </p>
+            
+                <div class="advisory__actions">
+                  <button class="btn btn--primary" type="submit">
+                    Schedule an Advisory Session
+                    <span class="btn__arrow" aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </form>
         </section>
 
     </main>

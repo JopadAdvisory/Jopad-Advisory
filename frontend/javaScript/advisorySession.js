@@ -5,9 +5,12 @@ const timeButtons = document.querySelectorAll(".time-btn");
 const durationText = document.querySelectorAll(".duration-text");
 const durationIndicator = document.querySelectorAll(".duration-indicator");
 const day = document.getElementById("day");
+const fullDate = document.getElementById("full-date");
 const bodyDuration = document.getElementById("body-duration");
 const dateField = document.getElementById("date-field");
 const page = document.getElementsByTagName("section");
+const errorStatus = document.querySelectorAll(".error-status");
+const form = document.getElementsByClassName("advisory__form")[0];
 const STORAGE_KEY = "formData";
 
 function loadInitialState() {
@@ -37,7 +40,7 @@ const [formData, setFormData] = createState(loadInitialState());
 durationButton.forEach((btn) => {
     btn.addEventListener("click", () => {
         setFormData({
-            dText: btn.textContent,
+            dText: btn.textContent.trim(),
             duration: btn.dataset.duration,
         });
 
@@ -62,22 +65,30 @@ async function initDatePicker() {
             inline: true,
             minDate: "today",
             maxDate: new Date().fp_incr(365),
-            disable: disabledDates,
+            disable: [
+                function(date) {
+                    return date.getDay() === 0 || date.getDay() === 6;
+                },
+                ...disabledDates
+            ],
             disableMobile: "true",
 
             onChange: function(selectedDates) {
+                const state = formData();
                 const selectedDate = selectedDates[0];
                 setFormData({
-                    date: selectedDates
+                    date: selectedDates,
+                    dayString: formatDay(selectedDate),
+                    dateString: formatFullDate(selectedDate)
                 });
                 
                 page[1].classList.remove("active");
                 page[2].classList.add("active");
 
-                day.textContent = formatDay(selectedDate);
-                dateField.textContent = formatFullDate(selectedDate);
+                day.textContent = state.dayString;
+                dateField.textContent = state.dateString;
+            
 
-                const state = formData();
 
                 const allSlots = generateTimeSlots(state.duration);
 
@@ -168,9 +179,11 @@ function renderTimeSlots(slots) {
         btn.classList.add("btn", "time-slot");
         btn.addEventListener("click", () => {
             setFormData({
-                time: slot
+                time: slot,
+                timeString: formatTime(slot),
+                timeRange: formatTimeRange(slot, formData().duration)
             });
-
+            
             
             page[2].classList.remove("active");
             page[3].classList.add("active");
@@ -182,6 +195,106 @@ function renderTimeSlots(slots) {
 timeButtons[0].addEventListener("click", () => {
     page[2].classList.remove("active");
     page[1].classList.add("active");
+});
+
+function calculateEndTime(startTime, duration) {
+    const end = new Date(startTime);
+
+    end.setMinutes(end.getMinutes() + Number(duration));
+
+    return end;
+}
+
+function formatTimeRange(startTime, duration) {
+    const endTime = calculateEndTime(startTime, duration);
+
+    return `${formatTime(startTime)} - ${formatTime(endTime)}`
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const state = formData();
+    const advisoryFormData = new FormData(form);
+
+    const firstName = (advisoryFormData.get("first-name") || "").trim();
+    const lastName = (advisoryFormData.get("last-name") || "").trim();
+    const email = (advisoryFormData.get("email") || "").trim();
+    const number = (advisoryFormData.get("number") || "").trim();
+    const description = (advisoryFormData.get("description") || "").trim();
+    const referral = (advisoryFormData.get("referral") || "").trim();
+    const referralName = (advisoryFormData.get("referral-name") || "").trim();
+    const inputs = form.getElementsByTagName("input");
+    let isValid = true;
+    
+    errorStatus.forEach(status => {
+        status.textContent = "";
+    });
+
+
+    if (!referral) {
+        errorStatus[5].textContent = "Please select and option.";
+        isValid = false
+    }
+
+    if (!description) {
+        errorStatus[4].textContent = "Can't be blank.";
+        inputs[4].style.border = "1px solid red";
+        inputs[4].focus();
+        isValid = false
+    } else {
+        inputs[4].style.border = "";
+    }
+    
+    if (!number || number.length < 11 || isNaN(number)) {
+        errorStatus[3].textContent = "Please enter a valid number.";
+        inputs[3].focus();
+        inputs[3].style.border = "1px solid red";
+        isValid = false
+    } else {
+        inputs[3].style.border = "";
+    }
+    
+    if (!email.includes("@")) {
+        errorStatus[2].textContent = "Please enter a valid email.";
+        inputs[2].style.border = "1px solid red";
+        inputs[2].focus();
+        isValid = false
+    } else {
+        inputs[2].style.border = "";
+    }
+    
+    if (!lastName || lastName.length < 2) {
+        errorStatus[1].textContent = "Last name is required.";
+        inputs[1].style.border = "1px solid red";
+        inputs[1].focus();
+        isValid = false
+    } else {
+        inputs[1].style.border = "";
+    }
+    
+    if (!firstName || firstName.length < 2) {
+        errorStatus[0].textContent = "First name is required.";
+        inputs[0].style.border = "1px solid red";
+        inputs[0].focus();
+        isValid = false
+    } else {
+        inputs[0].style.border = "";
+    }
+    
+    
+
+    if (!isValid) return;
+    
+    setFormData({
+        firstName,
+        lastName,
+        email,
+        number,
+        description,
+        referral,
+        referralName,
+    });
 });
 
 function render() {
@@ -202,9 +315,10 @@ function render() {
             bodyDuration.textContent = "30 min";
         });
     }
+    fullDate.textContent = `${state.timeRange}, ${state.dayString} ${state.dateString}`;
 }
 
 render();
 
-
+console.log(formData());
 
