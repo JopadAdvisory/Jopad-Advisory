@@ -10,7 +10,9 @@ const bodyDuration = document.getElementById("body-duration");
 const dateField = document.getElementById("date-field");
 const page = document.getElementsByTagName("section");
 const errorStatus = document.querySelectorAll(".error-status");
+const formBtn = document.querySelectorAll(".form-btn");
 const form = document.getElementsByClassName("advisory__form")[0];
+
 const STORAGE_KEY = "formData";
 
 function loadInitialState() {
@@ -351,6 +353,11 @@ form.addEventListener("submit", async (e) => {
         console.log(err);
         alert("Error booking session");
     }
+});
+
+formBtn[0].addEventListener("click", () => {
+    page[3].classList.remove("active");
+    page[2].classList.add("active");
 });
 
 function render() {
