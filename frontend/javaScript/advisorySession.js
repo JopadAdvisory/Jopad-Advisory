@@ -124,7 +124,7 @@ function getFullyBookedDates(bookings, duration) {
 
     return Object.keys(grouped).filter(date => {
         const totalSlots = generateTimeSlots(duration).length;
-        return groped[date].length >= totalSlots;
+        return grouped[date].length >= totalSlots;
     });
 }
 function formatFullDate(date) {
