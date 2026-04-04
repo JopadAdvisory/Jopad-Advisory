@@ -47,6 +47,17 @@ router.post("/book", (req, res) => {
     }
 
     const startTime = req.body.time;
+
+    const existingBooking = bookings.find(booking => {
+        return booking.startTime === startTime;
+    });
+
+    if (existingBooking) {
+        return res.status(409).json({
+            message: "This time slot has already been booked"
+        });
+    }
+    
     const newBooking = {
         startTime,
         dText,
