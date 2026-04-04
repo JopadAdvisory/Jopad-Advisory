@@ -22,15 +22,44 @@ router.get("/booked", (req, res) => {
 
 // Post new bookings
 router.post("/book", (req, res) => {
-    const { startTime, duration } = req.body;
+    const { 
+        dText,
+        dateString,
+        dayString,
+        description,
+        duration,
+        email,
+        firstName,
+        lastName,
+        number,
+        referral,
+        referralName,
+        timeRange,
+        timeString
+    } = req.body;
 
-    if (!startTime || !duration) {
+    if (
+        !dText || !dateString || !dayString || 
+        !description || !duration || !email || 
+        !firstName || !lastName || !number || 
+        !referral || !timeRange || !timeString) {
         return res.status(400).json({ message: "Missing required fields" });
     }
 
     const newBooking = {
-        startTime,
-        duration
+        dText,
+        dateString,
+        dayString,
+        description,
+        duration,
+        email,
+        firstName,
+        lastName,
+        number,
+        referral,
+        referralName,
+        timeRange,
+        timeString
     };
 
     bookings.push(newBooking);

@@ -77,7 +77,6 @@ async function initDatePicker() {
                 const state = formData();
                 const selectedDate = selectedDates[0];
                 setFormData({
-                    date: selectedDates,
                     dayString: formatDay(selectedDate),
                     dateString: formatFullDate(selectedDate)
                 });
@@ -179,7 +178,6 @@ function renderTimeSlots(slots) {
         btn.classList.add("btn", "time-slot");
         btn.addEventListener("click", () => {
             setFormData({
-                time: slot,
                 timeString: formatTime(slot),
                 timeRange: formatTimeRange(slot, formData().duration)
             });
@@ -211,7 +209,7 @@ function formatTimeRange(startTime, duration) {
     return `${formatTime(startTime)} - ${formatTime(endTime)}`
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const state = formData();
@@ -295,6 +293,35 @@ form.addEventListener("submit", (e) => {
         referral,
         referralName,
     });
+
+    const bookingData = {
+        ...state
+    }
+    console.log("Sending to backend", bookingData);
+
+    try {
+        const res = await fetch(`${API_URL}/api/advisory/book`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        const data = await res.json();
+
+        console.log("Backend status:", res.status);
+        console.log("Backend response:", data);
+
+        if (!res.ok) {
+            throw new Error(data.message || "something went wrong");
+        }
+
+        alert("Booking successful");
+    } catch (err) {
+        console.log(err);
+        alert("Error booking session");
+    }
 });
 
 function render() {
