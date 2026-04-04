@@ -12,6 +12,7 @@ const page = document.getElementsByTagName("section");
 const errorStatus = document.querySelectorAll(".error-status");
 const formBtn = document.querySelectorAll(".form-btn");
 const form = document.getElementsByClassName("advisory__form")[0];
+const bookingStatus = document.getElementsByClassName("booking-status")[0];
 
 const STORAGE_KEY = "formData";
 
@@ -350,17 +351,25 @@ form.addEventListener("submit", async (e) => {
         console.log("Backend response:", data);
 
         if (res.status === 409 ) {
-            alert("Sorry, this time slot was just booked. Please choose another time.")
+            bookingStatus.textContent = "Sorry, this time slot was just booked. Please choose another time.";
+            bookingStatus.style.color = "red";
+            setTimeout(() => {
+                bookingStatus.textContent = "";
+            }, 5_000);
         }
-
+        
         if (!res.ok) {
             throw new Error(data.message || "something went wrong");
         }
+        
+        bookingStatus.textContent = "Booking successful.";
+        bookingStatus.style.color = "green";
+        setTimeout(() => {
+            bookingStatus.textContent = "";
+        }, 5_000);
 
-        alert("Booking successful");
     } catch (err) {
         console.log(err);
-        alert("Error booking session");
     }
 });
 
