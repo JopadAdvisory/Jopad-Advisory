@@ -56,7 +56,7 @@ async function initDatePicker() {
         const res = await fetch(`${API_URL}/api/advisory/booked`);
         const bookings = await res.json();
         const state = formData();
-
+        
         const disabledDates = bookings.map(booking => {
             if (!booking.startTime) return null;
             const date = new Date(booking.startTime);
@@ -87,15 +87,15 @@ async function initDatePicker() {
                     dateString: formatFullDate(selectedDate)
                 });
                 
+                const updatedState = formData();
+
                 page[1].classList.remove("active");
                 page[2].classList.add("active");
 
-                day.textContent = state.dayString;
-                dateField.textContent = state.dateString;
+                day.textContent = updatedState.dayString;
+                dateField.textContent = updatedState.dateString;
             
-
-
-                const allSlots = generateTimeSlots(state.duration);
+                const allSlots = generateTimeSlots(updatedState.duration);
 
                 const availableSlots = filterAvailableSlots(allSlots, bookings, selectedDate);
 
@@ -150,10 +150,10 @@ function generateTimeSlots(duration) {
     const startHour = 9;
     const endHour = 17;
     
-    let current = new Date();
+    let current = new Date(0);
     current.setHours(startHour, 0, 0, 0);
     
-    let end = new Date();
+    let end = new Date(0);
     end.setHours(endHour, 0, 0, 0);
 
     while (current < end) {
@@ -199,6 +199,7 @@ function renderTimeSlots(slots) {
         btn.classList.add("btn", "time-slot");
         btn.addEventListener("click", () => {
             setFormData({
+                time: slot,
                 timeString: formatTime(slot),
                 timeRange: formatTimeRange(slot, formData().duration)
             });
@@ -376,5 +377,4 @@ function render() {
 
 render();
 
-console.log(formData());
 
