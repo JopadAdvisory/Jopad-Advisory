@@ -116,7 +116,11 @@ function getFullyBookedDates(bookings, duration) {
     const grouped = {};
 
     bookings.forEach(booking => {
-        const date = new Date(booking.startTime).toISOString().split("T")[0];
+        if (!booking.startTime) return;
+        const dateObj = new Date(booking.startTime);
+        if (isNaN(dateObj)) return;
+
+        const date = dateObj.toISOString().split("T")[0];
 
         if (!grouped[date]) grouped[date] = []
         grouped[date].push(booking);
@@ -173,16 +177,17 @@ function formatTime(date) {
     });
 }
 
-function filterAvailableSlots(slots, bookings, selectedDates) {
+function filterAvailableSlots(slots, bookings, selectedDate) {
     return slots.filter(slot => {
         return !bookings.some(booking => {
+            if (!booking.startTime) return false;
             const bookingDate = new Date(booking.startTime);
 
             return (
                 bookingDate.toDateString() === 
-                selectedDates.toDateString() && 
-                bookingDate.getTime() === 
-                slot.getTime()
+                selectedDate.toDateString() && 
+                bookingDate.getHours() === slot.getHours() && 
+                bookingDate.getMinutes() === slot.getMinutes()      
             );
         });
     });
