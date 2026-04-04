@@ -318,6 +318,9 @@ h3 {
   color: red;
   font-size: 0.8rem;
 }
+.booking-status {
+  font-size: 0.8rem;
+}
 .radio__field {
   display: flex;
   flex-direction: column;
