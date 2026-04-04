@@ -55,18 +55,18 @@ async function initDatePicker() {
     try {
         const res = await fetch(`${API_URL}/api/advisory/booked`);
         const bookings = await res.json();
-        const state = formData();
         
         const disabledDates = bookings.map(booking => {
             if (!booking.startTime) return null;
             const date = new Date(booking.startTime);
-
+            
             if (isNaN(date)) return null;
-
+            
             return date.toISOString().split("T")[0];
         }).filter(Boolean);
-
-        const fullyBookedDates = getFullyBookedDates(bookings, state.duration);
+        
+        const duration = formData().duration || 30;
+        const fullyBookedDates = getFullyBookedDates(bookings, duration);
 
         flatpickr("#date-picker", {
             inline: true,
