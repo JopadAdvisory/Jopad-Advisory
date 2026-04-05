@@ -57,6 +57,12 @@ durationButton.forEach((btn) => {
 async function initDatePicker() {
     try {
         const res = await fetch(`${API_URL}/api/advisory/booked`);
+
+        if (!res.ok) {
+            console.log("failed to fetch bookings");
+            return;
+        }
+        
         const bookings = await res.json();
         
         const duration = formData().duration || 30;
