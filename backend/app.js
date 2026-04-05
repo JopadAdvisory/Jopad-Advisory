@@ -1,16 +1,12 @@
 require("dotenv").config();
 
+console.log(process.env.MONGO_URI)
 const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
-const mongoose = require("mongoose");
+
 
 const app = express();
-
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("MongoDB Atlas connected"))
-.catch(err => console.log("DB Error:", err));
-
 
 const allowedOrigin = [
     "https://jopadconsulting.com",
