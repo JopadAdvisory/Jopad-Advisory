@@ -6,7 +6,7 @@ const bookingSchema = new mongoose.Schema({
     dateString: String,
     dayString: String,
     description: String,
-    duration: Number,
+    duration: String,
     email: String,
     firstName: String,
     lastName: String,

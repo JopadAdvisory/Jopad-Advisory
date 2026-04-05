@@ -40,6 +40,7 @@ router.post("/book", async (req, res) => {
         dText,
         dateString,
         dayString,
+        duration,
         description,
         email,
         firstName,
@@ -51,7 +52,7 @@ router.post("/book", async (req, res) => {
         timeString
     } = req.body;
 
-    const duration = Number(req.body.duration);
+    
     if (
         !dText || !time || !dateString || !dayString || 
         !description || !duration || !email || 
