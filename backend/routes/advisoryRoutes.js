@@ -1,28 +1,42 @@
 const express = require("express");
 const router = express.Router();
 
-// Temporary in-memory storage
-let bookings = [];
-
+const Booking = require("../models/Bookings");
 // Get booked slots
-router.get("/booked", (req, res) => {
-    const { date } = req.query;
+router.get("/booked", async (req, res) => {
+    try {
+        const { date } = req.query;
+        let bookings;
 
-    if (!date) {
-        return res.json(bookings);
+        if (!date) {
+            bookings = await Booking.find();
+        } else {
+            bookings = await Booking.find({
+                startTime: {
+                    $gte: new Date(date),
+                    $lt: new Date(date + "T23:59:59.999Z")
+                }
+            });
+        }
+        res.json(bookings);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ message: "Server error" });
     }
 
-    const filteredBookings = bookings.filter(booking => {
-        const bookingDate = new Date(booking.startTime).toISOString().split("T")[0];
-        return bookingDate === date;
-    });z
+    // const filteredBookings = bookings.filter(booking => {
+    //     const bookingDate = new Date(booking.startTime).toISOString().split("T")[0];
+    //     return bookingDate === date;
+    // });z
 
-    res.json(filteredBookings);
+    // res.json(filteredBookings);
 });
 
 // Post new bookings
-router.post("/book", (req, res) => {
-    const { 
+router.post("/book", async (req, res) => {
+    try {
+            const { 
+        time,
         dText,
         dateString,
         dayString,
@@ -39,33 +53,36 @@ router.post("/book", (req, res) => {
     } = req.body;
 
     if (
-        !dText || !dateString || !dayString || 
+        !dText || !time || !dateString || !dayString || 
         !description || !duration || !email || 
         !firstName || !lastName || !number || 
-        !referral || !timeRange || !timeString || !req.body.time) {
+        !referral || !timeRange || !timeString) {
         return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const startTime = req.body.time;
-    const newStart = new Date(req.body.time);
+    const startTime = new Date(time);
+    const endTime = new Date(startTime);
     const newEnd = new Date(newStart);
-    newEnd.setMinutes(newEnd.getMinutes() + Number(duration));
 
-    const existingBooking = bookings.find(booking => {
-        const bookingStart = new Date(booking.startTime);
-        const bookingEnd = new Date(bookingStart);
-        
-        bookingEnd.setMinutes(bookingEnd.getMinutes() + Number(booking.duration));
-        return newStart < bookingEnd && newEnd > bookingStart;
+    endTime.setMinutes(endTime.getMinutes() + Number(duration));
+
+    const existingBookings = await Booking.find();
+    const conflict = existingBookings.some(booking => {
+        const existingStart = new Date(booking.startTime);
+        const existingEnd = new Date(existingStart);
+
+        existingEnd.setMinutes(existingEnd.getMinutes() + Number(booking.duration));
+
+        return startTime < existingEnd && endTime > existingStart;
     });
 
-    if (existingBooking) {
+    if (conflict) {
         return res.status(409).json({
             message: "This time slot has already been booked"
         });
     }
 
-    const newBooking = {
+    const newBooking = new Booking({
         startTime,
         dText,
         dateString,
@@ -80,14 +97,19 @@ router.post("/book", (req, res) => {
         referralName,
         timeRange,
         timeString
-    };
+    });
 
-    bookings.push(newBooking);
+
+    await newBooking.save();
 
     res.status(201).json({
         message: "Booking created",
         booking: newBooking
     });
+    } catch (err) {
+        console.log(err);
+        red.status(500).json({ message: "Server error" })
+    }
 });
 
 module.exports = router;
