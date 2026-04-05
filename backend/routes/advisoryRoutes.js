@@ -41,7 +41,6 @@ router.post("/book", async (req, res) => {
         dateString,
         dayString,
         description,
-        duration,
         email,
         firstName,
         lastName,
@@ -52,6 +51,7 @@ router.post("/book", async (req, res) => {
         timeString
     } = req.body;
 
+    const duration = Number(req.body.duration);
     if (
         !dText || !time || !dateString || !dayString || 
         !description || !duration || !email || 
@@ -108,7 +108,7 @@ router.post("/book", async (req, res) => {
     });
     } catch (err) {
         console.log(err);
-        red.status(500).json({ message: "Server error" })
+        red.status(500).json({ message: "Server error", error: err.message })
     }
 });
 

@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-console.log(process.env.MONGO_URI)
 const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
