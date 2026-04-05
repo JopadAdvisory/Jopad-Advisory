@@ -63,7 +63,6 @@ router.post("/book", async (req, res) => {
 
     const startTime = new Date(time);
     const endTime = new Date(startTime);
-    const newEnd = new Date(newStart);
 
     endTime.setMinutes(endTime.getMinutes() + Number(duration));
 
@@ -109,7 +108,7 @@ router.post("/book", async (req, res) => {
     });
     } catch (err) {
         console.log(err);
-        red.status(500).json({ message: "Server error", error: err.message })
+        res.status(500).json({ message: "Server error", error: err.message })
     }
 });
 
