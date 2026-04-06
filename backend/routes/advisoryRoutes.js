@@ -97,7 +97,7 @@ router.post("/book", async (req, res) => {
     await newBooking.save();
 
     try {
-            await fetch("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
+            const airtableRes = await fetch("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}`,
@@ -105,19 +105,22 @@ router.post("/book", async (req, res) => {
                 },
                 body: JSON.stringify({
                     fields: {
-                        Name: `${firstName} ${lastName}`,
-                        Email: email,
+                        "Name": `${firstName} ${lastName}`,
+                        "Email": email,
                         "WhatsApp Number": number,
-                        Description: description,
+                        "Description": description,
                         "How did you hear about us": referral,
                         "Name of referral": referralName,
-                        Duration: timeRange,
-                        Date: `${dayString} ${dateString}`
+                        "Duration": timeRange,
+                        "Date": `${dayString} ${dateString}`
                     }
                 })
             });
 
-            console.log("Airtable backup successful");
+            const airtableData = await airtableRes.json();
+
+            console.log("Airtable status:", airtableRes.status);
+            console.log("Airtable redponde:", airtableData);
         } catch (err) {
             console.log("Airtable error:", err.message);
         }
