@@ -119,8 +119,7 @@ router.post("/book", async (req, res) => {
 
             );
             
-            console.log("Airtable status:", airtableRes.status);
-            console.log("Airtable respondse:", airtableRes.Data);
+            console.log("Airtable backup successful");
         } catch (err) {
             console.log("Airtable error:", err.message);
         }
