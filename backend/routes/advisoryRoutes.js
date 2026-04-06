@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const fetch = require("node-fetch");
+const axios = require("axios");
 
 const Booking = require("../models/Bookings");
 // Get booked slots
@@ -47,82 +47,79 @@ router.post("/book", async (req, res) => {
         } = req.body;
 
     
-    if (
-        !dText || !time || !dateString || !dayString || 
-        !description || !duration || !email || 
-        !firstName || !lastName || !number || 
-        !referral || !timeRange || !timeString) {
-        return res.status(400).json({ message: "Missing required fields" });
-    }
+        if (
+            !dText || !time || !dateString || !dayString || 
+            !description || !duration || !email || 
+            !firstName || !lastName || !number || 
+            !referral || !timeRange || !timeString) {
+            return res.status(400).json({ message: "Missing required fields" });
+        }
 
-    const startTime = new Date(time);
-    const endTime = new Date(startTime);
+        const startTime = new Date(time);
+        const endTime = new Date(startTime);
 
-    endTime.setMinutes(endTime.getMinutes() + Number(duration));
+        endTime.setMinutes(endTime.getMinutes() + Number(duration));
 
-    const existingBookings = await Booking.find();
-    const conflict = existingBookings.some(booking => {
-        const existingStart = new Date(booking.startTime);
-        const existingEnd = new Date(existingStart);
+        const existingBookings = await Booking.find();
+        const conflict = existingBookings.some(booking => {
+            const existingStart = new Date(booking.startTime);
+            const existingEnd = new Date(existingStart);
 
-        existingEnd.setMinutes(existingEnd.getMinutes() + Number(booking.duration));
+            existingEnd.setMinutes(existingEnd.getMinutes() + Number(booking.duration));
 
-        return startTime < existingEnd && endTime > existingStart;
-    });
-
-    if (conflict) {
-        return res.status(409).json({
-            message: "This time slot has already been booked"
+            return startTime < existingEnd && endTime > existingStart;
         });
-    }
 
-    const newBooking = new Booking({
-        startTime,
-        dText,
-        dateString,
-        dayString,
-        description,
-        duration,
-        email,
-        firstName,
-        lastName,
-        number,
-        referral,
-        referralName,
-        timeRange,
-        timeString
-    });
-
-
-    await newBooking.save();
-    
-    console.log("mongo saved");
-    try {
-        console.log("sending to airtable");
-            const airtableRes = await fetch("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    fields: {
-                        "Name": `${firstName} ${lastName}`,
-                        "Email": email,
-                        "WhatsApp Number": number,
-                        "Description": description,
-                        "How did you hear about us": referral,
-                        "Name of referral": referralName,
-                        "Duration": timeRange,
-                        "Date": `${dayString} ${dateString}`
-                    }
-                })
+        if (conflict) {
+            return res.status(409).json({
+                message: "This time slot has already been booked"
             });
+        }
 
-            const airtableData = await airtableRes.json();
+        const newBooking = new Booking({
+            startTime,
+            dText,
+            dateString,
+            dayString,
+            description,
+            duration,
+            email,
+            firstName,
+            lastName,
+            number,
+            referral,
+            referralName,
+            timeRange,
+            timeString
+        });
 
+
+        await newBooking.save();
+    
+    try {
+            const airtableRes = await axios.post("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
+                fields: {
+                    Name: `${firstName} ${lastName}`,
+                    Email: email,
+                    "WhatsApp Number": number,
+                    Description: description,
+                    "How did you hear about us": referral,
+                    "Name of referral": referralName,
+                    Duration: timeRange,
+                    Date: `${dayString} ${dateString}`
+                }
+             },
+             {
+                headers: {
+                "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}`,
+                "Content-Type": "application/json"
+                }
+             }
+
+            );
+            
             console.log("Airtable status:", airtableRes.status);
-            console.log("Airtable redponde:", airtableData);
+            console.log("Airtable respondse:", airtableRes.Data);
         } catch (err) {
             console.log("Airtable error:", err.message);
         }
