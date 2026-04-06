@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
+const fetch = require("node-fetch");
 
 const Booking = require("../models/Bookings");
 // Get booked slots
@@ -97,30 +97,30 @@ router.post("/book", async (req, res) => {
     await newBooking.save();
 
     try {
-            await axios.post("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", 
-            {
-                field: {
-                    Name: `${firstName} ${lastName}`,
-                    Email: email,
-                    "WhatsApp Number": number,
-                    Description: description,
-                    "How did you hear about us": referral,
-                    "Name of referral": referralName,
-                    Duration: timeRange,
-                    Date: `${dayString} ${dateString}`
-                }
-            }, {
+            await fetch("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
+                method: "POST",
                 headers: {
-                    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+                    "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}`,
                     "Content-Type": "application/json"
-                }
-            }
-        );
+                },
+                body: JSON.stringify({
+                    fields: {
+                        Name: `${firstName} ${lastName}`,
+                        Email: email,
+                        "WhatsApp Number": number,
+                        Description: description,
+                        "How did you hear about us": referral,
+                        "Name of referral": referralName,
+                        Duration: timeRange,
+                        Date: `${dayString} ${dateString}`
+                    }
+                })
+            });
 
-        console.log("Airtable backup successful");
-    } catch (err) {
-        console.log("Airtable error:", err.message);
-    }
+            console.log("Airtable backup successful");
+        } catch (err) {
+            console.log("Airtable error:", err.message);
+        }
 
     res.status(201).json({
         message: "Booking created",
