@@ -97,7 +97,7 @@ router.post("/book", async (req, res) => {
     await newBooking.save();
 
     try {
-            await axios.post("https://api.airtable.com/appfiyT04pNU9buss/Bookings", 
+            await axios.post("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", 
             {
                 field: {
                     Name: `${firstName} ${lastName}`,
