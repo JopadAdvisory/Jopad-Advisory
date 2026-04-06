@@ -95,8 +95,10 @@ router.post("/book", async (req, res) => {
 
 
     await newBooking.save();
-
+    
+    console.log("mongo saved");
     try {
+        console.log("sending to airtable");
             const airtableRes = await fetch("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
                 method: "POST",
                 headers: {
