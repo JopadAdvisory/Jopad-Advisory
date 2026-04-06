@@ -105,7 +105,7 @@ router.post("/book", async (req, res) => {
                     Description: description,
                     "How did you hear about us": referral,
                     "Name of referral": referralName,
-                    Duration: timeRange,
+                    Duration: `${timeRange} (${duration} min)`,
                     Date: `${dayString} ${dateString}`
                 }
              },
