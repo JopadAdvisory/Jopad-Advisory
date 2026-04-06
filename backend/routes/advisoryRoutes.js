@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 
 const Booking = require("../models/Bookings");
 // Get booked slots
@@ -23,34 +24,27 @@ router.get("/booked", async (req, res) => {
         console.log(err);
         res.status(500).json({ message: "Server error" });
     }
-
-    // const filteredBookings = bookings.filter(booking => {
-    //     const bookingDate = new Date(booking.startTime).toISOString().split("T")[0];
-    //     return bookingDate === date;
-    // });z
-
-    // res.json(filteredBookings);
 });
 
 // Post new bookings
 router.post("/book", async (req, res) => {
     try {
-            const { 
-        time,
-        dText,
-        dateString,
-        dayString,
-        duration,
-        description,
-        email,
-        firstName,
-        lastName,
-        number,
-        referral,
-        referralName,
-        timeRange,
-        timeString
-    } = req.body;
+        const { 
+            time,
+            dText,
+            dateString,
+            dayString,
+            duration,
+            description,
+            email,
+            firstName,
+            lastName,
+            number,
+            referral,
+            referralName,
+            timeRange,
+            timeString
+        } = req.body;
 
     
     if (
@@ -101,6 +95,32 @@ router.post("/book", async (req, res) => {
 
 
     await newBooking.save();
+
+    try {
+            await axios.post("https://api.airtable.com/appfiyT04pNU9buss/Bookings", 
+            {
+                field: {
+                    Name: `${firstName} ${lastName}`,
+                    Email: email,
+                    "WhatsApp Number": number,
+                    Description: description,
+                    "How did you hear about us": referral,
+                    "Name of referral": referralName,
+                    Duration: timeRange,
+                    Date: `${dayString} ${dateString}`
+                }
+            }, {
+                headers: {
+                    Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        console.log("Airtable backup successful");
+    } catch (err) {
+        console.log("Airtable error:", err.message);
+    }
 
     res.status(201).json({
         message: "Booking created",
