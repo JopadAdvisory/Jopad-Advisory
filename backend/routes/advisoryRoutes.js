@@ -99,7 +99,8 @@ router.post("/book", async (req, res) => {
     try {
             const airtableRes = await axios.post("https://api.airtable.com/v0/appfiyT04pNU9buss/Bookings", {
                 fields: {
-                    Name: `${firstName} ${lastName}`,
+                    "First Name": firstName,
+                    "Last Name": lastName,
                     Email: email,
                     "WhatsApp Number": number,
                     Description: description,
