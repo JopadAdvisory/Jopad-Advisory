@@ -12,7 +12,7 @@ oauth2Client.setCredentials({
 
 const calendar = google.calendar({
     version: "v3",
-    auth: oauthClient
+    auth: oauth2Client
 });
 
 async function createMeeting({ startTime, duration, email, firstName }) {
