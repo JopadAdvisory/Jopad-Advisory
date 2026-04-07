@@ -29,7 +29,11 @@ async function createMeeting({ startTime, duration, email, firstName }) {
             dateTime: endTime.toISOString(),
         },
         attendees: [
-            { email }
+            { 
+                email,
+                responseStatus: "accepted"
+
+            }
         ],
         conferenceData: {
             createRequest: {
@@ -38,7 +42,10 @@ async function createMeeting({ startTime, duration, email, firstName }) {
                     type: "hangoutsMeet"
                 }
             }
-        }
+        },
+        guestsCanModify: false,
+        guestsCanInviteOthers: false,
+        guestsCanSeeOtherGuests: false
     };
 
     const response = await calendar.events.insert({
