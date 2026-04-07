@@ -15,6 +15,7 @@ const bookingSchema = new mongoose.Schema({
     referralName: String,
     timeRange: String,
     timeString: String,
+    meetLink: String,
     createdAt: { type: Date, default: Date.now }
 });
 

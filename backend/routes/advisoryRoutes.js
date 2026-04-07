@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const { createMeeting } = require("../utils/googleCalendar");
 
 const Booking = require("../models/Bookings");
+
 // Get booked slots
 router.get("/booked", async (req, res) => {
     try {
@@ -75,6 +77,13 @@ router.post("/book", async (req, res) => {
                 message: "This time slot has already been booked"
             });
         }
+        
+        const meetLink = await createMeeting({
+            startTime,
+            duration,
+            email,
+            firstName
+        });
 
         const newBooking = new Booking({
             startTime,
@@ -90,7 +99,8 @@ router.post("/book", async (req, res) => {
             referral,
             referralName,
             timeRange,
-            timeString
+            timeString,
+            meetLink
         });
 
 
@@ -107,6 +117,7 @@ router.post("/book", async (req, res) => {
                     "How did you hear about us": referral,
                     "Name of referral": referralName,
                     Duration: `${timeRange} (${duration} min)`,
+                    "Meet Link": meetLink,
                     Date: `${dayString} ${dateString}`
                 }
              },
