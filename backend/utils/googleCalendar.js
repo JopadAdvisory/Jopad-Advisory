@@ -35,7 +35,7 @@ async function createMeeting({ startTime, duration, email, firstName }) {
             createRequest: {
                 requestId: "jopad-" + Date.now(),
                 conferenceSolutionKey: {
-                    type: "hangoutMeet"
+                    type: "hangoutsMeet"
                 }
             }
         }
