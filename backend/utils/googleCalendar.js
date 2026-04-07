@@ -15,7 +15,7 @@ const calendar = google.calendar({
     auth: oauth2Client
 });
 
-async function createMeeting({ startTime, duration, email, firstName }) {
+async function createMeeting({ startTime, duration, email, firstName, lastName }) {
     const endTime = new Date(startTime);
     endTime.setMinutes(endTime.getMinutes() + Number(duration));
 
