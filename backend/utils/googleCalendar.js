@@ -20,7 +20,7 @@ async function createMeeting({ startTime, duration, email, firstName }) {
     endTime.setMinutes(endTime.getMinutes() + Number(duration));
 
     const event = {
-        summary: `Advisory Session - ${firstName}`,
+        summary: `Jopad Advisory Session - ${firstName} ${lastName}`,
         description: "Jopad Advisory Session",
         start: {
             dateTime: new Date(startTime).toISOString(),
