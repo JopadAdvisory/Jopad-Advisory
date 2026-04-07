@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const { createMeeting } = require("../utils/googleCalendar");
-
+const { sendBookingEmails } = require("../utils/sendEmail");
 const Booking = require("../models/Bookings");
 
 // Get booked slots
@@ -135,10 +135,25 @@ router.post("/book", async (req, res) => {
             console.log("Airtable error:", err.message);
         }
 
-    res.status(201).json({
-        message: "Booking created",
-        booking: newBooking
-    });
+
+        await sendBookingEmails({
+            email, 
+            firstName, 
+            lastName, 
+            dayString, 
+            referral, 
+            description, 
+            dateString, 
+            number, 
+            timeString, 
+            timeRange, 
+            meetLink 
+        });
+
+        res.status(201).json({
+            message: "Booking created",
+            booking: newBooking
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Server error", error: err.message })
