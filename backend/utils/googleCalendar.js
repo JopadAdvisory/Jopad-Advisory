@@ -51,7 +51,8 @@ async function createMeeting({ startTime, duration, email, firstName }) {
     const response = await calendar.events.insert({
         calendarId: "primary",
         resource: event,
-        conferenceDataVersion: 1
+        conferenceDataVersion: 1,
+        sendUpdates: "all"
     });
 
     const meetLink = response.data.conferenceData.entryPoints[0].uri;
