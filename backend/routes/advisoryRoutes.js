@@ -143,7 +143,6 @@ router.post("/book", async (req, res) => {
             lastName, 
             dayString, 
             referral, 
-            description, 
             dateString, 
             number, 
             timeString, 

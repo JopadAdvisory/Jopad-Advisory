@@ -14,7 +14,6 @@ async function sendBookingEmails({
     lastName, 
     dayString, 
     referral, 
-    description, 
     dateString, 
     number, 
     timeString, 
@@ -335,8 +334,16 @@ async function sendBookingEmails({
         `
     };
 
-    await transporter.sendMail(clientMail);
-    await transporter.sendMail(adminMail);
+    try {
+        const clientRes = await transporter.sendMail(clientMail);
+        console.log("Client email sent:", clientRes.messageId);
+
+        const AdminRes = await transporter.sendMail(adminMail);
+        console.log("Client email sent:", adminRes.messageId);
+    } catch (err) {
+        console.log("Email error:", err.message);
+    }
+
 }
 
 module.exports = { sendBookingEmails };
