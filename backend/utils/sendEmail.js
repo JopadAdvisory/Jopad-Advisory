@@ -39,9 +39,12 @@ async function sendBookingEmails({
                 <!-- Logo -->
                 <tr>
                     <td align="center" style="padding:32px 20px 24px 20px;">
-                    <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 5px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
+                        <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        Jogos Partners & Advisory (LP)
+                    </p>
                     </td>
                 </tr>
 
@@ -167,9 +170,12 @@ async function sendBookingEmails({
                 <!-- Footer -->
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
-                    <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 5px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                    <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
+                        <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        Jogos Partners & Advisory (LP)
+                    </p>
                     <p style="margin:0;font-size:12px;color:#9ca3af;">
                         © ${new Date().getFullYear()} Jopad Advisory. All rights reserved.
                     </p>
@@ -206,8 +212,11 @@ async function sendBookingEmails({
                 <!-- Logo -->
                 <tr>
                     <td align="center" style="padding:32px 20px 24px 20px;">
-                        <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 5px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                        <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                            <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        Jogos Partners & Advisory (LP)
+                    </p>
                         </a>
                     </td>
                 </tr>
@@ -328,8 +337,11 @@ async function sendBookingEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;padding: 0 0 5px 0" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;padding: 0 0 5px 0" />
                         </a>
+                        <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        Jogos Partners & Advisory (LP)
+                    </p>
                     <p style="margin:0;font-size:12px;color:#9ca3af;">
                         © ${new Date().getFullYear()} Jopad Advisory. All rights reserved.
                     </p>
