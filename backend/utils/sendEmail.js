@@ -42,7 +42,7 @@ async function sendBookingEmails({
                          <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
-                        <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
                     </td>
@@ -173,7 +173,7 @@ async function sendBookingEmails({
                     <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
-                        <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                        <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
                     <p style="margin:0;font-size:12px;color:#9ca3af;">
@@ -191,7 +191,7 @@ async function sendBookingEmails({
         });
 
         const adminMail = await resend.emails.send({
-            from: `Jopad Advisory <bookings@jopadconsulting.com>`,
+            from: `Jogos Partners & Advisory LP <bookings@jopadconsulting.com>`,
             reply_to: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
@@ -214,7 +214,7 @@ async function sendBookingEmails({
                     <td align="center" style="padding:32px 20px 24px 20px;">
                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
-                            <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
+                            <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
                         </a>
