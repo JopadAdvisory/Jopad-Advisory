@@ -10,6 +10,7 @@ async function sendBookingEmails({
     dayString, 
     referral, 
     dateString, 
+    description,
     number, 
     timeString, 
     timeRange, 

@@ -145,6 +145,7 @@ router.post("/book", async (req, res) => {
             referral, 
             dateString, 
             number, 
+            description,
             timeString, 
             timeRange, 
             meetLink 
