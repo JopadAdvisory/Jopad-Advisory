@@ -26,9 +26,13 @@ async function sendBookingEmails({
         to: email,
         subject: "Your Advisory Session is Booked",
         html: `
+    <!-- Wrapper -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f3;padding:0;margin:0;">
+        <tr>
+        <td align="center" style="padding:0;margin:0;">
 
             <!-- Email Container -->
-            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 
             <!-- Teal Accent Bar -->
             <tr>
@@ -164,6 +168,10 @@ async function sendBookingEmails({
             </tr>
 
             </table>
+
+        </td>
+        </tr>
+    </table>
         `
     }
 
@@ -172,8 +180,11 @@ async function sendBookingEmails({
         to: process.env.EMAIL_USER,
         subject: "New Advisory Booking",
         html: `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f3;padding:0;margin:0;">
+        <tr>
+        <td align="center" style="padding:40px 16px;">
 
-            <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 
             <!-- Teal Accent Bar -->
             <tr>
@@ -264,15 +275,6 @@ async function sendBookingEmails({
                         <span style="font-size:15px;color:#1a1a1a;">${referral}</span>
                     </td>
                     </tr>
-                    <!-- Row: Description -->
-                    <tr>
-                    <td style="padding:12px 16px;background-color:#f7fafa;vertical-align:top;">
-                        <span style="font-size:12px;text-transform:uppercase;padding: 5px 0 5px 0;letter-spacing:0.8px;color:#0d9488;font-weight:700;">Message</span>
-                    </td>
-                    <td style="padding:12px 16px;">
-                        <span style="font-size:14px;color:#4a4a4a;line-height:1.5;">${description}</span>
-                    </td>
-                    </tr>
                 </table>
                 </td>
             </tr>
@@ -325,6 +327,11 @@ async function sendBookingEmails({
             </tr>
 
             </table>
+
+        </td>
+        </tr>
+    </table>
+
         `
     };
 
