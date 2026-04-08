@@ -191,7 +191,7 @@ async function sendBookingEmails({
         });
 
         const adminMail = await resend.emails.send({
-            from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}}>`,
+            from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}>`,
             reply_to: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
