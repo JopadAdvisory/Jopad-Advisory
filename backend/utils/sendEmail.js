@@ -18,7 +18,7 @@ async function sendBookingEmails({
 }) {
     try {
         const clientMail =  await resend.emails.send({
-        from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}>`,
+        from: `Jogos Partners & Advisory LP <jopadvirtual247@gmail.com>`,
         reply_to: process.env.EMAIL_USER, 
         to: email,
         subject: "Your Advisory Session is Booked",
@@ -191,7 +191,7 @@ async function sendBookingEmails({
         });
 
         const adminMail = await resend.emails.send({
-            from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}>`,
+            from: `Jogos Partners & Advisory LP <jopadvirtual247@gmail.com>`,
             reply_to: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
