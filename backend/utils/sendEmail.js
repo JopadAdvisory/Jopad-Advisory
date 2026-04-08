@@ -18,7 +18,7 @@ async function sendBookingEmails({
 }) {
     try {
         const clientMail =  await resend.emails.send({
-        from: `Jopad Advisory <bookings@jopadconsulting.com>`,
+        from: `Jogos Partners & Advisory LP <bookings@jopadconsulting.com>`,
         reply_to: process.env.EMAIL_USER, 
         to: email,
         subject: "Your Advisory Session is Booked",
