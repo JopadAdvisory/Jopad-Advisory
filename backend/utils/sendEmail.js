@@ -67,25 +67,25 @@ async function sendBookingEmails({
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                                 <td style="padding:0 0 15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 10px 0;color:#0d9488;font-weight:700;">Date</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Date</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${dayString} ${dateString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 10px 0 10px 0;font-weight:700;">Time</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 0 0 5px 0;font-weight:700;">Time</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">Duration</span>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Duration</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeRange}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0 0 0;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 10px 0 0 ;">Meeting Link</span>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 0 0 5px 0  ;">Meeting Link</span><br/>
                                 <a href="${meetLink}" target="_blank" style="font-size:16px;color:#1a1a1a;font-weight:600;text-decoration:none">${meetLink}</a>
                                 </td>
                             </tr>
@@ -98,8 +98,8 @@ async function sendBookingEmails({
 
                 <!-- Message -->
                 <tr>
-                    <td style="padding:0 20px;">
-                        <h2 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
+                    <td style="padding:20px;">
+                        <h3 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             ${description}
                         </p>
@@ -152,7 +152,7 @@ async function sendBookingEmails({
                 <tr>
                     <td style="padding:28px 20px 0 20px;">
                     <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.6;">
-                        If you need to reschedule or have any questions, please reply to this email or contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
+                        If you need to reschedule or have any questions, please contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
                     </p>
                     </td>
                 </tr>
@@ -231,50 +231,50 @@ async function sendBookingEmails({
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                                 <td style="padding:0 0 15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 10px 0;color:#0d9488;font-weight:700;">Full Name</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Full Name</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${lastName} ${firstName},</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 10px 0 10px 0;font-weight:700;">Email</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 0 0 5px 0;font-weight:700;">Email</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${email}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">WhatsApp Number</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">WhatsApp Number</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${number}</span>
                                 </td>
                             </tr>
                             <tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">Date</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Date</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${dayString} ${dateString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">Time</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Time</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">Duration</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Duration</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeRange}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">How did you hear about us?</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">How did you hear about us?</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${referral}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0 0 0;">
-                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 10px 0 0 ;">Meeting Link</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 0 0 5px 0;">Meeting Link</span><br/>
                                 <a href="${meetLink}" target="_blank" style="font-size:16px;color:#1a1a1a;font-weight:600;text-decoration:none">${meetLink}</a>
                                 </td>
                             </tr>
@@ -287,8 +287,8 @@ async function sendBookingEmails({
 
                 <!-- Message -->
                 <tr>
-                    <td style="padding:0 20px;">
-                        <h2 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
+                    <td style="padding:20px;">
+                        <h3 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             ${description}
                         </p>
@@ -325,7 +325,7 @@ async function sendBookingEmails({
                 <tr>
                     <td style="padding:28px 20px 0 20px;">
                     <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.6;">
-                        If you need to reschedule or have any questions, please reply to this email or contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
+                        If you need to reschedule or have any questions, please contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
                     </p>
                     </td>
                 </tr>
