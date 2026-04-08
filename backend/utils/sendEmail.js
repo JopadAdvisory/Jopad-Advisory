@@ -18,7 +18,7 @@ async function sendBookingEmails({
 }) {
     try {
         const clientMail =  await resend.emails.send({
-        from: `Jogos Partners & Advisory LP <bookings@jopadconsulting.com>`,
+        from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}>`,
         reply_to: process.env.EMAIL_USER, 
         to: email,
         subject: "Your Advisory Session is Booked",
@@ -155,7 +155,7 @@ async function sendBookingEmails({
                 <tr>
                     <td style="padding:28px 20px 0 20px;">
                     <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.6;">
-                        If you need to reschedule or have any questions, please contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
+                        If you need to reschedule or have any questions, please reply to this email or contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
                     </p>
                     </td>
                 </tr>
@@ -191,7 +191,7 @@ async function sendBookingEmails({
         });
 
         const adminMail = await resend.emails.send({
-            from: `Jogos Partners & Advisory LP <bookings@jopadconsulting.com>`,
+            from: `Jogos Partners & Advisory LP <${process.env.EMAIL_USER}}>`,
             reply_to: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
