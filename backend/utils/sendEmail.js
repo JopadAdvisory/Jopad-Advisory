@@ -18,12 +18,12 @@ async function sendBookingEmails({
     try {
         const clientMail =  await resend.emails.send({
         from: `Jopad Advisory <bookings@jopadconsulting.com>`,
-        reply_to: process.env.EMAIL_USER, 
+        reply_to: "jopadvirtual247@gmail.com", 
         to: email,
         subject: "Your Advisory Session is Booked",
         html: `
         <!-- Wrapper -->
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f3;padding:0;margin:0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="padding:0;margin:0;">
             <tr>
             <td align="center" style="padding:0;margin:0;">
 
@@ -37,7 +37,7 @@ async function sendBookingEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 40px 24px 40px;">
+                    <td align="center" style="padding:32px 10px 24px 10px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                         </a>
@@ -46,10 +46,12 @@ async function sendBookingEmails({
 
                 <!-- Greeting -->
                 <tr>
-                    <td style="padding:0 40px;">
+                    <td style="padding:0 10px;">
                     <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Booking Confirmed</h1>
                     <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
-                        Hi ${firstName} ${lastName},<br/>
+                        Hi ${firstName} ${lastName}
+                    </p>
+                    <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Your advisory session has been successfully booked. Here are the details:
                     </p>
                     </td>
@@ -57,32 +59,32 @@ async function sendBookingEmails({
 
                 <!-- Booking Details Card -->
                 <tr>
-                    <td style="padding:0 40px;">
+                    <td style="padding:0 10px;">
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7fafa;border:1px solid #e2e8e7;border-radius:10px;">
                         <tr>
-                        <td style="padding:24px;">
+                        <td style="padding:15px;">
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                                 <td style="padding:0 0 14px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;padding: 5px 0 5px 0;color:#0d9488;font-weight:700;">Date</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;padding: 0 0 10px 0;color:#0d9488;font-weight:700;">Date</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${dayString} ${dateString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:14px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;padding: 5px 0 5px 0;font-weight:700;">Time</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;padding: 10px 0 10px 0;font-weight:700;">Time</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeString}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:14px 0;border-bottom:1px solid #e2e8e7;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;padding: 5px 0 5px 0;color:#0d9488;font-weight:700;">Duration</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;padding: 10px 0 10px 0;color:#0d9488;font-weight:700;">Duration</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${timeRange}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:14px 0 0 0;">
-                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 5px 0 5px 0;">Meeting Link</span><br/>
+                                <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;font-weight:700;padding: 10px 0 0 ;">Meeting Link</span><br/>
                                 <a href="${meetLink}" target="_blank" style="font-size:16px;color:#1a1a1a;font-weight:600;text-decoration:none">${meetLink}</a>
                                 </td>
                             </tr>
@@ -95,11 +97,11 @@ async function sendBookingEmails({
 
                 <!-- Join Meeting Button -->
                 <tr>
-                    <td align="center" style="padding:28px 40px 0 40px;">
+                    <td align="center" style="padding:28px 10px 0 10px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                        <td align="center" style="border-radius:6px;background-color:#1a1a1a;">
-                            <a href="${meetLink}" target="_blank" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:10px;background-color:#1a1a1a;">Join with Google Meet</a>
+                        <td align="center" style="border-radius:10px;background-color:#1a1a1a;">
+                            <a href="${meetLink}" target="_blank" style="display:inline-block;padding:12px 32px;font-size:16px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:10px;background-color:#1a1a1a;">Join with Google Meet</a>
                         </td>
                         </tr>
                     </table>
@@ -108,10 +110,10 @@ async function sendBookingEmails({
 
                 <!-- Visit Website Button -->
                 <tr>
-                    <td align="center" style="padding:12px 40px 0 40px;">
+                    <td align="center" style="padding:12px 10px 0 10px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                        <td align="center" style="border-radius:6px;border:2px solid #1a1a1a;">
+                        <td align="center" style="border-radius:10px;border:2px solid #1a1a1a;">
                             <a href="https://jopadconsulting.com" target="_blank" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#1a1a1a;text-decoration:none;border-radius:10px;">Visit Website</a>
                         </td>
                         </tr>
@@ -121,10 +123,10 @@ async function sendBookingEmails({
 
                 <!-- Reminder Section -->
                 <tr>
-                    <td style="padding:28px 40px 0 40px;">
+                    <td style="padding:28px 10px 0 10px;">
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 10px 10px 0;">
                         <tr>
-                        <td style="padding:16px 20px;">
+                        <td style="padding:15px;">
                             <p style="margin:0;font-size:14px;color:#92400e;line-height:1.5;font-weight:600;">📅 Reminder</p>
                             <p style="margin:6px 0 0 0;font-size:14px;color:#92400e;line-height:1.5;">
                             Please accept the calendar invite sent to your email. A calendar file (.ics) is also attached to this email for your convenience.
@@ -137,7 +139,7 @@ async function sendBookingEmails({
 
                 <!-- Support -->
                 <tr>
-                    <td style="padding:28px 40px 0 40px;">
+                    <td style="padding:28px 10px 0 10px;">
                     <p style="margin:0;font-size:14px;color:#6b7280;line-height:1.6;">
                         If you need to reschedule or have any questions, please reply to this email or contact us at <a href="mailto:${process.env.EMAIL_USER}" style="color:#0d9488;text-decoration:none;font-weight:600;">${process.env.EMAIL_USER}</a>.
                     </p>
@@ -146,14 +148,14 @@ async function sendBookingEmails({
 
                 <!-- Divider -->
                 <tr>
-                    <td style="padding:32px 40px 0 40px;">
+                    <td style="padding:32px 10px 0 10px;">
                     <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
                 <!-- Footer -->
                 <tr>
-                    <td align="center" style="padding:24px 40px 32px 40px;">
+                    <td align="center" style="padding:24px 10px 32px 10px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                         </a>
@@ -173,7 +175,7 @@ async function sendBookingEmails({
 
         const adminMail = await resend.emails.send({
             from: `Jopad Advisory <bookings@jopadconsulting.com>`,
-            reply_to: process.env.EMAIL_USER, 
+            reply_to: "jopadvirtual247@gmail.com", 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
             html: `
