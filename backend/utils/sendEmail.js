@@ -1,4 +1,3 @@
-const nodemailer = require("nodemailer");
 const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -18,7 +17,8 @@ async function sendBookingEmails({
 }) {
     try {
         const clientMail =  await resend.emails.send({
-        from: `Jopad Advisory <onboarding@resend.dev>`,
+        from: `Jopad Advisory <bookings@jopadconsulting.com>`,
+        reply_to: process.env.EMAIL_USER, 
         to: email,
         subject: "Your Advisory Session is Booked",
         html: `
@@ -172,7 +172,8 @@ async function sendBookingEmails({
         });
 
         const adminMail = await resend.emails.send({
-            from: `"Jopad Advisory" <onboarding@resend.dev>`,
+            from: `Jopad Advisory <bookings@jopadconsulting.com>`,
+            reply_to: process.env.EMAIL_USER, 
             to: process.env.EMAIL_USER,
             subject: "New Advisory Booking",
             html: `
