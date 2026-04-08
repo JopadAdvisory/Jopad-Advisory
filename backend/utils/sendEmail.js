@@ -26,10 +26,6 @@ async function sendBookingEmails({
         to: email,
         subject: "Your Advisory Session is Booked",
         html: `
-    <!-- Wrapper -->
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f3;">
-        <tr>
-        <td align="center" style="padding:40px 16px;">
 
             <!-- Email Container -->
             <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
@@ -43,7 +39,7 @@ async function sendBookingEmails({
             <tr>
                 <td align="center" style="padding:32px 40px 24px 40px;">
                 <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                        <img src="../../frontend/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                        <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                     </a>
                 </td>
             </tr>
@@ -159,7 +155,7 @@ async function sendBookingEmails({
             <tr>
                 <td align="center" style="padding:24px 40px 32px 40px;">
                 <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                        <img src="../../frontend/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                        <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                     </a>
                 <p style="margin:0;font-size:12px;color:#9ca3af;">
                     © ${new Date().getFullYear()} Jopad Advisory. All rights reserved.
@@ -168,10 +164,6 @@ async function sendBookingEmails({
             </tr>
 
             </table>
-
-        </td>
-        </tr>
-    </table>
         `
     }
 
@@ -180,9 +172,6 @@ async function sendBookingEmails({
         to: process.env.EMAIL_USER,
         subject: "New Advisory Booking",
         html: `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f3;">
-        <tr>
-        <td align="center" style="padding:40px 16px;">
 
             <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
 
@@ -195,7 +184,7 @@ async function sendBookingEmails({
             <tr>
                 <td align="center" style="padding:32px 40px 16px 40px;">
                 <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                        <img src="../../frontend/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                        <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                     </a>
                 </td>
             </tr>
@@ -326,7 +315,7 @@ async function sendBookingEmails({
                 <td align="center" style="padding:24px 40px 32px 40px;">
                 <p style="margin:0 0 4px 0;font-size:13px;color:#6b7280;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                        <img src="../../frontend/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                        <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
                     </a>
                 </p>
                 <p style="margin:0;font-size:12px;color:#9ca3af;">
@@ -336,11 +325,6 @@ async function sendBookingEmails({
             </tr>
 
             </table>
-
-        </td>
-        </tr>
-    </table>
-
         `
     };
 
