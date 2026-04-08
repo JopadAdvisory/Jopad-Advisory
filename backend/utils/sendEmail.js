@@ -40,7 +40,7 @@ async function sendBookingEmails({
                 <tr>
                     <td align="center" style="padding:32px 20px 24px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
                     </td>
                 </tr>
@@ -98,7 +98,7 @@ async function sendBookingEmails({
 
                 <!-- Message -->
                 <tr>
-                    <td style="padding:20px;">
+                    <td style="padding:20px 20px 0 20px;">
                         <h3 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             ${description}
@@ -124,7 +124,7 @@ async function sendBookingEmails({
                     <td align="center" style="padding:12px 20px 0 20px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                        <td align="center" style="border-radius:10px;border:2px solid #1a1a1a;">
+                        <td align="center" style="border-radius:10px;border:2px solid rgba(0, 0, 0, 0.1);">
                             <a href="https://jopadconsulting.com" target="_blank" style="display:inline-block;padding: 12px 24px;font-size:14px;font-weight:600;color:#1a1a1a;text-decoration:none;border-radius:10px;">Visit Website</a>
                         </td>
                         </tr>
@@ -168,7 +168,7 @@ async function sendBookingEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.webp" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
                     <p style="margin:0;font-size:12px;color:#9ca3af;">
                         © ${new Date().getFullYear()} Jopad Advisory. All rights reserved.
@@ -232,13 +232,13 @@ async function sendBookingEmails({
                             <tr>
                                 <td style="padding:0 0 15px 0;border-bottom:1px solid #e2e8e7;">
                                 <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Full Name</span><br/>
-                                <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${lastName} ${firstName},</span>
+                                <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${lastName} ${firstName}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
                                 <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 0 0 5px 0;font-weight:700;">Email</span><br/>
-                                <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${email}</span>
+                                <a href="mailto:${email}" target="_blank" style="display:inline-block;padding:15px 30px;font-size:16px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:10px;background-color:#1a1a1a;">${email}</a>
                                 </td>
                             </tr>
                             <tr>
@@ -287,7 +287,7 @@ async function sendBookingEmails({
 
                 <!-- Message -->
                 <tr>
-                    <td style="padding:20px;">
+                    <td style="padding:20px 20px 0 20px;">
                         <h3 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             ${description}
@@ -313,7 +313,7 @@ async function sendBookingEmails({
                     <td align="center" style="padding:12px 20px 0 20px;">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                        <td align="center" style="border-radius:10px;border:2px solid #1a1a1a;">
+                        <td align="center" style="border-radius:10px;border:2px solid rgba(0, 0, 0, 0.1);">
                             <a href="https://jopadconsulting.com" target="_blank" style="display:inline-block;padding: 12px 24px;font-size:14px;font-weight:600;color:#1a1a1a;text-decoration:none;border-radius:10px;">Visit Website</a>
                         </td>
                         </tr>
