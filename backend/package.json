@@ -18,7 +18,8 @@
     "googleapis": "^171.4.0",
     "mongoose": "^9.4.1",
     "node-fetch": "^3.3.2",
-    "nodemailer": "^8.0.4"
+    "nodemailer": "^8.0.4",
+    "resend": "^6.10.0"
   },
   "devDependencies": {
     "jest": "^30.3.0",

@@ -124,7 +124,7 @@ router.post("/book", async (req, res) => {
              },
              {
                 headers: {
-                "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}`,
+                "Authorization": `Bearer ${process.env.AIRTABLE_TOKEN}`,
                 "Content-Type": "application/json"
                 }
              }
@@ -137,7 +137,7 @@ router.post("/book", async (req, res) => {
         }
 
 
-        await sendBookingEmails({
+        sendBookingEmails({
             email, 
             firstName, 
             lastName, 
@@ -148,6 +148,8 @@ router.post("/book", async (req, res) => {
             timeString, 
             timeRange, 
             meetLink 
+        }).catch(err => {
+            console.log("Email failed:", err.message);
         });
 
         res.status(201).json({
