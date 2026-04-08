@@ -82,7 +82,8 @@ router.post("/book", async (req, res) => {
             startTime,
             duration,
             email,
-            firstName
+            firstName,
+            lastName
         });
 
         const newBooking = new Booking({
