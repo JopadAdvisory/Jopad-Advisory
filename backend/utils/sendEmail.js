@@ -406,7 +406,7 @@ async function sendIntakeEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 20px 12px 20px;">
+                    <td align="center" style="padding:32px 20px 8px 20px;">
                          <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
@@ -418,14 +418,14 @@ async function sendIntakeEmails({
 
                 <!-- Divider -->
                 <tr>
-                    <td style="padding:0;">
+                    <td style="padding:0 20px;">
                     <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
                 <!-- Greeting -->
                 <tr>
-                    <td style="padding:12px 20px 0 20px;">
+                    <td style="padding:16px 20px 0 20px;">
                     <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">We Received Your Intake Form</h1>
                     <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Hi ${intakeName},
@@ -571,7 +571,7 @@ async function sendIntakeEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 20px 12px 20px;">
+                    <td align="center" style="padding:32px 20px 8px 20px;">
                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;" />
                             <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
@@ -583,14 +583,14 @@ async function sendIntakeEmails({
 
                 <!-- Divider -->
                 <tr>
-                    <td style="padding:0;">
+                    <td style="padding:0 20px;">
                     <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
                 <!-- Greeting -->
                 <tr>
-                    <td style="padding:12 20px 0 20px;">
+                    <td style="padding:16px 20px 0 20px;">
                         <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">New Advisory Booking</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             A new intake form has been submitted. Details below.
