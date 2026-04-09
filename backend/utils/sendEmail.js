@@ -408,11 +408,18 @@ async function sendIntakeEmails({
                 <tr>
                     <td align="center" style="padding:32px 20px 24px 20px;">
                          <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimiz.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimiz.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;border:0;outline:none;text-decoration:none;height:auto;" />
                         </a>
                         <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
+                    </td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                    <td style="padding:32px 20px 0 20px;">
+                    <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
@@ -524,7 +531,7 @@ async function sendIntakeEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;border:0;max-width:130px;outline:none;text-decoration:none;height:auto;" />
                         </a>
                         <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
@@ -566,11 +573,18 @@ async function sendIntakeEmails({
                 <tr>
                     <td align="center" style="padding:32px 20px 24px 20px;">
                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimiz.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;" />
                             <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
                         </a>
+                    </td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                    <td style="padding:32px 20px 0 20px;">
+                    <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
@@ -617,7 +631,7 @@ async function sendIntakeEmails({
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
+                                <td style="padding:15px 0">
                                 <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Subject</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${intakeSubject}</span>
                                 </td>
@@ -651,7 +665,7 @@ async function sendIntakeEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;padding: 0 0 5px 0" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;padding: 0 0 5px 0" />
                         </a>
                         <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
