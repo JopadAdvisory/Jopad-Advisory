@@ -407,7 +407,7 @@ async function sendIntakeEmails(
                     <td style="padding:0 20px;">
                     <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">We Received Your Intake Form</h1>
                     <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
-                        Hi ${IntakeName},
+                        Hi ${intakeName},
                     </p>
                     <p style="margin:0 0 24px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Thank you for submitting your intake form. We've received your information and our advisory team is reviewing it now. 
