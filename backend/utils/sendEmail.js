@@ -297,7 +297,7 @@ async function sendBookingEmails({
                 <!-- Message -->
                 <tr>
                     <td style="padding:20px 20px 0 20px;">
-                        <h3 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h3>
+                        <h3 style="margin:0 0 12px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Description</h3>
                         <p style="margin:0;font-size:16px;font-weight:500;color:#4a4a4a;line-height:1.6;">
                             ${description}
                         </p>
@@ -426,7 +426,7 @@ async function sendIntakeEmails({
                         <td style="padding:15px;">
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                                <td style="padding:0 0 25px 0;">
+                                <td style="padding:0 0 15px 0;">
                                 <span style="font-size:16px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Submission Summary</span><br/>
                             </tr>
                             <tr>
@@ -459,8 +459,8 @@ async function sendIntakeEmails({
                     <td style="padding:20px 20px 0 20px;">
                         <h3 style="margin:0 0 12px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">What happens next?</h3>
                         <p style="margin:0;font-size:16px;font-weight:500;color:#4a4a4a;line-height:1.6;">
-                            <span style="color:#0d9488;">1.</span> Our team reviews your submission and assesses your needs.
-                            <span style="color:#0d9488;">2.</span> We'll reach out to discuss your situation in more detail.
+                            <span style="color:#0d9488;">1.</span> Our team reviews your submission and assesses your needs.<br/>
+                            <span style="color:#0d9488;">2.</span> We'll reach out to discuss your situation in more detail.<br/>
                             <span style="color:#0d9488;">3.</span> You may be invited for an initial advisory session.
                         </p>
                     </td>
