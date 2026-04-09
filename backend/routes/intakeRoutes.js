@@ -31,7 +31,7 @@ router.post("/submit", async (req, res) => {
         });
 
 
-        await newBooking.save();
+        await intakeBooking.save();
     
     try {
             const airtableRes = await axios.post("https://api.airtable.com/v0/appfiyT04pNU9buss/Intakes", {
