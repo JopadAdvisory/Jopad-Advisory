@@ -15,12 +15,12 @@
     const formData = new FormData(form);
     
     const data = {
-      intakeName: (formData.get("intakeName") || "").trim(),
-      intakeEmail: (formData.get("intakeEmail") || "").trim(),
-      intakeNumber: (formData.get("intakeNumber") || "").trim(),
-      intakeCompany: (formData.get("intakeCompany") || "").trim(),
-      intakeSubject: (formData.get("intakeSubject") || "").trim(),
-      intakeMessage: (formData.get("intakeMessage") || "").trim(),
+      intakeName: (formData.get("name") || "").trim(),
+      intakeEmail: (formData.get("email") || "").trim(),
+      intakeNumber: (formData.get("number") || "").trim(),
+      intakeCompany: (formData.get("company") || "").trim(),
+      intakeSubject: (formData.get("subject") || "").trim(),
+      intakeMessage: (formData.get("message") || "").trim(),
       website: (formData.get("website") || "").trim()
     }
     if (data.website) { 
