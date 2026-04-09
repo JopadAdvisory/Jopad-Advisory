@@ -58,7 +58,7 @@ router.post("/submit", async (req, res) => {
         }
 
 
-        await sendIntakeEmails({
+        sendIntakeEmails({
             intakeName,
             intakeEmail,
             intakeNumber,
