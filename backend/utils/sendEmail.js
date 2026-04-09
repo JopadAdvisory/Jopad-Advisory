@@ -218,7 +218,7 @@ async function sendBookingEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 8px 24px 20px;">
+                    <td align="center" style="padding:32px 20px 8px 20px;">
                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
                             <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;" />
                             <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
@@ -447,7 +447,7 @@ async function sendIntakeEmails({
                         <td style="padding:15px;">
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                                <td style="padding:0 0 7.5px 0;border-bottom:1px solid #e2e8e7;">
+                                <td style="padding:0 0 7.5px 0;">
                                 <span style="font-size:16px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding:0;color:#0d9488;font-weight:700;">Submission Summary</span><br/>
                             </tr>
                             <tr>

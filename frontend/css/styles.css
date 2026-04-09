@@ -1004,7 +1004,7 @@ body,
 
 .intake__textarea {
   min-height: 10rem;
-  resize: vertical;
+  resize: none;
 }
 
 .intake__actions {
