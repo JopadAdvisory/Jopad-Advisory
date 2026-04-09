@@ -58,7 +58,7 @@ router.post("/submit", async (req, res) => {
         }
 
 
-        sendIntakeEmails({
+        await sendIntakeEmails({
             intakeName,
             intakeEmail,
             intakeNumber,
@@ -71,7 +71,7 @@ router.post("/submit", async (req, res) => {
 
         res.status(201).json({
             message: "Intake Submitted",
-            booking: newBooking
+            booking: intakeBooking
         });
     } catch (err) {
         console.log(err);
