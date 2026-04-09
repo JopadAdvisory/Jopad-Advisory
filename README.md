@@ -35,8 +35,8 @@ At the same time, it provides the business with:
 ### Intake Form
 ![Intake](./frontend/images/intake.png)
 
-### Email Notification
-<!-- ![Email](./frontend/images/intake.png) -->
+<!-- ### Email Notification
+![Email](./frontend/images/intake.png) -->
 
 
 
@@ -55,7 +55,7 @@ At the same time, it provides the business with:
 - Time slot validation  
 
 ### 📝 Intake System
-- Custom intake form (replacing Make.com)  
+- Custom intake form 
 - Spam protection (honeypot field)  
 - Structured data collection  
 
@@ -63,8 +63,6 @@ At the same time, it provides the business with:
 - Branded email notifications  
 - Client confirmation emails  
 - Admin alert emails  
-- Reply-to support  
-- HTML email templates  
 
 ### 🗄 Data Management
 - MongoDB (primary database)  
@@ -137,8 +135,10 @@ Powered by Resend
 
 ### Booking Flow:
 1. User books session  
-2. Backend creates Google Calendar event  
-3. Emails sent:
+2. Data saved to MongoDB  
+3. Backup sent to Airtable 
+3. Backend creates Google Calendar event  
+4. Emails sent:
    - Client confirmation  
    - Admin notification  
 
@@ -148,7 +148,7 @@ Powered by Resend
 3. Backup sent to Airtable  
 4. Emails sent:
    - Admin notification  
-   - (Optional) client acknowledgment  
+   - client acknowledgment  
 
 ---
 
@@ -182,10 +182,10 @@ Developed as a full-stack advisory platform for JOPAD Advisory, combining schedu
 
 ---
 
-## 🔥 Future Improvements  
+<!-- ## 🔥 Future Improvements  
 
 - Email analytics & delivery tracking  
 - Admin dashboard  
 - Payment integration  
 - Custom domain email (Google Workspace)  
-- Queue system for bookings
+- Queue system for bookings -->
