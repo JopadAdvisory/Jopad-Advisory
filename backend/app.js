@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
-
+const intakeRoutes = require("./routes/intakeRoutes")
 
 const app = express();
 
@@ -33,6 +33,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use("/api/advisory", advisoryRoutes);
+app.use("/api/intake", intakeRoutes);
 
 // Routes
 app.get("/", (req, res) => {

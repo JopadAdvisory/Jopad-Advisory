@@ -294,7 +294,7 @@ form.addEventListener("submit", async (e) => {
         inputs[2].style.border = "1px solid red";
         inputs[2].focus();
         isValid = false
-    } else {
+    } else { 
         inputs[2].style.border = "";
     }
     
