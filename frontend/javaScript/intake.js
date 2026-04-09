@@ -40,7 +40,7 @@
     formStatus.style.color = "orange";
     
     try {
-      const response = await fetch("`${API_URL}/api/intake/submit`", {
+      const response = await fetch(`${API_URL}/api/intake/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
