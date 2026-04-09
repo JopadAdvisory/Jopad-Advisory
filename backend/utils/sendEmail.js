@@ -362,14 +362,14 @@ async function sendBookingEmails({
     }
 }
 
-async function sendIntakeEmails(
+async function sendIntakeEmails({
     intakeName,
     intakeEmail,
     intakeNumber,
     intakeCompany,
     intakeSubject,
     intakeMessage,
-) {
+}) {
     try {
         const clientMail =  await resend.emails.send({
         from: `Jogos Partners & Advisory LP <intakes@jopadconsulting.com>`,
