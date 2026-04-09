@@ -447,11 +447,11 @@ async function sendIntakeEmails({
                         <td style="padding:15px;">
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
-                                <td style="padding:0 0 5px 0;border-bottom:1px solid #e2e8e7;">
+                                <td style="padding:0 0 15px 0;border-bottom:1px solid #e2e8e7;">
                                 <span style="font-size:16px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding:0;color:#0d9488;font-weight:700;">Submission Summary</span><br/>
                             </tr>
                             <tr>
-                                <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
+                                <td style="padding:0 0 15px 0 ;border-bottom:1px solid #e2e8e7;">
                                 <span style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#0d9488;display:inline-block;padding: 0 0 5px 0;font-weight:700;">Name</span><br/>
                                 <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${intakeName}</span>
                                 </td>
