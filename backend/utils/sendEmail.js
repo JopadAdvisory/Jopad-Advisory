@@ -38,9 +38,9 @@ async function sendBookingEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 20px 24px 20px;">
+                    <td align="center" style="padding:32px 20px 8px 20px;">
                          <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="130" style="display:block;border:0;max-width:130px;outline:none;text-decoration:none;height:auto;" />
                         </a>
                         <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
@@ -48,16 +48,16 @@ async function sendBookingEmails({
                     </td>
                 </tr>
 
-                 <!-- Divider -->
+                  <!-- Divider -->
                 <tr>
-                    <td style="padding:32px 20px 0 20px;">
+                    <td style="padding:0 20px;">
                     <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
                 <!-- Greeting -->
                 <tr>
-                    <td style="padding:0 20px;">
+                    <td style="padding:16px 20px 0 20px;">
                     <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">Booking Confirmed</h1>
                     <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Hi ${lastName} ${firstName},
@@ -178,7 +178,7 @@ async function sendBookingEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;border:0;max-width:130px;outline:none;text-decoration:none;height:auto;" />
                         </a>
                         <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
@@ -218,9 +218,9 @@ async function sendBookingEmails({
 
                 <!-- Logo -->
                 <tr>
-                    <td align="center" style="padding:32px 20px 24px 20px;">
+                    <td align="center" style="padding:32px 8px 24px 20px;">
                         <a href="https://jopadconsulting.com" style="text-decoration:none;padding: 0 0 10px 0">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;" />
                             <p style="margin:0 0 15px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
                     </p>
@@ -230,14 +230,14 @@ async function sendBookingEmails({
 
                  <!-- Divider -->
                 <tr>
-                    <td style="padding:32px 20px 0 20px;">
+                    <td style="padding:0 20px;">
                     <hr style="border:none;border-top:1px solid #e5e7eb;margin:0;" />
                     </td>
                 </tr>
 
                 <!-- Greeting -->
                 <tr>
-                    <td style="padding:0 20px;">
+                    <td style="padding:16px 20px 0 20px;">
                         <h1 style="margin:0 0 8px 0;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.3;">New Advisory Booking</h1>
                         <p style="margin:0 0 8px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                             A new session has been booked. Details below.
@@ -351,7 +351,7 @@ async function sendBookingEmails({
                 <tr>
                     <td align="center" style="padding:24px 20px 32px 20px;">
                     <a href="https://jopadconsulting.com" style="text-decoration:none;">
-                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimize.png" alt="Jopad Advisory" width="160" style="display:block;max-width:160px;height:auto;padding: 0 0 5px 0" />
+                            <img src="https://jopadconsulting.com/images/jopad-advisory-optimized.png" alt="Jopad Advisory" width="130" style="display:block;max-width:130px;height:auto;padding: 0 0 5px 0" />
                         </a>
                         <p style="margin:0 0 5px 0;font-size:16px;color:#4a4a4a;line-height:1.6;">
                         Jogos Partners & Advisory (LP)
@@ -448,7 +448,7 @@ async function sendIntakeEmails({
                             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                             <tr>
                                 <td style="padding:0 0 5px 0;">
-                                <span style="font-size:16px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Submission Summary</span><br/>
+                                <span style="font-size:16px;text-transform:uppercase;letter-spacing:1px;display:inline-block;padding:0;color:#0d9488;font-weight:700;">Submission Summary</span><br/>
                             </tr>
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
