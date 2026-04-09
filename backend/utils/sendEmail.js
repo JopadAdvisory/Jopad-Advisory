@@ -438,7 +438,7 @@ async function sendIntakeEmails({
                             <tr>
                                 <td style="padding:15px 0;border-bottom:1px solid #e2e8e7;">
                                 <span style="font-size:12px;text-transform:uppercase;display:inline-block;letter-spacing:1px;padding: 0 0 5px 0;color:#0d9488;font-weight:700;">Email</span><br/>
-                                <span style="font-size:16px;color:#1a1a1a;font-weight:600;">${intakeEmail}</span>
+                                <a href="mailto:${intakeEmail}" target="_blank" style="font-size:16px;color:#1a1a1a;font-weight:600;text-decoration:none;">${intakeEmail}</a>
                                 </td>
                             </tr>
                             <tr>
