@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOPAD - Insights</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/insights.css" />
+</head>
+<body>
+    <!-- HERO -->
+    <header class="site-hero" id="top">
+      <span class="site-hero__bg" aria-hidden="true"></span>
+      <span class="site-hero__overlay" aria-hidden="true"></span>
+
+      <div class="container">
+        <div class="topbar">
+          <div class="sub__topbar">
+            <a class="brand" href="index.html" aria-label="JOPAD Home">
+              <img
+                class="brand__name"
+                src="images/jopad-advisory-optimized.webp"
+                alt="JOPAD"
+              />
+            </a>
+
+            <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+            <label
+              class="nav-toggle-label"
+              for="nav-toggle"
+              aria-label="Open menu"
+            >
+              <span class="nav-toggle-icon" aria-hidden="true"></span>
+            </label>
+
+            <nav class="nav" aria-label="Primary navigation">
+              <section class="nav__panel" aria-label="Menu panel">
+                <div class="nav__panel-head">
+                  <span class="nav__panel-title">Menu</span>
+                  <label
+                    class="nav__panel-close"
+                    for="nav-toggle"
+                    aria-label="Close menu"
+                  >✕</label
+                  >
+                </div>
+
+                <a class="nav__link" href="index.html">Home</a>
+                <a class="nav__link" href="index.html#solutions">Solutions</a>
+                <a class="nav__link" href="index.html#about">About</a>
+                <a class="nav__link nav__link--button btn--ghost" href="index.html#contact">
+                  Start an Advisory Conversation
+                </a>
+
+                <div class="nav__panel-foot">
+                  <p class="nav__meta">
+                    Virtual-first • Abuja, Nigeria • Typical response within 48
+                    hours
+                  </p>
+                </div>
+              </section>
+
+              <label
+                class="nav__backdrop"
+                for="nav-toggle"
+                aria-hidden="true"
+              ></label>
+            </nav>
+          </div>
+        </div>
+        
+        <div class="hero-container">
+          <section class="hero" aria-label="Hero content">
+            <h5 class="hero__title--light">Thought Leadership</h5>
+            <h1 class="hero__title">
+              Insights<br />
+              <!-- <span class="hero__title--light">for Regulated Businesses</span> -->
+            </h1>
+
+            <span class="hero__accent" aria-hidden="true"></span>
+
+            <p class="hero__subtitle">
+              Expert perspectives, legal insights, and advisory updates — written for leaders navigating compliance, governance, and regulated markets.
+            </p>
+          </section>
+        </div>
+      </div>
+    </header>
+
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer" aria-label="Site footer">
+        <div class="container">
+            <section class="footer__grid" aria-label="Footer columns">
+            <!-- COLUMN 1: BRAND -->
+            <section
+                class="footer__col footer__col--brand"
+                aria-label="Brand overview"
+            >
+                <a class="footer__logo-link" href="index.html#about" aria-label="JOPAD Home">
+                <img
+                    class="footer__logo"
+                    src="images/jopad-advisory-optimized.webp"
+                    alt="JOPAD"
+                />
+                </a>
+                <p class="footer__brand">Jogos Partners &amp; Advisory (LP)</p>
+            </section>
+            
+
+            <!-- COLUMN 2: NAVIGATION -->
+            <nav
+                class="footer__col footer__col--nav"
+                aria-label="Footer navigation"
+            >
+                <div class="footer__header">
+                <p class="footer__heading">Navigate</p>
+                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>  
+                </div>
+                <div class="footer__link-container">
+                <a class="footer__link" href="index.html">Home</a>
+                <a class="footer__link" href="index.html#solutions">Solutions</a>
+                <a class="footer__link" href="index.html#about">About</a>
+                <a class="footer__link" href="index.html#contact">Start a Conversation</a>
+                </div>
+            </nav>
+
+            <!-- COLUMN 3: CONTACT + SOCIAL --> 
+            <section
+                class="footer__col footer__col--contact"
+                aria-label="Contact and social media"
+            >
+                <div class="footer__header">
+                <p class="footer__heading">Connect</p>
+                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>
+                </div>
+                <div class="footer__link-container">
+                <a id="footer-email" class="footer__link" href="">Email</a>
+                
+                <p class="footer__text">09088396002</p>
+                <p class="footer__text">
+                    Business hours: 24/7/365
+                </p>
+
+                <div class="footer__social" aria-label="Social media links">
+                    <a class="footer__social-link" rel="noopener noreferrer" href="https://linkedin.com/in/jopadadvisory" aria-label="LinkedIn">LinkedIn</a>
+                    <a class="footer__social-link" rel="noopener noreferrer" href="https://twitter.com/JopadAdvisory" aria-label="X">X</a>
+                </div>
+                </div>
+            </section>
+            </section>
+
+            <section class="footer__bottom" aria-label="Footer fine print">
+            <span class="footer__fine">
+                Initial responses are informational only and do not constitute
+                legal advice or create a lawyer–client relationship.
+            </span>
+            
+
+            <div class="footer__meta">
+                <span class="footer__copy">
+                © <span id="year"></span> Jogos Partners &amp; Advisory (LP).
+                All rights reserved.
+                </span>
+            </div>
+            </section>
+        </div>
+    </footer>
+<script src="./javaScript/general.js"></script>
+</body>
+</html>

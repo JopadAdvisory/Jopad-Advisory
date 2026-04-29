@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
 const intakeRoutes = require("./routes/intakeRoutes")
+const articleRoutes = require("./routes/articleRoutes")
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(cors({
 app.use(express.json());
 app.use("/api/advisory", advisoryRoutes);
 app.use("/api/intake", intakeRoutes);
+app.use("/api/articles", articleRoutes);
 
 // Routes
 app.get("/", (req, res) => {
