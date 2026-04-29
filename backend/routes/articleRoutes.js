@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Article = require("./models/articles");
+const Article = require("../models/articles");
 
 router.get("/", async (req, res) => {
     try {
@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 });
+
 router.get("/:slug", async (req, res) => {
     try {
         const article = await Article.findOne({ slug: req.params.slug });
@@ -24,4 +25,6 @@ router.get("/:slug", async (req, res) => {
         console.log(err);
         res.status(500).json({ message: "Server error" });   
     }
-})
+});
+
+module.exports = router;

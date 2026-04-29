@@ -3,8 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const advisoryRoutes = require("./routes/advisoryRoutes");
-const intakeRoutes = require("./routes/intakeRoutes")
-const articleRoutes = require("./routes/articleRoutes")
+const intakeRoutes = require("./routes/intakeRoutes");
+const articleRoutes = require("./routes/articleRoutes");
 
 const app = express();
 
