@@ -91,25 +91,52 @@
       </div>
     </header>
 
-    <main class="container insights-body">
+    <main class=" insights-body">
         <section>
             <header class="insights-header">
-                <div class="btns-container">
-                    <button type="button" class="nav__link nav__link--button btn--ghost">All</button>
-                    <button type="button" class="nav__link nav__link--button btn--ghost">Compliance</button>
-                    <button type="button" class="nav__link nav__link--button btn--ghost">Licensing</button>
-                    <button type="button" class="nav__link nav__link--button btn--ghost">Governance</button>
-                    <button type="button" class="nav__link nav__link--button btn--ghost">Data Protection</button>
-                    <button type="button" class="nav__link nav__link--button btn--ghost">Contracts</button>
+                <div class="container h-container">
+                    <div class="btns-container">
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button btn--ghost button active"
+                        data-filter="All"
+                    >All</button>
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button button btn--ghost"
+                        data-filter="Compliance"
+                    >Compliance</button>
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button button btn--ghost"
+                        data-filter="Licensing"
+                    >Licensing</button>
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button button btn--ghost"
+                        data-filter="Governance"
+                    >Governance</button>
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button button btn--ghost"
+                        data-filter="Data Protection"
+                    >Data Protection</button>
+                    <button 
+                        type="button" 
+                        class="nav__link nav__link--button button btn--ghost"
+                        data-filter="Contracts"
+                    >Contracts</button>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="search"
+                        class="intake__input search"
+                        name="insights"
+                        placeholder="Search insights..."
+                    >
                 </div>
-                <input 
-                    type="text" 
-                    id="search"
-                    class="intake__input search"
-                    name="insights"
-                    placeholder="Search insights..."
-                >
             </header>
+            <article class="insights__grid container solutions-grid__items"></article>
         </section>
     </main>
 
@@ -192,6 +219,7 @@
             </section>
         </div>
     </footer>
-<script src="./javaScript/general.js"></script>
+    <script src="./javaScript/general.js"></script>
+    <script src="./javaScript/insights.js"></script>
 </body>
 </html>
