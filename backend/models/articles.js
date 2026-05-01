@@ -31,7 +31,8 @@ const articleSchema = new mongoose.Schema({
     },
     keywords: [{
         type: String
-    }]
+    }],
+    publishedAt: Date
 }, { timestamps: true });
 
 module.exports = mongoose.model("Article", articleSchema);
