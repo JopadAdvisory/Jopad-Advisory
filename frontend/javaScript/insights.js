@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="insight__img"> 
                 <img class="img" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
             </div>
-            <div class="read solutions-grid__card-text">${calculateReadTime(article.content)}</div>
+           
             <div class="insight__header"> 
                 <h5 class="insight__category solutions-grid__card-text">${article.category}</h5>
                 <span class="solutions-grid__card-text date">

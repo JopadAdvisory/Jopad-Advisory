@@ -21,7 +21,7 @@
 .hero__title--light {
     padding: 10px 0;
     margin: 0;
-    color: var(--color-accent);
+    /* color: var(--color-accent); */
     text-transform: uppercase;
 }
 .btns-container {
@@ -70,17 +70,6 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-}
-.read {
-    position: absolute;
-    right: 10px;
-    background-color: var(--color-accent);
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px;
-    border-radius: 10px;
-    top: 10px;
 }
 .insights__grid {
     margin-top: initial;
