@@ -1,6 +1,9 @@
 .site-hero {
   min-height: auto;
 }
+body {
+    background: #f5f6f7; 
+}
 .bg {
   position: absolute;
   inset: 0;

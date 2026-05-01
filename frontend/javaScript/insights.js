@@ -20,6 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetchArticles();
 
+    function calculateReadTime(htmlContent) {
+        const text = htmlContent.replace(/<[^>]*>/g, ""); // remove HTML tags
+        const words = text.trim().split(/\s+/).length;
+        const minutes = Math.ceil(words / 180);
+        return `${minutes} min read`;
+    }
+ 
     function renderArticles(articles) {
         container.innerHTML = "";
         
@@ -46,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="insight__img"> 
                 <img class="img" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
             </div>
-
+            <div class="read solutions-grid__card-text">${calculateReadTime(article.content)}</div>
             <div class="insight__header"> 
                 <h5 class="insight__category solutions-grid__card-text">${article.category}</h5>
                 <span class="solutions-grid__card-text date">
