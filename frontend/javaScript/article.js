@@ -3,6 +3,8 @@ const API_URL = "https://jopad-backend.onrender.com";
 // Get slug from URL
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug");
+const loader = document.getElementsByClassName("loader")[0];
+const wrapper = document.getElementsByClassName("wrapper")[0];
 
 async function fetchArticle() {
   try {
@@ -10,6 +12,8 @@ async function fetchArticle() {
     const article = await res.json();
 
     renderArticle(article);
+    loader.style.display = "none";  
+    wrapper.style.display = "block";
   } catch (err) {
     console.error("Error loading article:", err);
   }

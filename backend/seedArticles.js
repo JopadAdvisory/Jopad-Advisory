@@ -46,7 +46,7 @@ async function seedArticles() {
 
           <p>In conclusion, regulatory compliance in Nigeria requires a proactive and structured approach. By understanding the requirements, implementing proper systems, and staying updated, businesses can operate smoothly while minimizing risks and maximizing opportunities.</p>`
         ,
-        images: ["/frontend/images/insights/7.jpg"],
+        images: ["/frontend/images/insights/7.jpg", "/frontend/images/insights/9.jpg"],
         pdfUrl: "/frontend/pdfs/Understanding_Regulatory_Compliance_Nigeria.pdf",
         keywords: ["compliance", "nigeria", "regulation"],
         publishedAt: new Date("2026-01-01")
@@ -66,7 +66,7 @@ async function seedArticles() {
 
           <p>To simplify the process, businesses should consult regulatory bodies early and ensure all documentation is properly submitted. This reduces delays and ensures compliance from the start.</p>`
         ,
-        images: ["/frontend/images/insights/4.jpg"],
+        images: ["/frontend/images/insights/4.jpg", "/frontend/images/insights/2.jpg"],
         pdfUrl: "/frontend/pdfs/Business_Licensing_What_You_Need_to_Know.pdf",
         keywords: ["licensing", "business", "permits"],
         publishedAt: new Date("2026-01-01")
@@ -90,8 +90,8 @@ async function seedArticles() {
 
           <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
         ,
-        images: ["/frontend/images/insights/1.jpg"],
-        pdfUrl: "/frontend/pdfs/Understanding_Regulatory_Compliance_Nigeria.pdf",
+        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
+        pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
         keywords: ["governance", "corporate", "structure"],
         publishedAt: new Date("2026-01-01")
       }

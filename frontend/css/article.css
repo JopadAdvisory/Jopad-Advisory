@@ -29,17 +29,15 @@ body {
 
 }
 .wrapper {
-    /* display: none; */
+    display: none;
 }
 .loader {
     position: absolute;
     inset: 0;
     background-color: #f5f6f7;
     display: flex;
-    height: 800px;
     justify-content: center;
     align-items: center;
-    display: none;
 }
 .span {
     display: inline-block;
