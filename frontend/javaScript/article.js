@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
       renderMoreArticles(moreArticles);
       setupCarousel(moreArticles);
+
+      startAutoScroll();
     } catch (err) {
       console.error("Error loading article:", err);
     }
@@ -145,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (i === 0) dot.classList.add("active");
 
       dot.addEventListener("click", () => {
+        currentIndex = i;
         scrollToIndex(i);
       });
 
@@ -193,6 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
   let autoScrollInterval;
 
   function startAutoScroll() {
+    stopAutoScroll() ;
+
     autoScrollInterval = setInterval(() => {
       const wrapper = track.parentElement;
       const card = document.querySelector(".insight__card");
@@ -202,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const cardWidth = card.offsetWidth + 20;
       const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
 
-      if (wrapper.scrollLeft >= maxScroll) {
+      if (wrapper.scrollLeft >= maxScroll - 5) {
         wrapper.scrollTo({ left: 0, behavior: "smooth" });
       } else {
         wrapper.scrollBy({
@@ -210,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
           behavior: "smooth"
         });
       }
-    }, 4000);
+    }, 5000);
   }
 
   function stopAutoScroll() {
@@ -219,10 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const wrapperEl = track.parentElement;
 
-  wrapperEl.addEventListener("mouseenter", stopAutoScroll);
-  wrapperEl.addEventListener("mouseleave", startAutoScroll);
-
-  renderMoreArticles(moreArticles);
-  setupCarousel(moreArticles);
-  startAutoScroll();
+  if (wrapperEl) {
+    wrapperEl.addEventListener("mouseenter", stopAutoScroll);
+    wrapperEl.addEventListener("mouseleave", startAutoScroll);
+  }
 });
