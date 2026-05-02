@@ -7,10 +7,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const loader = document.getElementsByClassName("loader")[0];
   const wrapper = document.getElementsByClassName("wrapper")[0];
   const track = document.querySelector(".carousel-track");
+  const pageTitle = document.getElementsByTagName("title")[0]; ;
   const dotsContainer = document.querySelector(".carousel-dots");
+  let resizeTimeout;
   
   let currentIndex = 0;
-  let itemsPerView = window.innerWidth < 768 ? 1 : 3;
+  let moreArticlesData = [];
+  function getItemsPerView() {
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
+  }
+
+  let itemsPerView = getItemsPerView();
 
   async function fetchArticle() {
     try {
@@ -30,13 +39,54 @@ document.addEventListener('DOMContentLoaded', function() {
       const res = await fetch(`${API_URL}/api/articles?exclude=${slug}&limit=5`);
       const moreArticles = await res.json();
 
+      moreArticlesData = moreArticles;
+
       renderMoreArticles(moreArticles);
       setupCarousel(moreArticles);
-
       startAutoScroll();
     } catch (err) {
       console.error("Error loading article:", err);
     }
+  }
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+
+    resizeTimeout = setTimeout(() => {
+      const oldItems = itemsPerView;
+      itemsPerView = getItemsPerView();
+
+      if (oldItems !== itemsPerView) {
+        handleResize();
+      }
+    }, 200);
+  }); 
+
+  function handleResize() {
+    const wrapper = track.parentElement;
+    const card = document.querySelector(".insight__card");
+
+    if (!card) return;
+
+    const cardWidth = card.offsetWidth + 20;
+
+    const currentScroll = wrapper.scrollLeft;
+    const oldIndex = Math.round(currentScroll / (cardWidth * itemsPerView));
+
+    setupCarousel(moreArticlesData);
+
+
+    const totalSlides = Math.ceil(moreArticlesData.length / itemsPerView);
+    currentIndex = Math.min(oldIndex, totalSlides - 1);
+
+    wrapper.scrollTo({
+      left: currentIndex * cardWidth * itemsPerView,
+      behavior: "auto"
+    });
+
+    updateDots(currentIndex);
+    stopAutoScroll();
+    startAutoScroll();
   }
 
   function calculateReadTime(htmlContent) {
@@ -66,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
     pdfs.forEach(pdf => {
       pdf.href = article.pdfUrl;
     });
+
+    pageTitle.innerText = article.title;
 
     date.innerText = `${formattedDate} |`;
 
@@ -190,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const index = Math.round(wrapper.scrollLeft / (cardWidth * itemsPerView));
 
+    currentIndex = index;
     updateDots(index);
   });
 
@@ -223,9 +276,13 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const wrapperEl = track.parentElement;
+  let scrollTimeout;
 
   if (wrapperEl) {
     wrapperEl.addEventListener("mouseenter", stopAutoScroll);
     wrapperEl.addEventListener("mouseleave", startAutoScroll);
+    wrapperEl.addEventListener("pointerdown", stopAutoScroll);
+    wrapperEl.addEventListener("pointerup", startAutoScroll);
+    wrapperEl.addEventListener("pointerleave", startAutoScroll);
   }
 });

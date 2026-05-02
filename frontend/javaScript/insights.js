@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
             <div class="insight__img"> 
-                <img class="img" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
+                <img class="img" loading="lazy" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
             </div>
            
             <div class="insight__header"> 

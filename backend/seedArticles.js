@@ -11,7 +11,7 @@ async function seedArticles() {
     console.log("MongoDB connected");
 
 
-    // await Article.deleteMany();
+    await Article.deleteMany();
 
     const articles = [
       {
@@ -46,7 +46,7 @@ async function seedArticles() {
 
           <p>In conclusion, regulatory compliance in Nigeria requires a proactive and structured approach. By understanding the requirements, implementing proper systems, and staying updated, businesses can operate smoothly while minimizing risks and maximizing opportunities.</p>`
         ,
-        images: ["/frontend/images/insights/7.jpg", "/frontend/images/insights/9.jpg"],
+        images: ["/frontend/images/insights/5.webp"],
         pdfUrl: "/frontend/pdfs/Understanding_Regulatory_Compliance_Nigeria.pdf",
         keywords: ["compliance", "nigeria", "regulation"],
         publishedAt: new Date("2026-01-01")
@@ -66,15 +66,15 @@ async function seedArticles() {
 
           <p>To simplify the process, businesses should consult regulatory bodies early and ensure all documentation is properly submitted. This reduces delays and ensures compliance from the start.</p>`
         ,
-        images: ["/frontend/images/insights/4.jpg", "/frontend/images/insights/2.jpg"],
+        images: ["/frontend/images/insights/1.webp"],
         pdfUrl: "/frontend/pdfs/Business_Licensing_What_You_Need_to_Know.pdf",
         keywords: ["licensing", "business", "permits"],
         publishedAt: new Date("2026-01-01")
       },
 
       {
-        title: "Corporate Governance Best Practices 1",
-        slug: "corporate-governance-practices1",
+        title: "Corporate Governance Best Practices",
+        slug: "corporate-governance-practices",
         category: "Governance",
         summary: "Improve your company structure with strong governance principles.",
         content: `
@@ -90,53 +90,7 @@ async function seedArticles() {
 
           <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
         ,
-        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
-        pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
-        keywords: ["governance", "corporate", "structure"],
-        publishedAt: new Date("2026-01-01")
-      },
-      {
-        title: "Corporate Governance Best Practices 2",
-        slug: "corporate-governance-practices2",
-        category: "Governance",
-        summary: "Improve your company structure with strong governance principles.",
-        content: `
-          <p>Corporate governance refers to the system of rules, practices, and processes by which a company is directed and controlled. Strong governance ensures accountability, fairness, and transparency in a company’s relationship with its stakeholders.</p>
-
-          <p>One of the key principles of good governance is having a clear organizational structure. This includes defining roles and responsibilities for executives, board members, and management teams. When everyone understands their role, decision-making becomes more efficient and conflicts are minimized.</p>
-
-          <p>Transparency is another critical component. Companies must maintain accurate financial records and provide timely disclosures to stakeholders. This builds trust and enhances the company’s credibility in the market.</p>
-
-          <p>Risk management is also essential. Businesses must identify potential risks—legal, financial, or operational—and implement strategies to mitigate them. Regular audits and compliance checks help ensure that these risks are properly managed.</p>
-
-          <p>Ethical leadership plays a major role in governance. Leaders set the tone for the entire organization. When leadership prioritizes integrity and accountability, employees are more likely to follow suit.</p>
-
-          <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
-        ,
-        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
-        pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
-        keywords: ["governance", "corporate", "structure"],
-        publishedAt: new Date("2026-01-01")
-      },
-      {
-        title: "Corporate Governance Best Practices 3",
-        slug: "corporate-governance-practices3",
-        category: "Governance",
-        summary: "Improve your company structure with strong governance principles.",
-        content: `
-          <p>Corporate governance refers to the system of rules, practices, and processes by which a company is directed and controlled. Strong governance ensures accountability, fairness, and transparency in a company’s relationship with its stakeholders.</p>
-
-          <p>One of the key principles of good governance is having a clear organizational structure. This includes defining roles and responsibilities for executives, board members, and management teams. When everyone understands their role, decision-making becomes more efficient and conflicts are minimized.</p>
-
-          <p>Transparency is another critical component. Companies must maintain accurate financial records and provide timely disclosures to stakeholders. This builds trust and enhances the company’s credibility in the market.</p>
-
-          <p>Risk management is also essential. Businesses must identify potential risks—legal, financial, or operational—and implement strategies to mitigate them. Regular audits and compliance checks help ensure that these risks are properly managed.</p>
-
-          <p>Ethical leadership plays a major role in governance. Leaders set the tone for the entire organization. When leadership prioritizes integrity and accountability, employees are more likely to follow suit.</p>
-
-          <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
-        ,
-        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
+        images: ["/frontend/images/insights/4.webp"],
         pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
         keywords: ["governance", "corporate", "structure"],
         publishedAt: new Date("2026-01-01")

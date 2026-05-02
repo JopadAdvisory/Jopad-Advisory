@@ -2,7 +2,7 @@
   min-height: auto;
 }
 .site-hero__bg {
-  background-image: url("../images/insights/3.jpg");
+  background-image: url("../images/insights/3.webp");
 }
 .site-hero__overlay {
   background: linear-gradient(
@@ -67,7 +67,6 @@ body {
 .insight__card {
     padding: 0;
     min-height: 100%;
-    /* min-width: 300px; */
     display: flex;
     flex-direction: column;
 }
