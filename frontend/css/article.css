@@ -149,6 +149,19 @@ body {
     gap: 20px;
     transition: transform 0.4s ease-in-out;
 }   
+.dot {
+    width: 8px;
+    height: 8px;
+    display: block;
+    background: #d1d5db;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+.dot.active {
+    background: #1a1a1a;
+    transform: scale(1.2);
+}
 .carousel-dots {
     border: 2px solid red;
     height: 50px;
