@@ -73,8 +73,54 @@ async function seedArticles() {
       },
 
       {
-        title: "Corporate Governance Best Practices",
-        slug: "corporate-governance-practices",
+        title: "Corporate Governance Best Practices 1",
+        slug: "corporate-governance-practices1",
+        category: "Governance",
+        summary: "Improve your company structure with strong governance principles.",
+        content: `
+          <p>Corporate governance refers to the system of rules, practices, and processes by which a company is directed and controlled. Strong governance ensures accountability, fairness, and transparency in a company’s relationship with its stakeholders.</p>
+
+          <p>One of the key principles of good governance is having a clear organizational structure. This includes defining roles and responsibilities for executives, board members, and management teams. When everyone understands their role, decision-making becomes more efficient and conflicts are minimized.</p>
+
+          <p>Transparency is another critical component. Companies must maintain accurate financial records and provide timely disclosures to stakeholders. This builds trust and enhances the company’s credibility in the market.</p>
+
+          <p>Risk management is also essential. Businesses must identify potential risks—legal, financial, or operational—and implement strategies to mitigate them. Regular audits and compliance checks help ensure that these risks are properly managed.</p>
+
+          <p>Ethical leadership plays a major role in governance. Leaders set the tone for the entire organization. When leadership prioritizes integrity and accountability, employees are more likely to follow suit.</p>
+
+          <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
+        ,
+        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
+        pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
+        keywords: ["governance", "corporate", "structure"],
+        publishedAt: new Date("2026-01-01")
+      },
+      {
+        title: "Corporate Governance Best Practices 2",
+        slug: "corporate-governance-practices2",
+        category: "Governance",
+        summary: "Improve your company structure with strong governance principles.",
+        content: `
+          <p>Corporate governance refers to the system of rules, practices, and processes by which a company is directed and controlled. Strong governance ensures accountability, fairness, and transparency in a company’s relationship with its stakeholders.</p>
+
+          <p>One of the key principles of good governance is having a clear organizational structure. This includes defining roles and responsibilities for executives, board members, and management teams. When everyone understands their role, decision-making becomes more efficient and conflicts are minimized.</p>
+
+          <p>Transparency is another critical component. Companies must maintain accurate financial records and provide timely disclosures to stakeholders. This builds trust and enhances the company’s credibility in the market.</p>
+
+          <p>Risk management is also essential. Businesses must identify potential risks—legal, financial, or operational—and implement strategies to mitigate them. Regular audits and compliance checks help ensure that these risks are properly managed.</p>
+
+          <p>Ethical leadership plays a major role in governance. Leaders set the tone for the entire organization. When leadership prioritizes integrity and accountability, employees are more likely to follow suit.</p>
+
+          <p>Finally, companies should regularly review and update their governance policies. As businesses grow and regulations evolve, governance frameworks must adapt to remain effective.</p>`
+        ,
+        images: ["/frontend/images/insights/1.jpg", "/frontend/images/insights/3.jpg"],
+        pdfUrl: "/frontend/pdfs/Corporate_Governance_Best_Practices.pdf",
+        keywords: ["governance", "corporate", "structure"],
+        publishedAt: new Date("2026-01-01")
+      },
+      {
+        title: "Corporate Governance Best Practices 3",
+        slug: "corporate-governance-practices3",
         category: "Governance",
         summary: "Improve your company structure with strong governance principles.",
         content: `

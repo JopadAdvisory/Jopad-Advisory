@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/insights.css" />
     <link rel="stylesheet" href="./css/article.css" />
 </head>
 <body>
@@ -101,7 +102,7 @@
     </header>
 
     <main>
-      <section class="container text">
+      <section class="container text" aria-label="Article content">
         <div>
           <div class="text-container" id="articleContent"></div>
           <div class="art-footer">
@@ -111,6 +112,19 @@
               <span>Download PDF</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      <section aria-label="More insights">
+        <div class="container carousel" id="moreInsights">
+          <h1 class="more__heading" id="articleTitle">More Insights</h1>
+          <span class="hero__accent" aria-hidden="true"></span>
+
+          <div class="carousel-wrapper">
+            <div class="carousel-track"></div>
+          </div>
+
+          <div class="carousel-dots"></div>
         </div>
       </section>
     </main>
