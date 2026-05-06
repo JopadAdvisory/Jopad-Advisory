@@ -176,6 +176,9 @@ body {
     scroll-snap-align: start;
     transition: all 0.3s ease;
 }
+.more {
+    display: none;
+}
 @media (min-width: 768px) {
     .text-container,
     .art-footer {

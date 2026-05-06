@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ["Compliance", "Licensing", "Governance", "Data Protection", "Contracts"],
+        enum: ["Compliance - Advisory Memorandum", "Licensing - Advisory Memorandum", "Governance - Advisory Memorandum", "Data Protection - Advisory Memorandum", "Contracts - Advisory Memorandum"],
         required: true
     },
     summary: {

@@ -92,7 +92,7 @@ body {
 .insight__header {
     padding: 20px 20px 0 20px;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
 }
 .insight__category {
@@ -102,6 +102,7 @@ body {
 .date {
     display: flex;
     align-items: center;
+    text-wrap: nowrap;
 }
 .loader {
     margin-inline: auto;
@@ -176,6 +177,11 @@ body {
 .read-btn {
     width: initial;
     display: inline-flex;
+}
+@media (min-width: 768px) {
+    .insight__card {
+        max-width: 350px;
+    }
 }
 @media (min-width: 1024px) {
     .h-container {

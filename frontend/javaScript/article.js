@@ -281,8 +281,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (wrapperEl) {
     wrapperEl.addEventListener("mouseenter", stopAutoScroll);
     wrapperEl.addEventListener("mouseleave", startAutoScroll);
-    wrapperEl.addEventListener("pointerdown", stopAutoScroll);
-    wrapperEl.addEventListener("pointerup", startAutoScroll);
-    wrapperEl.addEventListener("pointerleave", startAutoScroll);
+    wrapperEl.addEventListener("touchstart", stopAutoScroll);
+    wrapperEl.addEventListener("touchend", startAutoScroll);
+    wrapperEl.addEventListener("touchcancel", startAutoScroll);
   }
 });
