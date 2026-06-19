@@ -148,7 +148,10 @@
 .testimonials-card {
     width: 100%;
     scroll-snap-align: center;
-    transition: transform .4s ease, opacity .4s ease;
+    transition: transform .4s ease;
+}
+.testimonials-card:hover {
+    transform: scale(1.08) translateY(-10px);
 }
 .company-logo1,
 .logo-card1 {
