@@ -46,6 +46,7 @@
 .logo-con {
     padding-top: 50px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem;
 }
@@ -145,12 +146,12 @@
     
 }
 .testimonials-card {
-    /* flex: 0 0 90%; */
-    width: 90%;
+    width: 100%;
     scroll-snap-align: center;
     transition: transform .4s ease, opacity .4s ease;
 }
-.company-logo {
+.company-logo1,
+.logo-card1 {
     display: none;
 }
 .testimonials-dots {
@@ -222,7 +223,8 @@
     .testimonials-card {
         flex: 0 0 calc((100% - 2rem * 2) / 3);
     }
-    .company-logo {
+    .company-logo1,
+    .logo-card1 {
         display: initial;
     }
 }
