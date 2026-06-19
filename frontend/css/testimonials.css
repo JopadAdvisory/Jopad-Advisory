@@ -1,0 +1,222 @@
+.testimonials {
+    width: 100%;
+    padding-bottom: 50px;
+    margin-top: -30px;
+    overflow: hidden;
+}
+.site-hero__bg {
+    background: none;
+}
+.site-hero {
+    border-bottom: none;
+}
+.testimonials-container {
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+ body {
+    background: #f5f6f7; 
+}
+.hero {
+    width: 100%;    
+    text-align: center;
+    margin-top: -30px;
+}
+.hero__title--light {
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.hero__title,
+.hero__subtitle {
+    margin-inline: auto;
+}
+.caps {
+    text-transform: uppercase;
+}
+.head {
+    padding-top: 80px;
+    text-align: center;
+}
+.logo-con {
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.logo-card {
+    padding: 20px;
+    padding: 25px;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.94);
+    transition: all .4s ease;
+    border: 1px solid rgba(15, 20, 23, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+.logo-card:hover .company-logo {
+    transform: scale(1.1);
+}
+.logo-card:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+}
+.sub  {
+    text-align: center;
+}
+.hero-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.testimonial-card-body {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 15px;
+}
+.tfooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+.position,
+.office,
+.company,
+.experties {
+    font-size: 16px;
+    color: var(--color-secondary);
+}
+.position,
+.office,
+.company,
+.experties {
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.position,
+.company {
+    color: var(--color-headings);
+    font-weight: 600;
+}
+.office,
+.experties {
+    font-size: 14px;
+}
+.experties {
+    text-transform: uppercase;
+}
+.feedback {
+    font-size: 16px;
+}
+.testimonials-container::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+} 
+.testimonials__dot {
+    width: 15px;
+    height: 15px;
+    transform: scale(0.8);
+    border-radius: 50%;
+    background: #d3d3d3;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.testimonials__dot.active {
+    border-radius: 999px;
+    background: var(--color-accent);
+    width: 42px;
+    
+}
+.testimonials-card {
+    flex: 0 0 90%;
+    scroll-snap-align: center;
+    transition: transform .4s ease, opacity .4s ease;
+}
+.testimonials-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.testimonial-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.testimonials-btn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-inline: auto;
+    gap: 20px;
+}
+.action {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    background: #e0eaf5;
+    border-radius: 20px;
+    padding: 60px 0;
+}
+
+.testimonials-btn a:first-child {
+    width: 50%;
+}
+.testimonials-btn a:last-child {
+    width: 50%;
+}
+.company-logo {
+    width: 150px;
+    transition: all .4s ease;
+}
+.star {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-accent);
+    stroke: var(--color-accent);
+}
+.quote {
+    width: 40px;
+    height: 40px;
+    stroke: var(--color-accent);
+}
+.testimonials-card {
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 20, 23, 0.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+    .testimonials-card {
+        flex: 0 0 calc((100% - 2rem * 2) / 3);
+    }
+
+}
