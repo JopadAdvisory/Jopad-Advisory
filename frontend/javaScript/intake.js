@@ -52,6 +52,11 @@
         const errorData = await response.json();
         throw new Error(errorData.message || "Submission Failed");
       }
+
+      gtag('event', 'contact_form_submit', {
+        'form_name': 'jopad_intake_form'
+      });
+      
       formStatus.innerText = "Message sent successfully!";
       formStatus.style.color = "green";
       form.reset();

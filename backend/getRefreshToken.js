@@ -15,7 +15,7 @@ const oauth2Client = new google.auth.OAuth2(
 
 // console.log("Authorize this app by visiting this URL:\n", authUrl);
 
-const code = "4/0Aci98E_lZR4nf0k3-N-9g986PkR_mKmQ63LBxDB-ItS3ZmIc6gLxPykG6FUPUOmKRRnyrg"
+// const code = ""
 
 async function getRefreshToken() {
     try {

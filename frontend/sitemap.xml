@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.jopadconsulting.com/</loc>
+    <loc>https://jopadconsulting.com/</loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://jopadconsulting.com/testimonials.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://jopadconsulting.com/insights.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://jopadconsulting.com/frontend/article.html?slug=nigerian-corporate-tax-exposure</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://jopadconsulting.com/frontend/article.html?slug=the-compliance-myth</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://jopadconsulting.com/frontend/article.html?slug=nigerian-insurance-reform-law</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://jopadconsulting.com/frontend/article.html?slug=regulatory-compliance-business-risk-nigeria</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
+
+                                                                                                      
