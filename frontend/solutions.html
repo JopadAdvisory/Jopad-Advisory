@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Solutions — JOPAD Consulting</title>
+<meta name="description" content="The JOPAD Consulting service catalogue: licensing, compliance, governance, contracts, regulator engagement & investigations, and data protection." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/normalize.css" />
+<link rel="stylesheet" href="./css/solutions.css" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="solutions-page">
+
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="sub__topbar">
+        <a class="brand" href="index.html" aria-label="JOPAD Home">
+          <img
+            class="brand__name"
+            src="images/jopad-advisory-optimized.webp"
+            alt="JOPAD"
+          />
+        </a>
+
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" />
+        <label
+          class="nav-toggle-label"
+          for="nav-toggle"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+        </label>
+
+        <nav class="nav" aria-label="Primary navigation">
+          <section class="nav__panel" aria-label="Menu panel">
+            <div class="nav__panel-head">
+              <span class="nav__panel-title">Menu</span>
+              <label
+                class="nav__panel-close"
+                for="nav-toggle"
+                aria-label="Close menu"
+              >✕</label
+              >
+            </div>
+
+            <a class="nav__link" href="index.html">Home</a>
+            <a class="nav__link" href="index.html#solutions">Solutions</a>
+            <a class="nav__link" href="insights.html">Insights</a>
+            <a class="nav__link" href="#testimonials">Testimonials</a>
+            <a class="nav__link" href="index.html#about">About</a>
+            <a class="nav__link nav__link--button btn--ghost" href="index.html#contact">
+              Start an Advisory Conversation
+            </a>
+
+            <div class="nav__panel-foot">
+              <p class="nav__meta">
+                Virtual-first • Abuja, Nigeria • Typical response within 48
+                hours
+              </p>
+            </div>
+          </section>
+
+          <label
+            class="nav__backdrop"
+            for="nav-toggle"
+            aria-hidden="true"
+          ></label>
+        </nav>
+      </div>
+    </div>
+</header>
+<!-- HERO -->
+<section class="solutions-page__hero">
+  <div class="solutions-page__hero-blob solutions-page__hero-blob--teal"></div>
+  <div class="solutions-page__hero-blob solutions-page__hero-blob--slate"></div>
+  <div class="solutions-page__container solutions-page__hero-inner">
+    <div class="solutions-page__hero-grid">
+      <div class="solutions-page__hero-main">
+        <div class="solutions-page__eyebrow">
+          <span class="solutions-page__eyebrow-accent">Solutions</span>
+          <span class="solutions-page__eyebrow-rule"></span>
+          <span>Service Catalogue</span>
+        </div>
+        <h1 class="solutions-page__title">
+          Complex regulation, rendered as structured<span class="solutions-page__title-muted"> solutions.</span>
+        </h1>
+        <div class="solutions-page__teal-underline"></div>
+        <p class="solutions-page__subtitle">
+          JOPAD Consulting transforms complex regulatory and legal challenges into practical, defensible pathways. Six practice areas. One disciplined method. Delivered by a specialist advisory built for regulated environments.
+        </p>
+        <div class="solutions-page__actions">
+          <a href="#directory" class="solution-btn solution-btn--primary">
+            Explore the Directory
+            <span class="solution-btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#regulator-engagement-investigations" class="solution-btn solution-btn--ghost">
+            Regulator Engagement &amp; Investigations
+          </a>
+        </div>
+      </div>
+
+      <aside class="solutions-page__hero-aside">
+        <div class="solutions-page__aside-label">Practice Areas</div>
+        <div class="solutions-page__aside-count">06</div>
+        <p class="solutions-page__aside-text">
+          Structured advisory across licensing, compliance, governance, contracts, investigations, and data protection — engaged independently or in sequence.
+        </p>
+        <div class="solutions-page__aside-divider">
+          <div class="solutions-page__aside-label">Fully Developed</div>
+          <div class="solutions-page__aside-highlight">Regulator Engagement &amp; Investigations</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="solutions-page__sticky-nav" aria-label="Section navigation">
+  <div class="solutions-page__container solutions-page__sticky-inner" id="stickyNavList"></div>
+</nav>
+
+<!-- DIRECTORY -->
+<section id="directory" class="solutions-page__directory">
+  <div class="solutions-page__container solutions-page__section-inner container">
+    <div class="solutions-page__two-col">
+      <div class="solutions-page__two-col-left">
+        <div class="solutions-page__eyebrow">
+          <span class="solutions-page__eyebrow-rule"></span>
+          <span>The Directory</span>
+        </div>
+        <h2 class="solutions-page__heading">Six practice areas.<br />One considered method.</h2>
+        <p class="solutions-page__lead">
+          Each category is designed to be engaged independently or in sequence — with the same disciplined approach to evidence, judgment, and delivery.
+        </p>
+      </div>
+      <div class="solutions-page__two-col-right">
+        <ul class="solutions-page__directory-list" id="directoryList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY SECTIONS -->
+<div id="categorySections"></div>
+
+<!-- TIMELINE -->
+<section class="solutions-page__timeline">
+  <div class="solutions-page__container solutions-page__section-inner container container">
+    <div class="solutions-page__timeline-head">
+      <div class="solutions-page__eyebrow solutions-page__eyebrow--light">
+        <span class="solutions-page__eyebrow-rule"></span>
+        <span>The Method</span>
+      </div>
+      <h2 class="solutions-page__heading solutions-page__heading--light">A disciplined sequence,<br />from consultation to delivery.</h2>
+      <p class="solutions-page__lead solutions-page__lead--light">
+        Every engagement is executed against the same structured path — designed for defensibility, clarity, and regulator-ready outcomes.
+      </p>
+    </div>
+    <ol class="solutions-page__timeline-grid" id="timelineList"></ol>
+  </div>
+</section>
+
+<!-- WHY JOPAD -->
+<section class="solutions-page__why">
+  <div class="solutions-page__container solutions-page__section-inner container container">
+    <div class="solutions-page__two-col">
+      <div class="solutions-page__two-col-left">
+        <div class="solutions-page__eyebrow">
+          <span class="solutions-page__eyebrow-rule"></span>
+          <span>Why JOPAD</span>
+        </div>
+        <h2 class="solutions-page__heading">Considered work,<br />not volume advice.</h2>
+      </div>
+      <div class="solutions-page__two-col-right">
+        <dl class="solutions-page__why-grid" id="whyList"></dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="solutions-page__faq">
+  <div class="solutions-page__container solutions-page__section-inner container">
+    <div class="solutions-page__two-col">
+      <div class="solutions-page__two-col-left">
+        <div class="solutions-page__eyebrow">
+          <span class="solutions-page__eyebrow-rule"></span>
+          <span>FAQ</span>
+        </div>
+        <h2 class="solutions-page__heading">Considered questions,<br />considered answers.</h2>
+      </div>
+      <div class="solutions-page__two-col-right">
+        <ul class="solutions-page__faq-list" id="faqList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact-cta" class="solutions-page__cta">
+  <div class="solutions-page__container solutions-page__section-inner container">
+    <div class="solutions-page__cta-grid">
+      <div class="solutions-page__cta-main">
+        <div class="solutions-page__eyebrow solutions-page__eyebrow--light">
+          <span class="solutions-page__eyebrow-accent">Begin an advisory conversation</span>
+        </div>
+        <h2 class="solutions-page__cta-title">Considered advice<br />begins with a scoping<br />conversation.</h2>
+        <p class="solutions-page__cta-text">
+          Share the matter, jurisdiction, and objectives. A written scoping response follows — structured, discreet, and calibrated to the exposure.
+        </p>
+      </div>
+      <div class="solutions-page__cta-actions">
+        <a href="/contact" class="solution-btn solution-btn--cta-primary">
+          Start an Advisory Conversation
+          <span class="solution-btn__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#regulator-engagement-investigations" class="solution-btn solution-btn--cta-ghost">
+          Review Investigations Services
+          <span class="solution-btn__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="./javaScript/solutions.js"></script>
+</body>
+</html>
