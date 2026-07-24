@@ -34,15 +34,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, p, dl, dd, dt { margin: 0; }
 button { font: inherit; }
 
-.solutions-page__container {
-  max-width: 80rem;
-  margin: 0 auto;
+/* .solutions-page__container {
   padding: 0 1.5rem;
-}
-@media (min-width: 1024px) { .solutions-page__container { padding: 0 2.5rem; } }
+} */
 
-.solutions-page__section-inner { padding: 6rem 0; }
-@media (min-width: 1024px) { .solutions-page__section-inner { padding: 8rem 0; } }
+
+.solutions-page__section-inner { padding: 3rem 0; }
+@media (min-width: 1024px) { .solutions-page__section-inner { padding: 4rem 0; } }
 
 /* Eyebrow */
 .solutions-page__eyebrow {
@@ -131,13 +129,13 @@ button { font: inherit; }
 }
 .solutions-page__hero-inner {
   position: relative;
-  padding-top: 5rem; padding-bottom: 6rem;
+  padding-top: 7rem; padding-bottom: 3rem;
 }
 @media (min-width: 1024px) {
-  .solutions-page__hero-inner { padding-top: 7rem; padding-bottom: 8rem; }
+  .solutions-page__hero-inner { padding-top: 8rem; padding-bottom: 5rem; }
 }
 .solutions-page__hero-grid {
-  display: grid; gap: 3rem;
+  display: grid; gap: 3rem; 
 }
 @media (min-width: 1024px) {
   .solutions-page__hero-grid {
