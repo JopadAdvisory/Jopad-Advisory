@@ -34,13 +34,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, p, dl, dd, dt { margin: 0; }
 button { font: inherit; }
 
-/* .solutions-page__container {
-  padding: 0 1.5rem;
-} */
-
-
-.solutions-page__section-inner { padding: 3rem 0; }
-@media (min-width: 1024px) { .solutions-page__section-inner { padding: 4rem 0; } }
+.solutions-page__section-inner { padding: 4rem 0; }
 
 /* Eyebrow */
 .solutions-page__eyebrow {
