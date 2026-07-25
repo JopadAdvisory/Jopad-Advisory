@@ -1,7 +1,3 @@
-/* =========================================================
-   JOPAD Solutions — vanilla stylesheet (BEM)
-   Design tokens mirror src/styles.css
-   ========================================================= */
 
 :root {
   --background: oklch(0.995 0.002 250);
@@ -9,10 +5,10 @@
   --muted: oklch(0.955 0.006 250);
   --slate-section: oklch(0.58 0.018 250);
   --slate-section-foreground: oklch(0.99 0.002 250);
-  --ink: oklch(0.13 0.008 260);
-  --ink-muted: oklch(0.42 0.015 255);
+  --ink: #111111;
+  --ink-muted: #3f3f46;
   --hairline: oklch(0.88 0.008 250);
-  --teal-accent: oklch(0.62 0.09 190);
+  --teal-accent: #0f766e;
   --primary-foreground: oklch(0.99 0.002 250);
   --font-display: "Archivo Black", "Arial Black", sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -60,24 +56,24 @@ button { font: inherit; }
 }
 .solution-btn__arrow { display: inline-block; transition: transform .2s; }
 .solution-btn:hover .btn__arrow { transform: translateX(4px); }
-.solution-btn--primary { background: var(--ink); color: var(--primary-foreground); }
-.solution-btn--primary:hover { background: color-mix(in oklab, var(--ink) 90%, transparent); }
+.solution-btn--primary, .solution-btn--cta-primary { background: var(--ink); color: var(--primary-foreground); }
+.solution-btn--primary:hover, .solution-btn--cta-primary:hover  { background: color-mix(in oklab, var(--ink) 90%, transparent); }
 .solution-btn--ghost { border-color: color-mix(in oklab, var(--ink) 20%, transparent); color: var(--ink); }
 .solution-btn--ghost:hover { border-color: var(--ink); }
 .solution-btn--cta-primary {
-  border-radius: 0; background: #fff; color: var(--ink);
+  border-radius: 0; background: var(--ink); color: var(--primary-foreground);
   border-color: rgba(255,255,255,0.2);
   padding: 1.25rem 1.5rem; font-size: 1rem;
   justify-content: space-between; gap: 0.75rem;
 }
-.solution-btn--cta-primary:hover { background: var(--teal-accent); color: #fff; }
+
 .solution-btn--cta-ghost {
-  border-radius: 0; background: transparent; color: #fff;
-  border-color: rgba(255,255,255,0.2);
+  border-radius: 0; background: transparent; color: var(--ink);
+  border-color: var(--ink-muted);
   padding: 1.25rem 1.5rem; font-size: 1rem;
   justify-content: space-between; gap: 0.75rem;
 }
-.solution-btn--cta-ghost:hover { border-color: #fff; }
+.solution-btn--cta-ghost:hover { border-color: var(--ink); }
 
 /* Display font utility */
 .solutions-page__title,
@@ -126,7 +122,7 @@ button { font: inherit; }
   padding-top: 7rem; padding-bottom: 3rem;
 }
 @media (min-width: 1024px) {
-  .solutions-page__hero-inner { padding-top: 8rem; padding-bottom: 5rem; }
+  .solutions-page__hero-inner { padding-top: 8rem; padding-bottom: 4rem; }
 }
 .solutions-page__hero-grid {
   display: grid; gap: 3rem; 
@@ -146,6 +142,15 @@ button { font: inherit; }
   color: var(--ink);
 }
 
+#licensing-market-entry,
+#regulatory-compliance-systems,
+#governance-risk-controls,
+#commercial-structuring-contracts,
+#regulator-engagement-investigations,
+#data-protection-digital-trust {
+  scroll-margin-top: -20px;
+}
+
 .solutions-page__title-muted { color: var(--ink-muted); }
 
 .solutions-page__teal-underline::after {
@@ -155,6 +160,9 @@ button { font: inherit; }
   background: var(--teal-accent);
 }
 
+.deliverables {
+  padding: 30px 0 0 0;
+}
 .solutions-page__subtitle {
   margin-top: 2rem; max-width: 42rem;
   font-size: 1.125rem; line-height: 1.7; color: var(--ink-muted);
@@ -186,45 +194,11 @@ button { font: inherit; }
   margin-top: 0.75rem; font-size: 1.125rem; color: var(--ink);
 }
 
-/* =========================================================
-   STICKY NAV
-   ========================================================= */
-.solutions-page__sticky-nav {
-  position: sticky; top: 0; z-index: 30;
-  display: none;
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-  background: color-mix(in oklab, var(--background) 85%, transparent);
-  backdrop-filter: blur(8px);
-}
-@media (min-width: 768px) {
-  .solutions-page__sticky-nav { display: block; top: 0; }
-}
-.solutions-page__sticky-inner {
-  display: flex; align-items: center; gap: 0.25rem;
-  overflow-x: auto;
-}
-.solutions-page__sticky-link {
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  padding: 1rem 0.75rem;
-  font-size: 0.75rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.14em;
-  color: var(--ink-muted);
-  transition: color .2s, border-color .2s;
-}
-.solutions-page__sticky-link:hover { color: var(--ink); }
-.solutions-page__sticky-link--active { border-bottom-color: var(--teal-accent); color: var(--ink); }
-.solutions-page__sticky-link-index {
-  margin-right: 0.5rem;
-  font-family: var(--font-display); letter-spacing: -0.02em;
-  font-size: 10px; color: var(--ink-muted);
-}
 
 /* =========================================================
    DIRECTORY
    ========================================================= */
-.solutions-page__directory { border-top: 1px solid var(--hairline); background: var(--background); scroll-margin-top: 7rem; }
+.solutions-page__directory { border-top: 1px solid var(--hairline); background: var(--background); scroll-margin-top: -2rem; }
 
 .solutions-page__two-col { display: grid; gap: 3rem; }
 @media (min-width: 1024px) {
@@ -244,10 +218,7 @@ button { font: inherit; }
 }
 .solutions-page__lead--light { color: rgba(255,255,255,0.75); max-width: 42rem; }
 
-.solutions-page__directory-list {
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-}
+
 .solutions-page__directory-item + .solutions-page__directory-item {
   border-top: 1px solid var(--hairline);
 }
@@ -534,10 +505,12 @@ button { font: inherit; }
 .solutions-page__why-grid {
   display: grid; gap: 2.5rem;
 }
+.solutions-page__why-item {  padding-bottom: 1.5rem; }
+.solutions-page__why-item:not(:last-child) { border-bottom: 1px solid var(--hairline); padding-bottom: 1.5rem; }
 @media (min-width: 768px) {
   .solutions-page__why-grid { grid-template-columns: repeat(2, minmax(0,1fr)); column-gap: 2.5rem; }
+  .solutions-page__why-item:nth-child(5) { border-bottom: none;  }
 }
-.solutions-page__why-item { border-top: 1px solid var(--hairline); padding-top: 1.5rem; }
 .solutions-page__why-head { display: flex; align-items: baseline; gap: 1rem; }
 .solutions-page__why-num { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--teal-accent); }
 .solutions-page__why-title { font-size: 1.125rem; color: var(--ink); }
@@ -550,8 +523,8 @@ button { font: inherit; }
    FAQ
    ========================================================= */
 .solutions-page__faq { border-top: 1px solid var(--hairline); background: var(--background); }
-.solutions-page__faq-list { border-top: 1px solid var(--hairline); }
-.solutions-page__faq-item { border-bottom: 1px solid var(--hairline); }
+/* .solutions-page__faq-list { border-top: 1px solid var(--hairline); } */
+.solutions-page__faq-item:not(:last-child) { border-bottom: 1px solid var(--hairline); }
 .solutions-page__faq-trigger {
   display: flex; width: 100%; align-items: center; justify-content: space-between;
   gap: 1.5rem;
@@ -584,8 +557,26 @@ button { font: inherit; }
    ========================================================= */
 .solutions-page__cta {
   border-top: 1px solid var(--hairline);
-  background: var(--ink);
-  color: var(--primary-foreground);
+  position: relative;
+  overflow: hidden;
+  color: var(--ink);
+}
+.solutions-page__cta-blob {
+  pointer-events: none; position: absolute; border-radius: 9999px;
+  filter: blur(64px);
+  z-index: -1;
+}
+.solutions-page__cta-blob--teal {
+  top: -10rem; right: -10%;
+  z-index: -1;
+  width: 520px; height: 520px;
+  background: color-mix(in oklab, var(--teal-accent) 10%, transparent);
+}
+.solutions-page__cta-blob--slate {
+  z-index: -1;
+  bottom: -20%; left: -5%;
+  width: 420px; height: 420px;
+  background: color-mix(in oklab, var(--slate-section) 20%, transparent);
 }
 .solutions-page__cta-grid {
   display: grid; gap: 3rem;
@@ -597,11 +588,11 @@ button { font: inherit; }
 }
 .solutions-page__cta-title {
   margin-top: 1.5rem;
-  font-size: 2.25rem; line-height: 1.02; color: #fff;
+  font-size: 2.25rem; line-height: 1.02; color: var(--ink);
 }
 @media (min-width: 768px) { .solutions-page__cta-title { font-size: 3.75rem; } }
 .solutions-page__cta-text {
   margin-top: 2rem; max-width: 36rem;
-  font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.7);
+  font-size: 1rem; line-height: 1.7; color: var(--ink-muted);
 }
 .solutions-page__cta-actions { display: flex; flex-direction: column; gap: 1rem; }

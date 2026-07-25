@@ -159,17 +159,6 @@
   /* ---------------- Render ---------------- */
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 
-  function renderStickyNav() {
-    let host = document.getElementById('stickyNavList');
-    let html = '';
-    SOLUTIONS.forEach(function (s) {
-      html += '<a class="solutions-page__sticky-link" href="#' + s.slug + '" data-slug="' + s.slug + '">' +
-        '<span class="solutions-page__sticky-link-index">' + s.index + '</span>' + esc(s.shortTitle) +
-      '</a>';
-    });
-    host.innerHTML = html;
-  }
-
   function renderDirectory() {
     let host = document.getElementById('directoryList');
     let html = '';
@@ -207,7 +196,7 @@
               '<div class="solutions-page__placeholder-label">In Development</div>' +
               '<p class="solutions-page__placeholder-title">Detailed service offerings for this practice area are currently being expanded.</p>' +
               '<p class="solutions-page__placeholder-text">Engagements are already available on request. For scoping conversations, structured proposals, or bespoke advisory, contact the firm directly.</p>' +
-              '<a href="#contact-cta" class="solutions-page__placeholder-link">Request a scoping discussion <span aria-hidden="true">→</span></a>' +
+              '<a href="index.html#contact" class="solutions-page__placeholder-link">Request a scoping discussion <span aria-hidden="true">→</span></a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -246,9 +235,9 @@
         '<div>' +
           '<div class="solutions-page__service-label">Our process</div>' +
           '<ol class="solutions-page__service-process">' + processItems + '</ol>' +
-          '<div class="solutions-page__service-label">Deliverables</div>' +
+          '<div class="solutions-page__service-label deliverables">Deliverables</div>' +
           '<ul class="solutions-page__service-list solutions-page__service-list--ink">' + delItems + '</ul>' +
-          '<a href="#contact-cta" class="solutions-page__service-cta">Request this service <span aria-hidden="true">→</span></a>' +
+          '<a href="index.html#contact" class="solutions-page__service-cta">Request this service <span aria-hidden="true">→</span></a>' +
         '</div>' +
       '</div>' +
     '</article>';
@@ -377,34 +366,12 @@
     });
   }
 
-  function initStickyNav() {
-    let links = document.querySelectorAll('.solutions-page__sticky-link');
-    let linkMap = {};
-    links.forEach(function (l) { linkMap[l.dataset.slug] = l; });
-    let ids = SOLUTIONS.map(function (s) { return s.slug; });
-    let io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          let id = e.target.id;
-          links.forEach(function (l) { l.classList.remove('solutions-page__sticky-link--active'); });
-          if (linkMap[id]) linkMap[id].classList.add('solutions-page__sticky-link--active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-    ids.forEach(function (id) {
-      let el = document.getElementById(id);
-      if (el) io.observe(el);
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
-    renderStickyNav();
     renderDirectory();
     renderCategories();
     renderTimeline();
     renderWhy();
     renderFaq();
     initFaq();
-    initStickyNav();
   });
 })();
