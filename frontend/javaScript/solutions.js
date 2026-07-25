@@ -16,10 +16,10 @@
       status: 'expanding' },
     { slug: 'regulator-engagement-investigations', index: '05', title: 'Regulator Engagement & Investigations', shortTitle: 'Investigations',
       summary: 'Clear regulatory responses, inspection readiness, issue management, and disciplined support under scrutiny.',
-      status: 'expanding' },
+      status: 'available' },
     { slug: 'data-protection-digital-trust', index: '06', title: 'Data Protection & Digital Trust', shortTitle: 'Data Protection',
       summary: 'Privacy governance, digital risk support, vendor controls, and defensible data protection frameworks.',
-      status: 'available' }
+      status: 'expanding' }
   ];
 
   let TIMELINE = [

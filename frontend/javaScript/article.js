@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const loader = document.getElementsByClassName("loader")[0];
   const wrapper = document.getElementsByClassName("wrapper")[0];
   const track = document.querySelector(".carousel-track");
-  const pageTitle = document.getElementsByTagName("title")[0]; ;
+  const pageTitle = document.getElementsByTagName("title")[0]; 
+  const canonical = document.getElementsByTagName("link")[2]; 
   const dotsContainer = document.querySelector(".carousel-dots");
   let resizeTimeout;
   
@@ -118,6 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     pageTitle.innerText = article.title;
+
+    canonical.href = `https://jopadconsulting.com/frontend/article.html?slug=${article.slug}`;
 
     date.innerText = `${formattedDate} |`;
 
