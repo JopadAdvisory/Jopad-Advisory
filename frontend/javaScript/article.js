@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const wrapper = document.getElementsByClassName("wrapper")[0];
   const track = document.querySelector(".carousel-track");
   const pageTitle = document.getElementsByTagName("title")[0]; 
-  const canonical = document.getElementsByTagName("link")[2]; 
   const dotsContainer = document.querySelector(".carousel-dots");
   let resizeTimeout;
   
@@ -105,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
+    const canonical = document.createElement("link");
 
     title.innerText = article.title;
 
@@ -120,7 +120,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     pageTitle.innerText = article.title;
 
+    canonical.rel = "canonical";
     canonical.href = `https://jopadconsulting.com/frontend/article.html?slug=${article.slug}`;
+    document.head.appendChild(canonical);
 
     date.innerText = `${formattedDate} |`;
 
