@@ -169,10 +169,10 @@
           '<span class="solutions-page__directory-index">' + s.index + '</span>' +
           '<span>' +
             '<span class="solutions-page__directory-titleline">' +
-              '<span class="solutions-page__directory-title">' + esc(s.title) + '</span>' +
+              '<span class="solutions-page__directory-title">' + s.title + '</span>' +
               (s.status === 'expanding' ? '<span class="solutions-page__badge">Expanding</span>' : '') +
             '</span>' +
-            '<span class="solutions-page__directory-summary">' + esc(s.summary) + '</span>' +
+            '<span class="solutions-page__directory-summary">' + s.summary + '</span>' +
           '</span>' +
           '<span class="solutions-page__directory-arrow" aria-hidden="true">↗</span>' +
         '</a>' +
@@ -188,10 +188,10 @@
         '<div class="solutions-page__cat-grid">' +
           '<div class="solutions-page__cat-head">' +
             '<div class="solutions-page__eyebrow"><span class="solutions-page__eyebrow-index">' + cat.index + '</span><span class="solutions-page__eyebrow-rule"></span><span>Practice Area</span></div>' +
-            '<h2 class="solutions-page__cat-title">' + esc(cat.title) + '</h2>' +
+            '<h2 class="solutions-page__cat-title">' + cat.title + '</h2>' +
           '</div>' +
           '<div class="solutions-page__cat-body">' +
-            '<p class="solutions-page__cat-summary">' + esc(cat.summary) + '</p>' +
+            '<p class="solutions-page__cat-summary">' + cat.summary + '</p>' +
             '<div class="solutions-page__placeholder">' +
               '<div class="solutions-page__placeholder-label">In Development</div>' +
               '<p class="solutions-page__placeholder-title">Detailed service offerings for this practice area are currently being expanded.</p>' +
@@ -206,29 +206,29 @@
 
   function serviceCard(s, i) {
     let whoItems = s.who.map(function (w) {
-      return '<li class="solutions-page__service-list-item"><span class="solutions-page__service-list-item-rule"></span><span>' + esc(w) + '</span></li>';
+      return '<li class="solutions-page__service-list-item"><span class="solutions-page__service-list-item-rule"></span><span>' + w + '</span></li>';
     }).join('');
     let processItems = s.process.map(function (step, k) {
       return '<li class="solutions-page__service-process-item"><span class="solutions-page__service-process-num">0' + (k + 1) + '</span><span class="solutions-page__service-process-text">' + esc(step) + '</span></li>';
     }).join('');
     let delItems = s.deliverables.map(function (d) {
-      return '<li class="solutions-page__service-list-item"><span class="solutions-page__service-list-item-rule"></span><span>' + esc(d) + '</span></li>';
+      return '<li class="solutions-page__service-list-item"><span class="solutions-page__service-list-item-rule"></span><span>' + d + '</span></li>';
     }).join('');
 
     return '<article class="solutions-page__service">' +
       '<div class="solutions-page__service-head">' +
         '<div>' +
-          '<div class="solutions-page__service-number">' + esc(s.number) + '</div>' +
-          '<h3 class="solutions-page__service-title">' + esc(s.title) + '</h3>' +
+          '<div class="solutions-page__service-number">' + s.number + '</div>' +
+          '<h3 class="solutions-page__service-title">' + s.title + '</h3>' +
         '</div>' +
         '<span class="solutions-page__service-index">0' + (i + 1) + ' / 02</span>' +
       '</div>' +
       '<div class="solutions-page__service-body">' +
         '<div>' +
           '<div class="solutions-page__service-label">Purpose</div>' +
-          '<p class="solutions-page__service-para">' + esc(s.purpose) + '</p>' +
+          '<p class="solutions-page__service-para">' + s.purpose + '</p>' +
           '<div class="solutions-page__service-label">Overview</div>' +
-          '<p class="solutions-page__service-para solutions-page__service-para--muted">' + esc(s.overview) + '</p>' +
+          '<p class="solutions-page__service-para solutions-page__service-para--muted">' + s.overview + '</p>' +
           '<div class="solutions-page__service-label">Who needs this service</div>' +
           '<ul class="solutions-page__service-list">' + whoItems + '</ul>' +
         '</div>' +
@@ -245,13 +245,13 @@
 
   function investigationsSection(cat) {
     let problems = INV_PROBLEMS.map(function (p) {
-      return '<li class="solutions-page__inv-item"><span class="solutions-page__inv-item-rule"></span><span class="solutions-page__inv-item-text">' + esc(p) + '</span></li>';
+      return '<li class="solutions-page__inv-item"><span class="solutions-page__inv-item-rule"></span><span class="solutions-page__inv-item-text">' + p + '</span></li>';
     }).join('');
     let audiences = INV_AUDIENCES.map(function (a) {
-      return '<li class="solutions-page__inv-item solutions-page__inv-item--ink"><span class="solutions-page__inv-item-rule"></span><span class="solutions-page__inv-item-text">' + esc(a) + '</span></li>';
+      return '<li class="solutions-page__inv-item solutions-page__inv-item--ink"><span class="solutions-page__inv-item-rule"></span><span class="solutions-page__inv-item-text">' + a + '</span></li>';
     }).join('');
     let industries = INV_INDUSTRIES.map(function (i) {
-      return '<div class="solutions-page__inv-industry">' + i.icon + '<div class="solutions-page__inv-industry-name">' + esc(i.name) + '</div></div>';
+      return '<div class="solutions-page__inv-industry">' + i.icon + '<div class="solutions-page__inv-industry-name">' + i.name + '</div></div>';
     }).join('');
     let services = SERVICES.map(function (s, i) { return serviceCard(s, i); }).join('');
 
@@ -311,8 +311,8 @@
           '<span class="solutions-page__timeline-step-num">0' + (i + 1) + '</span>' +
           '<span class="solutions-page__timeline-step-rule"></span>' +
         '</div>' +
-        '<div class="solutions-page__timeline-step-title">' + esc(step.label) + '</div>' +
-        '<p class="solutions-page__timeline-step-text">' + esc(step.detail) + '</p>' +
+        '<div class="solutions-page__timeline-step-title">' + step.label + '</div>' +
+        '<p class="solutions-page__timeline-step-text">' + step.detail + '</p>' +
       '</li>';
     }).join('');
   }
@@ -323,9 +323,9 @@
       return '<div class="solutions-page__why-item">' +
         '<div class="solutions-page__why-head">' +
           '<span class="solutions-page__why-num">0' + (i + 1) + '</span>' +
-          '<dt class="solutions-page__why-title">' + esc(v.title) + '</dt>' +
+          '<dt class="solutions-page__why-title">' + v.title + '</dt>' +
         '</div>' +
-        '<dd class="solutions-page__why-text">' + esc(v.body) + '</dd>' +
+        '<dd class="solutions-page__why-text">' + v.body + '</dd>' +
       '</div>';
     }).join('');
   }
@@ -335,11 +335,11 @@
     host.innerHTML = FAQS.map(function (f, i) {
       return '<li class="solutions-page__faq-item' + (i === 0 ? ' solutions-page__faq-item--open' : '') + '" data-index="' + i + '">' +
         '<button type="button" class="solutions-page__faq-trigger">' +
-          '<span class="solutions-page__faq-q">' + esc(f.q) + '</span>' +
+          '<span class="solutions-page__faq-q">' + f.q + '</span>' +
           '<span class="solutions-page__faq-icon" aria-hidden="true">' + (i === 0 ? '−' : '+') + '</span>' +
         '</button>' +
         '<div class="solutions-page__faq-panel"><div class="solutions-page__faq-panel-inner">' +
-          '<p class="solutions-page__faq-a">' + esc(f.a) + '</p>' +
+          '<p class="solutions-page__faq-a">' + f.a + '</p>' +
         '</div></div>' +
       '</li>';
     }).join('');
