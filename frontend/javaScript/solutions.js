@@ -196,7 +196,7 @@
               '<div class="solutions-page__placeholder-label">In Development</div>' +
               '<p class="solutions-page__placeholder-title">Detailed service offerings for this practice area are currently being expanded.</p>' +
               '<p class="solutions-page__placeholder-text">Engagements are already available on request. For scoping conversations, structured proposals, or bespoke advisory, contact the firm directly.</p>' +
-              '<a href="index.html#contact" class="solutions-page__placeholder-link">Request a scoping discussion <span aria-hidden="true">→</span></a>' +
+              '<a href="/#contact" class="solutions-page__placeholder-link">Request a scoping discussion <span aria-hidden="true">→</span></a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -237,7 +237,7 @@
           '<ol class="solutions-page__service-process">' + processItems + '</ol>' +
           '<div class="solutions-page__service-label deliverables">Deliverables</div>' +
           '<ul class="solutions-page__service-list solutions-page__service-list--ink">' + delItems + '</ul>' +
-          '<a href="index.html#contact" class="solutions-page__service-cta">Request this service <span aria-hidden="true">→</span></a>' +
+          '<a href="/#contact" class="solutions-page__service-cta">Request this service <span aria-hidden="true">→</span></a>' +
         '</div>' +
       '</div>' +
     '</article>';

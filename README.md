@@ -96,7 +96,7 @@ At the same time, it provides the business with:
 /project-root
 │
 ├── frontend/
-│   ├── index.html
+│   ├── jopadconsulting.com
 │   ├── css/
 │   ├── js/
 │   └── images/
