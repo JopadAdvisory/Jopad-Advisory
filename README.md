@@ -35,10 +35,6 @@ At the same time, it provides the business with:
 ### Intake Form
 ![Intake](./frontend/images/intake.png)
 
-<!-- ### Email Notification
-![Email](./frontend/images/intake.png) -->
-
-
 
 ## 🚀 Features  
 

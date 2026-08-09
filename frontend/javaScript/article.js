@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     pageTitle.innerText = article.title;
 
     canonical.rel = "canonical";
-    canonical.href = `https://jopadconsulting.com/frontend/article.html?slug=${article.slug}`;
+    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
     document.head.appendChild(canonical);
 
     date.innerText = `${formattedDate} |`;
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
           card.classList.add("insight__card");
           card.classList.add("solutions-grid__card");
-          card.href = `/frontend/article.html?slug=${article.slug}`;
+          card.href = `/article.html?slug=${article.slug}`;
 
           card.innerHTML = `
           <div class="insight__img"> 
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
               <p class="insight__summary solutions-grid__card-text">${article.summary}</p>
 
               <div class="insight__actions">
-                  <a href="/frontend/article.html?slug=${article.slug}" class="nav__link read-btn">
+                  <a href="/article.html?slug=${article.slug}" class="nav__link read-btn">
                       Read More →
                   </a>
 
