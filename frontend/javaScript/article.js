@@ -165,8 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
     metaDesc.content = article.summary || article.title;
   }
 
-  
-
   fetchArticle();
 
   function renderMoreArticles(moreArticles) {
