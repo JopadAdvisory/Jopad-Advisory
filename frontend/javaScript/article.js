@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const pageTitle = document.getElementsByTagName("title")[0]; 
   const dotsContainer = document.querySelector(".carousel-dots");
   let resizeTimeout;
+
+
+  if (!slug) {
+  window.location.href = "/insights.html";
+  return;
+  }
   
   let currentIndex = 0;
   let moreArticlesData = [];
@@ -24,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
   async function fetchArticle() {
     try {
       const res = await fetch(`${API_URL}/api/articles/${slug}`);
+
+      if (!res.ok) {
+        throw new Error("Article not found");
+      }
+
       const article = await res.json();
 
       renderArticle(article);
@@ -37,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
   async function fetchMoreArticles() {
     try {
       const res = await fetch(`${API_URL}/api/articles?exclude=${slug}&limit=5`);
+
+      if (!res.ok) {
+        throw new Error("Article not found");
+      }
+      
       const moreArticles = await res.json();
 
       moreArticlesData = moreArticles;
@@ -104,7 +120,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
-    const canonical = document.createElement("link");
+    let canonical = document.querySelector('link[rel="canonical"]');
+
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+
+    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
 
     title.innerText = article.title;
 
@@ -120,10 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     pageTitle.innerText = article.title;
 
-    canonical.rel = "canonical";
-    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
-    document.head.appendChild(canonical);
-
     date.innerText = `${formattedDate} |`;
 
     category.innerText = article.category;
@@ -134,7 +154,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     readTime.innerText  = calculateReadTime(article.content);
 
+    let metaDesc = document.querySelector('meta[name="description"]');
+
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+
+    metaDesc.content = article.summary || article.title;
   }
+
+  function setMeta(property, content) {
+     let tag = document.querySelector(`meta[property="${property}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute("property", property);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+}
+
+setMeta("og:title", article.title);
+setMeta("og:description", article.summary || article.title);
+setMeta("og:image", article.images[0]);
+setMeta("og:url", `https://jopadconsulting.com/article.html?slug=${article.slug}`);
 
   fetchArticle();
 
@@ -283,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const wrapperEl = track.parentElement;
-  let scrollTimeout;
 
   if (wrapperEl) {
     wrapperEl.addEventListener("mouseenter", stopAutoScroll);
