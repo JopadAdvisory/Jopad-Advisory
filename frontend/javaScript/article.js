@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           card.innerHTML = `
           <div class="insight__img"> 
-              <img class="img" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
+              <img src="${article.images[0]}" alt="${article.title}" class="insight__image img"/>
           </div>
           
           <div class="insight__body">
