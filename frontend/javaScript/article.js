@@ -165,20 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     metaDesc.content = article.summary || article.title;
   }
 
-  function setMeta(property, content) {
-     let tag = document.querySelector(`meta[property="${property}"]`);
-  if (!tag) {
-    tag = document.createElement("meta");
-    tag.setAttribute("property", property);
-    document.head.appendChild(tag);
-  }
-  tag.setAttribute("content", content);
-}
-
-setMeta("og:title", article.title);
-setMeta("og:description", article.summary || article.title);
-setMeta("og:image", article.images[0]);
-setMeta("og:url", `https://jopadconsulting.com/article.html?slug=${article.slug}`);
+  
 
   fetchArticle();
 
