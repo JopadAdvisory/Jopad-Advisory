@@ -120,19 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
-<<<<<<< HEAD
-=======
-    let canonical = document.querySelector('link[rel="canonical"]');
-
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-
-    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
->>>>>>> 16eb4967038af7046af38c54d2eec6b2b30b1594
-
+t
     title.innerText = article.title;
 
     const formattedDate = new Date(article.createdAt).toLocaleDateString("en-GB", {
