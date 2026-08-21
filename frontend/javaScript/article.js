@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const pageTitle = document.getElementsByTagName("title")[0]; 
   const dotsContainer = document.querySelector(".carousel-dots");
   let resizeTimeout;
+
+
+  if (!slug) {
+  window.location.href = "/insights.html";
+  return;
+  }
   
   let currentIndex = 0;
   let moreArticlesData = [];
@@ -24,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
   async function fetchArticle() {
     try {
       const res = await fetch(`${API_URL}/api/articles/${slug}`);
+
+      if (!res.ok) {
+        throw new Error("Article not found");
+      }
+
       const article = await res.json();
 
       renderArticle(article);
@@ -37,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
   async function fetchMoreArticles() {
     try {
       const res = await fetch(`${API_URL}/api/articles?exclude=${slug}&limit=5`);
+
+      if (!res.ok) {
+        throw new Error("Article not found");
+      }
+      
       const moreArticles = await res.json();
 
       moreArticlesData = moreArticles;
@@ -104,6 +120,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
+<<<<<<< HEAD
+=======
+    let canonical = document.querySelector('link[rel="canonical"]');
+
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+
+    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
+>>>>>>> 16eb4967038af7046af38c54d2eec6b2b30b1594
 
     title.innerText = article.title;
 
@@ -129,6 +157,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     readTime.innerText  = calculateReadTime(article.content);
 
+    let metaDesc = document.querySelector('meta[name="description"]');
+
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+
+    metaDesc.content = article.summary || article.title;
   }
 
   fetchArticle();
@@ -149,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           card.innerHTML = `
           <div class="insight__img"> 
-              <img class="img" src="${article.images[0]}" alt="${article.title}" class="insight__image"/>
+              <img src="${article.images[0]}" alt="${article.title}" class="insight__image img"/>
           </div>
           
           <div class="insight__body">
@@ -278,7 +315,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const wrapperEl = track.parentElement;
-  let scrollTimeout;
 
   if (wrapperEl) {
     wrapperEl.addEventListener("mouseenter", stopAutoScroll);
