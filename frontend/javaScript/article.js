@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
-    const canonical = document.createElement("link");
 
     title.innerText = article.title;
 
@@ -119,10 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     pageTitle.innerText = article.title;
-
-    canonical.rel = "canonical";
-    canonical.href = `https://jopadconsulting.com/article.html?slug=${article.slug}`;
-    document.head.appendChild(canonical);
 
     date.innerText = `${formattedDate} |`;
 
