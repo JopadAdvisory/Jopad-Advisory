@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get slug from URL
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("slug");
-  const loader = document.getElementsByClassName("loader")[0];
-  const wrapper = document.getElementsByClassName("wrapper")[0];
   const track = document.querySelector(".carousel-track");
   const pageTitle = document.getElementsByTagName("title")[0]; 
   const dotsContainer = document.querySelector(".carousel-dots");
@@ -38,8 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const article = await res.json();
 
       renderArticle(article);
-      loader.style.display = "none";  
-      wrapper.style.display = "block";
     } catch (err) {
       console.error("Error loading article:", err);
     }
