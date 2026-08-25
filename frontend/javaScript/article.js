@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pdfs = document.querySelectorAll(".articlePdf");
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
-t
+
     title.innerText = article.title;
 
     const formattedDate = new Date(article.createdAt).toLocaleDateString("en-GB", {
