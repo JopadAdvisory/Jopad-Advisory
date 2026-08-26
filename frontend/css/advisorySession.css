@@ -236,8 +236,7 @@ h3 {
 .advisory__form {
   display: grid;
   gap: 1rem;
-  padding: 1.375rem;
-}
+} 
 
 .advisory__field {
   display: grid;
@@ -355,7 +354,7 @@ input[type="radio"],
   }
   .container1 {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-    padding: 85px 0 40px 0;
+    padding: 85px 40px 40px 40px;
   }
   .date-btns {
     padding-top: 20px;
