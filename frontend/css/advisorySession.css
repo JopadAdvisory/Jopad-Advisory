@@ -341,10 +341,10 @@ input[type="radio"],
 .advisory__label {
   cursor: pointer;
 }
-section {
+.section {
   display: none;
 }
-section.active {
+.section.active {
   display: grid;
 }
 
