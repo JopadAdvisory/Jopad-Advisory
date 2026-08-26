@@ -30,7 +30,7 @@ p {
     margin-bottom: 10px;
 } 
 body {
-  margin-inline: auto;
+  margin: 0;
   font-family: var(--font-sans);
   color: var(--color-body);
   line-height: var(--lh-body);
