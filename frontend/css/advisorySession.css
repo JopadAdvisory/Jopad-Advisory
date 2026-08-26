@@ -350,6 +350,9 @@ input[type="radio"],
   body {
     background: #f5f6f7;
   }
+   .consultation-container {
+       border: 2px solid red;
+   } 
   #time-slots {
     grid-template-columns: 1fr 1fr;
   }
