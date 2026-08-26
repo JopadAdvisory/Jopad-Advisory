@@ -354,7 +354,8 @@ input[type="radio"],
   }
   .container1 {
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
-    padding: 85px 40px 40px 40px;
+    padding: 40px;
+    margin-top: 85px;
   }
   .date-btns {
     padding-top: 20px;
