@@ -351,8 +351,9 @@ input[type="radio"],
     background: #f5f6f7;
   }
    .consultation-container {
-       border: 2px solid red;
-       margin-inline: auto;
+       display: flex;
+       flex-direction: column;
+       Justify-content: center;
    } 
   #time-slots {
     grid-template-columns: 1fr 1fr;
