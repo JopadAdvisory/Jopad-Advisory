@@ -373,10 +373,7 @@ input[type="radio"],
   }
    .calender-container {
     align-items: center;
-  }
-  .date-picker {
-    padding-top: 20px;
-  }
+   }
   .form-section {
     grid-template-columns: 1fr 1fr;
   }
