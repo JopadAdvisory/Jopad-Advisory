@@ -27,7 +27,7 @@ body {
   height: 100%;
 }
 p {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 } 
 body {
   margin: 0;
@@ -77,10 +77,6 @@ h3 {
 }
 .welcome-header {
     margin-bottom: 50px;
-}
-.welcome-header,
-.welcome-body h4  {
-    text-align: center;
 }
 .number {
     color: var(--color-headings);
@@ -202,7 +198,7 @@ h3 {
 }
 
 .time-header {
-  margin-bottom: 20px;
+  margin-bottom: 200px;
   padding-bottom: 10px;
 }
 #time-slots {
