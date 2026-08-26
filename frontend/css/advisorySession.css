@@ -196,6 +196,10 @@ h3 {
 .time-body {
   text-align: center;
 }
+.time-header h3, 
+.time-body h3 {
+    margin-bottom: -5px;
+} 
 .time-header {
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -365,6 +369,9 @@ input[type="radio"],
     display: flex;
     flex-direction: row;
   }
+  .date-picker {
+      margin-top: 0;
+  } 
   .date-selection {
     display: none;
     grid-template-columns: 1fr 1fr;
