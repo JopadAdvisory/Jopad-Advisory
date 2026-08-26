@@ -107,7 +107,75 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutes = Math.ceil(words / 180);
     return `${minutes} min read`;
   }
+  function updateArticleSEO(article) {
+  const title = article.title || "JOPAD Insights";
 
+  const description =
+    article.summary ||
+    "Insights from Jogos Partners & Advisory (LP) on legal, regulatory, compliance, governance, licensing, contracts, and risk.";
+
+  const articleUrl = window.location.href;
+
+  const image =
+    article.images && article.images.length > 0
+      ? article.images[0]
+      : "https://jopadconsulting.com/images/jopad-advisory-optimized.webp";
+
+  document.title = `${title} | JOPAD Insights`;
+
+
+  // =========================
+  // META DESCRIPTION
+  // =========================
+
+  let descriptionMeta =
+    document.querySelector('meta[name="description"]');
+
+  if (!descriptionMeta) {
+    descriptionMeta = document.createElement("meta");
+    descriptionMeta.setAttribute("name", "description");
+    document.head.appendChild(descriptionMeta);
+  }
+
+  descriptionMeta.setAttribute("content", description);
+
+
+  // =========================
+  // OPEN GRAPH
+  // =========================
+
+  updateMeta("property", "og:type", "article");
+  updateMeta("property", "og:site_name", "JOPAD");
+  updateMeta("property", "og:title", title);
+  updateMeta("property", "og:description", description);
+  updateMeta("property", "og:url", articleUrl);
+  updateMeta("property", "og:image", image);
+
+
+  // =========================
+  // TWITTER / X
+  // =========================
+
+  updateMeta("name", "twitter:card", "summary_large_image");
+  updateMeta("name", "twitter:title", title);
+  updateMeta("name", "twitter:description", description);
+  updateMeta("name", "twitter:image", image);
+   }
+  
+  function updateMeta(attribute, name, content) {
+  let meta = document.querySelector(
+    `meta[${attribute}="${name}"]`
+  );
+
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute(attribute, name);
+    document.head.appendChild(meta);
+  }
+
+  meta.setAttribute("content", content);
+  }
+  
   function renderArticle(article) {
     const category = document.getElementById("articleCategory");
     const title = document.getElementById("articleTitle");
@@ -117,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
 
+      updateArticleSEO(article);
     title.innerText = article.title;
 
     const formattedDate = new Date(article.createdAt).toLocaleDateString("en-GB", {
@@ -140,16 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
     content.innerHTML = article.content;
 
     readTime.innerText  = calculateReadTime(article.content);
-
-    let metaDesc = document.querySelector('meta[name="description"]');
-
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-
-    metaDesc.content = article.summary || article.title;
   }
 
   fetchArticle();
