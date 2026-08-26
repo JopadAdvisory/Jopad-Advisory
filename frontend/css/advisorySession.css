@@ -196,7 +196,9 @@ h3 {
 .time-body {
   text-align: center;
 }
-
+.time-header::first-child() {
+    margin-bottom: -5px;
+} 
 .time-header {
   margin-bottom: 20px;
   padding-bottom: 10px;
