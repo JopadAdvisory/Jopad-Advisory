@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const image = document.getElementsByClassName("bg")[0];
     const content = document.getElementById("articleContent");
 
-      updateArticleSEO(article);
+      
     title.innerText = article.title;
 
     const formattedDate = new Date(article.createdAt).toLocaleDateString("en-GB", {
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
       pdf.href = article.pdfUrl;
     });
 
-    pageTitle.innerText = article.title;
+    //pageTitle.innerText = article.title;
 
     date.innerText = `${formattedDate} |`;
 
@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
     content.innerHTML = article.content;
 
     readTime.innerText  = calculateReadTime(article.content);
+    updateArticleSEO(article);
   }
 
   fetchArticle();
