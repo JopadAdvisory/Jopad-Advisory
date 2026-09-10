@@ -6,7 +6,7 @@ const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_SECRETE,
     process.env.GOOGLE_REDIRECT_URI,
 );
-
+/*
  const authUrl = oauth2Client.generateAuthUrl({
      access_type: "offline",
      scope: ["https://www.googleapis.com/auth/calendar"],
@@ -14,9 +14,9 @@ const oauth2Client = new google.auth.OAuth2(
  });
 
  console.log("Authorize this app by visiting this URL:\n", authUrl);
+*/
+const code = "4/0ATsMZqCqzysbVyuil52f4Tem_pit84RLM_LfXFC6FmfWqFU6NKeUXH9qEqD4ZMY63KR9-Q";
 
-// const code = "4/0ATsMZqDe9XYxptwMNGh4LBj_IvHzms7rynqifOyXt5xLfT8wa1IbUGt3t5Kt-OlybyJyhA";
-/*
 async function getRefreshToken() {
     try {
         const { tokens } = await oauth2Client.getToken(code);
@@ -29,4 +29,4 @@ async function getRefreshToken() {
 }
 
 getRefreshToken();
-*/
+
