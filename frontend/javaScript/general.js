@@ -33,8 +33,8 @@ mediaQuery.addEventListener("change", handleWidthChange);
 
 // Footer email security obfuscation
 const footerEmail = document.getElementById("footer-email");
-const emailUser = "jopadvirtual247";
-const emailDomain = "gmail.com";
+const emailUser = "info";
+const emailDomain = "jopadconsulting.com";
 let revealed = false
 footerEmail.href = `mailto:${emailUser}@${emailDomain}`;
 
